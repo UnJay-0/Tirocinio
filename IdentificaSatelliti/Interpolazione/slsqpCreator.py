@@ -1,18 +1,16 @@
 from .interpolator import Interpolator
 from .Models.model import Model
-from .Models.GradientFree.cobylaMod import Cobyla
+from .Models.GradientBased.slsqpMod import Slsqp
 
 
-class CobylaCreator(Interpolator):
-
+class SlsqpCreator(Interpolator):
     def createModel(self, data, config) -> Model:
         """
         Meaning
         -------------------
         Costruisce un modello di interpolazione che individua l'ottimo
         (sinusoide di massimo periodo e di minimo errore) sui dati passati per
-        parametro e sui valori di configurazione definiti che utilizza
-        il solutore COBYLA
+        parametro e sui valori di configurazione definiti.
 
         Parameters
         -------------------
@@ -23,4 +21,4 @@ class CobylaCreator(Interpolator):
         -------------------
         Modello di interpolazione
         """
-        return Cobyla(data, config)
+        return Slsqp(data, config)

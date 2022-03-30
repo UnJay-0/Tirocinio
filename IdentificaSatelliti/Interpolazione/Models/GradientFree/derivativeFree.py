@@ -4,7 +4,25 @@
 import math
 
 
-def sinusoidale(result, x, grad, data):
+def pulsazionePositiva(x, grad):
+    """
+    Meaning
+    -------------------
+    -pulsazione + 1e-6 <= 0
+    """
+    return -x[1] + 1e-6
+
+
+def periodo(x, grad, b):
+    """
+    Meaning
+    -------------------
+     w / 2π - b  <= 0
+    """
+    return x[1] * b - 2 * math.pi
+
+
+def sin(result, x, grad, data):
     """
     Meaning
     -------------------
@@ -36,7 +54,7 @@ def sinusoidale(result, x, grad, data):
             math.sin(x[1] * data["t"][i] + x[2]) + x[i + 2]
 
 
-def f(x, grad):
+def f(x, grad, nPunti):
     """
     Meaning
     -------------------
@@ -60,5 +78,4 @@ def f(x, grad):
     val = 0
     for err in x[3:]:
         val += err**2
-
-    return x[1] - val
+    return (val)  # abs(x[1])/2*math.pi +
