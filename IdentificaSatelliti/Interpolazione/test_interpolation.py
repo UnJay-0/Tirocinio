@@ -31,12 +31,13 @@ def writeValues(a, w, f) -> None:
     with open("dataFile.json", "w") as data:
         dataValues["t"] = t
         dataValues["y"] = y
-        dataValues["b"] = 2
+        dataValues["b"] = 0.01
         json.dump(dataValues, data, indent=4)
 
 
 if __name__ == '__main__':
-    writeValues(1, 3, 2*math.pi)
+    # writeValues(5, -6, math.pi)
+    writeValues(1, 1, 0)
 
     ln = [nlopt.LN_BOBYQA, nlopt.LN_PRAXIS, nlopt.LN_SBPLX,
           nlopt.LN_NEWUOA, nlopt.LN_NELDERMEAD]

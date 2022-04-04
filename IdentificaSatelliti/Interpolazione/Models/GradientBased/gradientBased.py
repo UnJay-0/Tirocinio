@@ -5,6 +5,19 @@
 import math
 
 
+def periodo(x, grad, b):
+    """
+    Meaning
+    -------------------
+     w / 2π - b  <= 0
+    """
+    if grad.size > 0:
+        for i in range(grad.size):
+            grad[i] = 0
+        grad[1] = b
+    return x[1] * b - 2 * math.pi
+
+
 def pulsazionePositiva(x, grad):
     """
     Meaning
@@ -47,14 +60,9 @@ def sin(result, x, grad, data):
     """
     if grad.size > 0:
         sinGradient(x, grad, data)
-    if data["numeroPunti"] > 5:
-        for i in range(data["numeroPunti"]):
-            result[i] = data["y"][i] - x[0] * \
-                math.sin(x[1] * data["t"][i] + x[2]) + x[i + 2]
-    else:
-        for i in range(data["numeroPunti"]):
-            result[i] = data["y"][i] - x[0] * \
-                math.sin(x[1] * data["t"][i] + x[2])
+    for i in range(data["numeroPunti"]):
+        result[i] = data["y"][i] - x[0] * \
+            math.sin(x[1] * data["t"][i] + x[2]) + x[i + 2]
 
 
 def sinGradient(x, grad, data):
@@ -63,12 +71,8 @@ def sinGradient(x, grad, data):
         grad[i, 1] = - data["t"][i] * x[0] * \
             math.cos(x[1] * data["t"][i] + x[2])
         grad[i, 2] = - x[0] * math.cos(x[1] * data["t"][i] + x[2])
-        if data["numeroPunti"] > 5:
-            for j in range(data["numeroPunti"]):
-                grad[i, j + 3] = 1 if j == i else 0
-        else:
-            for j in range(data["numeroPunti"]):
-                grad[i, j + 3] = 0
+        for j in range(data["numeroPunti"]):
+            grad[i, j + 3] = 1 if j == i else 0
 
 
 def f(x, grad, nPunti):
@@ -96,15 +100,9 @@ def f(x, grad, nPunti):
         grad[0] = 0
         grad[1] = x[1] / 2 * math.pi * abs(x[1])
         grad[2] = 0
-        if nPunti > 5:
-            for i in range(3, nPunti):
-                grad[i] = 2 * x[i]
-        else:
-            for i in range(3, nPunti):
-                grad[i] = 0
+        for i in range(3, nPunti):
+            grad[i] = 2 * x[i]
     val = 0
-    if nPunti < 5:
-        for err in x[3:]:
-            val += err**2
-
-    return abs(x[1])/2*math.pi + val
+    for err in x[3:]:
+        val += err**2
+    return (val)

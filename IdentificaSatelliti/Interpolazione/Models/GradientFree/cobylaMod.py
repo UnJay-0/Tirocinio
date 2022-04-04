@@ -15,21 +15,30 @@ class Cobyla(Model):
     def __init__(self, data, config):
         super().__init__(data, config)
         self.opt = nlopt.opt(nlopt.LN_COBYLA, 3 + data["numeroPunti"])
-        self.opt.add_inequality_constraint(
-            lambda x, grad: derivativeFree.periodo(x, grad, data["b"]),
-            config["sinTol"])
-        self.opt.add_equality_mconstraint(
-            lambda result, x, grad: derivativeFree.sin(
-                result, x, grad, data),
-            [config["sinTol"] for i in range(data["numeroPunti"])])
+        self.constraints()
+        self.settings()
+
+    def settings(self):
+        self.opt.set_ftol_rel(self.config["xtol_rel"])
+        self.opt.set_xtol_rel(self.config["xtol_rel"])
+        if self.config["maxeval"] is not None:
+            self.opt.set_maxeval(self.config["maxeval"])
+        self.opt.set_min_objective(
+             lambda x, grad: derivativeFree.f(
+                 x, grad, self.data["numeroPunti"]))
+
+    def constraints(self):
         self.opt.add_inequality_constraint(
             derivativeFree.pulsazionePositiva, 1e-6)
-        self.opt.set_ftol_rel(config["ftol_rel"])
-        self.opt.set_xtol_rel(config["xtol_rel"])
-        if config["maxeval"] is not None:
-            self.opt.set_maxeval(config["maxeval"])
-        self.opt.set_min_objective(
-            lambda x, grad: derivativeFree.f(x, grad, data["numeroPunti"]))
+        self.opt.add_inequality_constraint(
+            lambda x, grad: derivativeFree.periodo(x, grad, self.data["b"]),
+            self.config["sinTol"])
+        self.opt.add_inequality_constraint(
+            derivativeFree.pulsazionePositiva, 1e-6)
+        self.opt.add_equality_mconstraint(
+            lambda result, x, grad: derivativeFree.sin(
+                result, x, grad, self.data),
+            [self.config["sinTol"] for i in range(self.data["numeroPunti"])])
 
     def optimize(self) -> tuple:
         """

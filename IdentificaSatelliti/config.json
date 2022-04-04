@@ -1,7 +1,7 @@
 {
-  "algorithm": 25,
+  "algorithm": 15,
   "sinTol": 1e-6,
-  "ftol_rel": 1e-6,
-  "xtol_rel":1e-6,
+  "ftol_rel": 1e-3,
+  "xtol_rel":1e-3,
   "maxeval": null
 }

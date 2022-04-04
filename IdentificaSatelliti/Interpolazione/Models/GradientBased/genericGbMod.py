@@ -16,18 +16,32 @@ class GenericGb(Model):
     def __init__(self, data, config):
         super().__init__(data, config)
         self.opt = nlopt.opt(nlopt.AUGLAG, 3 + self.data["numeroPunti"])
+        self.settings()
+        self.constraints()
+
+    def constraints(self):
+        self.opt.add_inequality_constraint(
+            gradientBased.pulsazionePositiva, 1e-6)
+        self.opt.add_inequality_constraint(
+            lambda x, grad: gradientBased.periodo(x, grad, self.data["b"]),
+            self.config["sinTol"])
+        self.opt.add_inequality_constraint(
+            gradientBased.pulsazionePositiva, 1e-6)
         self.opt.add_equality_mconstraint(
             lambda result, x, grad: gradientBased.sin(
-                result, x, grad, data),
-            [config["sinTol"] for i in range(data["numeroPunti"])])
-        self.opt.add_inequality_constraint(gradientBased.pulsazionePositiva)
-        self.opt.set_ftol_rel(config["xtol_rel"])
-        self.opt.set_xtol_rel(config["xtol_rel"])
-        if config["maxeval"] is not None:
-            self.opt.set_maxeval(config["maxeval"])
+                result, x, grad, self.data),
+            [self.config["sinTol"] for i in range(self.data["numeroPunti"])])
+
+    def settings(self):
+        self.opt.set_ftol_rel(self.config["xtol_rel"])
+        self.opt.set_xtol_rel(self.config["xtol_rel"])
+        if self.config["maxeval"] is not None:
+            self.opt.set_maxeval(self.config["maxeval"])
         self.opt.set_min_objective(
-            lambda x, grad: gradientBased.f(x, grad, data["numeroPunti"]))
-        lopt = nlopt.opt(config["algorithm"], 3 + self.data["numeroPunti"])
+             lambda x, grad: gradientBased.f(
+                 x, grad, self.data["numeroPunti"]))
+        lopt = nlopt.opt(self.config["algorithm"],
+                         3 + self.data["numeroPunti"])
         lopt.set_ftol_rel(1e-3)
         lopt.set_xtol_rel(1e-3)
         self.opt.set_local_optimizer(lopt)
