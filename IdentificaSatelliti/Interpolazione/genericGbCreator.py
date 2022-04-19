@@ -6,7 +6,7 @@ from .Models.GradientBased.genericGbMod import GenericGb
 class GenericGbCreator(Interpolator):
     """
     Costruisce un modello di interpolazione per il problema di identificazione
-    di satelliti che utilizza un solutore qualsiasi derivative free di nlopt.
+    di satelliti che utilizza un solutore qualsiasi gradient based di nlopt.
     """
 
     def createModel(self, data, config) -> Model:

@@ -24,6 +24,8 @@ class GenericDf(Model):
         self.opt.set_xtol_rel(self.config["xtol_rel"])
         if self.config["maxeval"] is not None:
             self.opt.set_maxeval(self.config["maxeval"])
+        if self.config["maxtime"] is not None:
+            self.opt.set_maxtime(self.config["maxtime"])
         self.opt.set_min_objective(
              lambda x, grad: derivativeFree.f(
                  x, grad, self.data["numeroPunti"]))
@@ -64,4 +66,5 @@ class GenericDf(Model):
         val = 0
         for err in xopt[3:]:
             val += err**2
-        return (self.opt.last_optimum_value(), xopt, val)
+        return (self.opt.last_optimum_value(), xopt, val,
+                self.opt.last_optimize_result())

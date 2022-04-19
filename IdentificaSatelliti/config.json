@@ -1,5 +1,5 @@
 {
-  "algorithm": 15,
+  "algorithm": 12,
   "sinTol": 1e-6,
   "ftol_rel": 1e-3,
   "xtol_rel":1e-3,

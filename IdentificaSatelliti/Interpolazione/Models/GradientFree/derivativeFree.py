@@ -17,7 +17,7 @@ def periodo(x, grad, b):
     """
     Meaning
     -------------------
-     w / 2π - b  <= 0
+     w * b - 2π <= 0
     """
     return x[1] * b - 2 * math.pi
 
@@ -51,7 +51,7 @@ def sin(result, x, grad, data):
     """
     for i in range(data["numeroPunti"]):
         result[i] = data["y"][i] - x[0] * \
-            math.sin(x[1] * data["t"][i] + x[2]) + x[i + 2]
+            math.sin(x[1] * data["t"][i] + x[2]) + x[i + 3]
 
 
 def f(x, grad, nPunti):
@@ -78,4 +78,4 @@ def f(x, grad, nPunti):
     val = 0
     for err in x[3:]:
         val += err**2
-    return (val)  # abs(x[1])/2*math.pi +
+    return (val)
