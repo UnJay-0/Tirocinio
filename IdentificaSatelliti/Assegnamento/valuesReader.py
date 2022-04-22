@@ -105,7 +105,8 @@ class valReader():
     def translateSat(index: int) -> tuple:
         return (f"x{index}", f"y{index}")
 
-    def getSatValues(self, dataframe: pd.core.frame.DataFrame, index: int) -> pd.core.frame.DataFrame:
+    def getSatValues(self, dataframe: pd.core.frame.DataFrame,
+                     index: int) -> pd.core.frame.DataFrame:
         return dataframe[[self.translateSat(index)[0],
                           self.translateSat(index)[1]]]
 
