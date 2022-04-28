@@ -1,5 +1,6 @@
 import pandas as pd
 from dataclasses import dataclass
+from sympy import isprime
 
 
 @dataclass(frozen=True, init=False)
@@ -109,6 +110,15 @@ class valReader():
                      index: int) -> pd.core.frame.DataFrame:
         return dataframe[[self.translateSat(index)[0],
                           self.translateSat(index)[1]]]
+
+    def leafSize(n: int) -> int:
+        if isprime(n):
+            n -= 1
+        max = 0
+        for i in range(1, int(n) // 2 + 1):
+            if n % i == 0 and max < i:
+                max = i
+        return max
 
 
 if __name__ == '__main__':

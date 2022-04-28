@@ -1,9 +1,7 @@
 import pandas as pd
 import math
-import time
 import nlopt
-from .permutation import dataframePerm, leafPerm
-import numpy as np
+from .permutation import dataframePerm, leafPerm, shuffleValues
 from ..Interpolazione.client import interpolation
 from .valuesReader import valReader
 """
@@ -16,52 +14,200 @@ al risultato dell'interpolazione.
 STARTING_TOL = 1e-6
 STARTING_STEP = 0.1
 MAX_NON_UPGRADE = 10
-LEAF_SIZE = 3
-reader = valReader(
-    "IdentificaSatelliti/values.csv")
+LEAF_STOPPING_CRITERIA = 1e-2
+NODE_STOPPING_CRITERIA = 0.1
+reader = valReader("IdentificaSatelliti/values.csv")
+LEAF_SIZE = valReader.leafSize(reader.getNumValues())
+ROW = 3
+WHEN_SHUFFLE = math.factorial(reader.getNumSat()) ** ROW
 
 
 def obtainOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
-    if values.shape[0] < LEAF_SIZE:
+    """
+    Overview
+    ------------
+    Associa i punti dati in maniera tale che i punti situati nella stessa
+    colonna interpolino in maniera ottima una sinusoide. Devono essere presenti
+    almeno due o più colonne (x, y) nel dataframe passato per parametro.
+
+    Params
+    ------------
+        values (Dataframe): dataframe contenente le n osservazioni effettuate e
+                            k punti per osservazione.
+
+    Returns
+    ------------
+    DataFrame - Restituisce un dataframe dove i punti situati nella stessa
+                colonna interpolano in maniera ottima una sinusoide.
+
+    """
+    if values.shape[0] <= LEAF_SIZE:
+        print(f"foglia:\n {values}")
         return leafOptimal(values)
+    print(f"nodo 1:\n {values.iloc[0:values.shape[0] // 2, ]}")
+    print(f"nodo 2:\n {values.iloc[values.shape[0] // 2:, ]}")
     return nodeOptimal(
-            obtainOptimal(values.iloc[0:values.shape[0] // 2, ]),
-            obtainOptimal(values.iloc[values.shape[0] // 2:, ]))
+            obtainOptimal(values.iloc[0:values.shape[0] // 2, :]),
+            obtainOptimal(values.iloc[values.shape[0] // 2:, :]))
 
 
 def nodeOptimal(values1: pd.core.frame.DataFrame,
                 values2: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
-    optimalPerm = (0, 99999)
-    for perm in dataframePerm(values2, reader.getNumSat()):
+    """
+    Overview
+    -------------------
+    Associa le colonne di values2 alle colonne di values1 in maniera tale che
+    interpolino in maniera ottima una sinusoide. il numero di colonne di
+    values1 deve essere pari al numero di colonne di values2.
+
+    Params
+    -------------------
+    values1 (DataFrame) - primo dataframe di n osservazioni
+                          e k colonne di punti.
+    values2 (DataFrame) - secondo dataframe di m osservazioni
+                          e k colonne di punti.
+
+    Returns
+    -------------------
+     Dataframe - unione di values1 e values2 in maniera tale che le colonne
+                 interpolino in maniera ottima una sinusoide
+
+    """
+    optimalDataframe = pd.DataFrame()
+    optimalcol = [0, 0, 99999]
+    gen = dataframePerm(values2, values2.shape[1] // 2)
+    while True:
+        try:
+            perm = next(gen)
+        except StopIteration:
+            optimalDataframe = pd.concat(
+                [optimalDataframe, optimalcol[1]], axis=1)
+            values1.drop(labels=optimalcol[1], axis=1, inplace=True)
+            perm = optimalcol[0]
+            perm.drop(labels=optimalcol[1], axis=1, inplace=True)
+            print(f"primo dataframe: {values1}")
+            print(f"secondo dataframe: {perm}")
+            gen = dataframePerm(perm, perm.shape[1] // 2)
+            optimalcol = [0, 0, 99999]
+            if perm.shape[1] == 2:
+                optimalDataframe = pd.concat(
+                    [optimalDataframe, pd.concat([values1, perm])], axis=1)
+                return optimalDataframe
         perm.columns = values1.columns
         temp = pd.concat([values1, perm])
-        optimalValues = []
-        print(temp)
         i = 0
-        while i < reader.getNumSat() * 2:
-            print(temp.iloc[:, i:i+2])
-            optimalValues.append(optimizeCol(temp.iloc[:, i:i+2]))
+        while i < temp.shape[1]:
+            print(f"permutazione nodo ordinaria\n{temp}")
+            print(f" colonna \n{temp.iloc[:, i:i+2]}")
+            colValue = optimizeCol(temp.iloc[:, i:i+2])
+            print(f"valore: {colValue}")
+            if (colValue < NODE_STOPPING_CRITERIA):
+                optimalDataframe = pd.concat(
+                    [optimalDataframe, temp.iloc[:, i:i+2]],
+                    axis=1)
+                print(f"in costruzione\n{optimalDataframe}")
+                values1.drop(values1.iloc[:, i:i+2], axis=1, inplace=True)
+                perm.drop(perm.iloc[:, i:i+2], axis=1, inplace=True)
+                gen = dataframePerm(perm, perm.shape[1] // 2)
+                optimalcol = [0, 0, 99999]
+                if perm.shape[1] == 2:
+                    optimalDataframe = pd.concat(
+                        [optimalDataframe, pd.concat([values1, perm])], axis=1)
+                    return optimalDataframe
+                break
+            if colValue < optimalcol[2]:
+                optimalcol = [perm, temp.iloc[:, i:i+2], colValue]
             i += 2
-        median = np.median(optimalValues)
-        if (optimalPerm[1] > median):
-            optimalPerm = (temp, median)
-    return optimalPerm[0]
+    return optimalDataframe
 
 
 def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
-    optimalPerm = (0, 99999)
-    for perm in leafPerm(values):
-        optimalValues = []
-        for i in range(reader.getNumSat()):
-            print(perm)
-            optimalValues.append(optimizeCol(perm.iloc[:, i:i+2]))
-        median = np.median(optimalValues)
-        if (optimalPerm[1] > median):
-            optimalPerm = (perm, median)
-    return optimalPerm[0]
+    """
+    Overview
+    -------------------
+    Associa i punti di values in maniera tale che interpolino in maniera
+    ottima una sinusoide.
+
+    Params
+    -------------------
+    values (Dataframe) - dataframe di n osservazioni e k colonne di punti.
+
+    Returns
+    -------------------
+    DataFrame - Restituisce un dataframe dove i punti situati nella stessa
+                colonna interpolano in maniera ottima una sinusoide.
+
+    """
+    optimalDataframe = pd.DataFrame()
+    if values.shape[0] == 1:
+        return values
+    gen = leafPerm(values)
+    optimalcol = [0, 0, 99999]
+    n_shuffle = WHEN_SHUFFLE
+    shuffle_i = 0
+    while True:
+        shuffle_i += 1
+        try:
+            perm = next(gen)
+        except StopIteration:
+            optimalDataframe = pd.concat(
+                [optimalDataframe, optimalcol[1]], axis=1)
+            perm = optimalcol[0].drop(optimalcol[1], axis=1, inplace=False)
+            gen = leafPerm(perm)
+            n_shuffle = math.factorial(perm.shape[1]) ** ROW
+            shuffle_i = 0
+            optimalcol = [0, 0, 99999]
+            if(perm.shape[1] == 2):
+                optimalDataframe = pd.concat(
+                    [optimalDataframe, perm], axis=1)
+                return optimalDataframe
+        print(f"permutazione ordinaria\n {perm}")
+        i = 0
+        while i < perm.shape[1]:
+            colValue = optimizeCol(perm.iloc[:, i:i+2])
+            print(f"valore: {colValue}")
+            if (colValue < LEAF_STOPPING_CRITERIA):
+                optimalDataframe = pd.concat(
+                    [optimalDataframe, perm.iloc[:, i:i+2]], axis=1)
+                perm.drop(perm.iloc[:, i:i+2], axis=1, inplace=True)
+                n_shuffle = math.factorial(perm.shape[1]) ** ROW
+                shuffle_i = 0
+                optimalcol = [0, 0, 99999]
+                if(perm.shape[1] == 2):
+                    optimalDataframe = pd.concat(
+                        [optimalDataframe, perm], axis=1)
+                    return optimalDataframe
+                print(f"in costruzione\n{optimalDataframe}")
+                gen = leafPerm(perm)
+                break
+            elif colValue < optimalcol[2]:
+                optimalcol = [perm, perm.iloc[:, i:i+2], colValue]
+            elif shuffle_i == n_shuffle and perm.shape[1] > 4:
+                print("shuffle")
+                gen = leafPerm(shuffleValues(perm))
+                shuffle_i = 0
+            i += 2
+
+    return optimalDataframe
 
 
 def writeValues(values: pd.core.frame.DataFrame) -> dict:
+    """
+    Overview
+    -------------------
+    Compone un dizionario contenente le informazioni della sola colonna (x, y)
+    di values.
+
+    Params
+    -------------------
+    values (Dataframe) - dataframe contenente una sola colonna (x, y)
+                         e k osservazioni.
+
+    Returns
+    -------------------
+    dict - dizionario contenente tutte le informazioni utili per il calcolo
+           della sinusoide di interpolazione.
+    """
     dataValues = {"numeroPunti": values.index.size,
                   "y": [], "t": [], "b": STARTING_STEP}
     colLabels = values.columns.tolist()
@@ -74,18 +220,40 @@ def writeValues(values: pd.core.frame.DataFrame) -> dict:
 
 
 def optimizeCol(col: pd.core.frame.DataFrame,
-                algorithm=nlopt.LN_COBYLA, maxtime=0.05) -> float:
+                algorithm=nlopt.LN_COBYLA, maxtime=0.04) -> float:
+    """
+    Overview
+    -------------------
+    Calcola la sinusoide che interpola i punti passati per parametro.
+    La sinusoide calcolata è la sinusoide che interpola i punti con minimo
+    errore e massimo periodo.
+
+    Params
+    -------------------
+    col (DataFrame) - Colonna (x, y) con i punti da interpolare
+    algorithm (int) - intero identificativo di un algoritmo specificato
+                      all'interno del modulo nlopt.
+    maxtime (float) - tempo massimo di elaborazione [s].
+
+    Returns
+    -------------------
+    float - L'errore complessivo della sinusoide rispetto ai punti.
+
+    """
     step = STARTING_STEP
     optimalValue = 99999
     data = writeValues(col)
-    print(data)
     i = 0
     ftol = STARTING_TOL
     xtol = STARTING_TOL
     while(not(math.isclose(optimalValue, 0, abs_tol=1e-6, rel_tol=1e-6))
           and i < MAX_NON_UPGRADE):
-        result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
-                               maxtime=maxtime, algorithm=algorithm)
+        try:
+            result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
+                                   maxtime=maxtime, algorithm=algorithm)
+        except nlopt.RoundoffLimited:
+            ftol = ftol * 10
+            xtol = xtol * 10
         if result[0] < optimalValue:
             optimalValue = result[0]
         else:
@@ -98,35 +266,7 @@ def optimizeCol(col: pd.core.frame.DataFrame,
             elif not math.isclose(step, 0.01):
                 step = 0.01
                 data["b"] = 0.01
+            else:
+                return optimalValue
     return optimalValue
-
-
-def generateValues(a, w, f) -> dict:
-    dataValues = {}
-    t = [0, 1, 2, 3, 4]
-    y = []
-    for i in t:
-        y.append(a * math.sin(w * i + f))
-    dataValues['x0'] = t
-    dataValues['y0'] = y
-    return dataValues
-
-
-if __name__ == '__main__':
-    start = time.time()
-    # Grab Currrent Time After Running the Code
-    dataValues = generateValues(4, 2, math.pi)
-
-    dataframe = pd.DataFrame(dataValues)
-    # print(f"opt val: {optimizeCol(dataframe, algorithm=nlopt.LN_BOBYQA)}")
-
-    # dataframe = reader.getRangeValues(0, reader.getNumValues())
-    # print(nodeOptimal(dataframe.iloc[0:dataframe.shape[0] // 2, ],
-    #                   dataframe.iloc[dataframe.shape[0] // 2:, ]))
-    test = obtainOptimal(dataframe)
-    print(test)
-    end = time.time()
-
-    # Subtract Start Time from The End Time
-    total_time = end - start
-    print(f"computational time: {str(total_time)}")
+    return optimalValue
