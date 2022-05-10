@@ -18,8 +18,9 @@ def periodo(x, grad, b):
     Meaning
     -------------------
      w * b - 2π <= 0
+      2π /w >= b
     """
-    return x[1] * b - 2 * math.pi
+    return (x[1] * b) - 2 * math.pi
 
 
 def sin(result, x, grad, data):

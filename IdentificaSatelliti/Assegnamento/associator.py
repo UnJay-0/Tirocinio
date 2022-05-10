@@ -2,8 +2,10 @@ import pandas as pd
 import math
 import nlopt
 from .permutation import dataframePerm, leafPerm, shuffleValues
+from numpy import median
 from ..Interpolazione.client import interpolation
 from .valuesReader import valReader
+from .valuesWriter import generateValues
 """
 Overview
 -------------------
@@ -14,12 +16,12 @@ al risultato dell'interpolazione.
 STARTING_TOL = 1e-6
 STARTING_STEP = 0.1
 MAX_NON_UPGRADE = 10
-LEAF_STOPPING_CRITERIA = 1e-2
+LEAF_STOPPING_CRITERIA = 1e-1
 NODE_STOPPING_CRITERIA = 0.1
 reader = valReader("IdentificaSatelliti/values.csv")
 LEAF_SIZE = valReader.leafSize(reader.getNumValues())
-ROW = 3
-WHEN_SHUFFLE = math.factorial(reader.getNumSat()) ** ROW
+THRESHOLD = 3
+WHEN_SHUFFLE = reader.getNumSat()
 
 
 def obtainOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
@@ -85,8 +87,6 @@ def nodeOptimal(values1: pd.core.frame.DataFrame,
             values1.drop(labels=optimalcol[1], axis=1, inplace=True)
             perm = optimalcol[0]
             perm.drop(labels=optimalcol[1], axis=1, inplace=True)
-            print(f"primo dataframe: {values1}")
-            print(f"secondo dataframe: {perm}")
             gen = dataframePerm(perm, perm.shape[1] // 2)
             optimalcol = [0, 0, 99999]
             if perm.shape[1] == 2:
@@ -146,7 +146,6 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
     n_shuffle = WHEN_SHUFFLE
     shuffle_i = 0
     while True:
-        shuffle_i += 1
         try:
             perm = next(gen)
         except StopIteration:
@@ -154,7 +153,7 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                 [optimalDataframe, optimalcol[1]], axis=1)
             perm = optimalcol[0].drop(optimalcol[1], axis=1, inplace=False)
             gen = leafPerm(perm)
-            n_shuffle = math.factorial(perm.shape[1]) ** ROW
+            n_shuffle = perm.shape[1]
             shuffle_i = 0
             optimalcol = [0, 0, 99999]
             if(perm.shape[1] == 2):
@@ -163,14 +162,16 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                 return optimalDataframe
         print(f"permutazione ordinaria\n {perm}")
         i = 0
+        permValues = []
         while i < perm.shape[1]:
             colValue = optimizeCol(perm.iloc[:, i:i+2])
+            permValues.append(colValue)
             print(f"valore: {colValue}")
             if (colValue < LEAF_STOPPING_CRITERIA):
                 optimalDataframe = pd.concat(
                     [optimalDataframe, perm.iloc[:, i:i+2]], axis=1)
                 perm.drop(perm.iloc[:, i:i+2], axis=1, inplace=True)
-                n_shuffle = math.factorial(perm.shape[1]) ** ROW
+                n_shuffle = perm.shape[1]
                 shuffle_i = 0
                 optimalcol = [0, 0, 99999]
                 if(perm.shape[1] == 2):
@@ -182,11 +183,15 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                 break
             elif colValue < optimalcol[2]:
                 optimalcol = [perm, perm.iloc[:, i:i+2], colValue]
-            elif shuffle_i == n_shuffle and perm.shape[1] > 4:
-                print("shuffle")
-                gen = leafPerm(shuffleValues(perm))
-                shuffle_i = 0
             i += 2
+        print(f"mediana: {median(permValues)}")
+        if median(permValues) > THRESHOLD:
+            shuffle_i += 1
+        print(f"shuffle i: {shuffle_i}")
+        if shuffle_i >= n_shuffle and perm.shape[1] > 4:
+            print("shuffle")
+            gen = leafPerm(shuffleValues(perm))
+            shuffle_i = 0
 
     return optimalDataframe
 
@@ -220,7 +225,7 @@ def writeValues(values: pd.core.frame.DataFrame) -> dict:
 
 
 def optimizeCol(col: pd.core.frame.DataFrame,
-                algorithm=nlopt.LN_COBYLA, maxtime=0.04) -> float:
+                algorithm=nlopt.LN_COBYLA, maxtime=0.05) -> list:
     """
     Overview
     -------------------
@@ -240,33 +245,56 @@ def optimizeCol(col: pd.core.frame.DataFrame,
     float - L'errore complessivo della sinusoide rispetto ai punti.
 
     """
-    step = STARTING_STEP
-    optimalValue = 99999
+    step = 1
+    period = 1
+    results = []
     data = writeValues(col)
-    i = 0
     ftol = STARTING_TOL
     xtol = STARTING_TOL
-    while(not(math.isclose(optimalValue, 0, abs_tol=1e-6, rel_tol=1e-6))
-          and i < MAX_NON_UPGRADE):
+    while period < 100:
+        data["b"] = period
+        print(f"periodo: {period}")
         try:
             result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
                                    maxtime=maxtime, algorithm=algorithm)
+            if not math.isclose(math.pi*2 / result[1][1],
+                                period + 10, rel_tol=1e-1):
+                results.append(result)
+                print(f"errore quadratico: {results[-1][0]}")
+                print(f"pulsazione: {results[-1][1][1]}")
+                print(f"periodo: {math.pi*2 / results[-1][1][1]}")
+                if (len(results) > 1 and math.isclose(
+                    math.pi*2 / results[-1][1][1], math.pi
+                        * 2 / results[-2][1][1],
+                        abs_tol=1e-1, rel_tol=1e-1)):
+                    step *= 2
+                elif (step > STARTING_STEP):
+                    step = STARTING_STEP
+            print(f"step: {step}\n")
+            period += step
         except nlopt.RoundoffLimited:
             ftol = ftol * 10
             xtol = xtol * 10
-        if result[0] < optimalValue:
-            optimalValue = result[0]
-        else:
-            i += 1
-        data["b"] += step
-        if result[3] == 6:
-            if not math.isclose(ftol, 1e-1):
-                ftol = ftol * 10
-                xtol = xtol * 10
-            elif not math.isclose(step, 0.01):
-                step = 0.01
-                data["b"] = 0.01
-            else:
-                return optimalValue
-    return optimalValue
-    return optimalValue
+    return utopicLine(results)
+
+
+def dist(pointA: tuple, pointB: tuple) -> float:
+    return math.sqrt((pointA[0] - pointB[0])**2 + (pointA[1] - pointB[1])**2)
+
+
+def utopicLine(results: tuple):
+    optimal = [0]
+    value = 999999
+    for result in results:
+        if result[0] < value:
+            value = result[0]
+            optimal = result
+    print(f"errore quadratico: {optimal[0]}")
+    print(f"pulsazione: {optimal[1][1]}")
+    print(f"periodo: {math.pi*2 / optimal[1][1]}")
+    return optimal[0]
+
+
+if __name__ == '__main__':
+    test = pd.DataFrame(generateValues(1, 10, 0, 10))
+    print(optimizeCol(test))

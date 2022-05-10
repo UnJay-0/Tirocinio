@@ -24,6 +24,7 @@ def interpolation(data: dict, algorithm=nlopt.LN_COBYLA, sinTol=1e-6,
           "t": [...]
           "b": [val]
         }
+
     Params
     -------------------
     data (dict) - contiene i punti da interpolare.

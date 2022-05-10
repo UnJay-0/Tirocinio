@@ -53,12 +53,9 @@ class Cobyla(Model):
         una terna contenente il valore ottimo ottenuto,
         l'ampiezza e errore quadratico
         """
-        guess = [0, self.data["b"] * 2 * math.pi, 0]
+        guess = [0, 2 * math.pi / (self.data["b"]), 0]
         for i in range(self.data["numeroPunti"]):
             guess.append(0)
         xopt = self.opt.optimize(guess)
-        val = 0
-        for err in xopt[3:]:
-            val += err**2
-        return (self.opt.last_optimum_value(), xopt, val,
+        return (self.opt.last_optimum_value(), xopt,
                 self.opt.last_optimize_result())

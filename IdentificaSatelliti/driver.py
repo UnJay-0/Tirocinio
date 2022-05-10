@@ -29,7 +29,7 @@ if __name__ == '__main__':
     sinousoids[1] = generateValues(1, 1, 0, sinousoids[0])
     sinousoids[2] = generateValues(10, 4, math.pi, sinousoids[0])
     sinousoids[3] = generateValues(4, 0.5, math.pi/2, sinousoids[0])
-    # sinousoids[4] = generateValues(7, 1, 3*math.pi/2, sinousoids[0])
+    sinousoids[4] = generateValues(7, 0.125, 3*math.pi/2, sinousoids[0])
     writeDataValues(sinousoids)
 
     start = time.time()
