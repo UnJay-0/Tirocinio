@@ -1,9 +1,8 @@
 import pandas as pd
 import math
-import nlopt
 from .permutation import dataframePerm, leafPerm, shuffleValues
 from numpy import median
-from ..Interpolazione.client import interpolation
+from .associatorRange import optimizeCol
 from .valuesReader import valReader
 from .valuesWriter import generateValues
 """
@@ -14,13 +13,13 @@ al risultato dell'interpolazione.
 """
 
 STARTING_TOL = 1e-6
-STARTING_STEP = 0.1
+STARTING_STEP = 1
 MAX_NON_UPGRADE = 10
 LEAF_STOPPING_CRITERIA = 1e-1
 NODE_STOPPING_CRITERIA = 0.1
 reader = valReader("IdentificaSatelliti/values.csv")
 LEAF_SIZE = valReader.leafSize(reader.getNumValues())
-THRESHOLD = 3
+THRESHOLD = 30
 WHEN_SHUFFLE = reader.getNumSat()
 
 
@@ -224,77 +223,59 @@ def writeValues(values: pd.core.frame.DataFrame) -> dict:
     return dataValues
 
 
-def optimizeCol(col: pd.core.frame.DataFrame,
-                algorithm=nlopt.LN_COBYLA, maxtime=0.05) -> list:
-    """
-    Overview
-    -------------------
-    Calcola la sinusoide che interpola i punti passati per parametro.
-    La sinusoide calcolata è la sinusoide che interpola i punti con minimo
-    errore e massimo periodo.
-
-    Params
-    -------------------
-    col (DataFrame) - Colonna (x, y) con i punti da interpolare
-    algorithm (int) - intero identificativo di un algoritmo specificato
-                      all'interno del modulo nlopt.
-    maxtime (float) - tempo massimo di elaborazione [s].
-
-    Returns
-    -------------------
-    float - L'errore complessivo della sinusoide rispetto ai punti.
-
-    """
-    step = 1
-    period = 1
-    results = []
-    data = writeValues(col)
-    ftol = STARTING_TOL
-    xtol = STARTING_TOL
-    while period < 100:
-        data["b"] = period
-        print(f"periodo: {period}")
-        try:
-            result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
-                                   maxtime=maxtime, algorithm=algorithm)
-            if not math.isclose(math.pi*2 / result[1][1],
-                                period + 10, rel_tol=1e-1):
-                results.append(result)
-                print(f"errore quadratico: {results[-1][0]}")
-                print(f"pulsazione: {results[-1][1][1]}")
-                print(f"periodo: {math.pi*2 / results[-1][1][1]}")
-                if (len(results) > 1 and math.isclose(
-                    math.pi*2 / results[-1][1][1], math.pi
-                        * 2 / results[-2][1][1],
-                        abs_tol=1e-1, rel_tol=1e-1)):
-                    step *= 2
-                elif (step > STARTING_STEP):
-                    step = STARTING_STEP
-            print(f"step: {step}\n")
-            period += step
-        except nlopt.RoundoffLimited:
-            ftol = ftol * 10
-            xtol = xtol * 10
-    return utopicLine(results)
-
-
-def dist(pointA: tuple, pointB: tuple) -> float:
-    return math.sqrt((pointA[0] - pointB[0])**2 + (pointA[1] - pointB[1])**2)
-
-
-def utopicLine(results: tuple):
-    optimal = [0]
-    value = 999999
-    for result in results:
-        if result[0] < value:
-            value = result[0]
-            optimal = result
-    print(f"errore quadratico: {optimal[0]}")
-    print(f"pulsazione: {optimal[1][1]}")
-    print(f"periodo: {math.pi*2 / optimal[1][1]}")
-    return optimal[0]
+# def optimizeCol(col: pd.core.frame.DataFrame,
+#                 algorithm=nlopt.LN_COBYLA, maxtime=0.05) -> list:
+#     """
+#     Overview
+#     -------------------
+#     Calcola la sinusoide che interpola i punti passati per parametro.
+#     La sinusoide calcolata è la sinusoide che interpola i punti con minimo
+#     errore e massimo periodo.
+#
+#     Params
+#     -------------------
+#     col (DataFrame) - Colonna (x, y) con i punti da interpolare
+#     algorithm (int) - intero identificativo di un algoritmo specificato
+#                       all'interno del modulo nlopt.
+#     maxtime (float) - tempo massimo di elaborazione [s].
+#
+#     Returns
+#     -------------------
+#     float - L'errore complessivo della sinusoide rispetto ai punti.
+#
+#     """
+#     step = 1
+#     period = 1
+#     optimal = [9999999]
+#     data = writeValues(col)
+#     ftol = STARTING_TOL
+#     xtol = STARTING_TOL
+#     while period < 1e3:
+#         data["b"] = period
+#         print(f"periodo: {period}")
+#         try:
+#             result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
+#                                    maxtime=maxtime, algorithm=algorithm)
+#             if result[0] < optimal[0]:
+#                 optimal = result
+#                 if (step > STARTING_STEP):
+#                     step = STARTING_STEP
+#                 print(f"errore quadratico: {result[0]}")
+#                 print(f"pulsazione: {result[1][1]}")
+#                 print(f"periodo: {math.pi*2 / result[1][1]}")
+#             else:
+#                 step *= 10
+#             print(f"step: {step}\n")
+#             period += step
+#         except nlopt.RoundoffLimited:
+#             ftol = ftol * 10
+#             xtol = xtol * 10
+#     return optimal
 
 
 if __name__ == '__main__':
-    test = pd.DataFrame(generateValues(1, 10, 0, 10))
-    print(optimizeCol(test))
+    test = pd.DataFrame(generateValues(1, 0.009, 0, 10))
+    result = optimizeCol(test)
+    print(f"errore quadratico: {result[0]}")
+    print(f"pulsazione: {result[1][1]}")
+    print(f"periodo: {math.pi*2 / result[1][1]}")
