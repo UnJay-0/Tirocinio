@@ -45,7 +45,7 @@ def writeValues(values: pd.core.frame.DataFrame) -> dict:
 def optimizeCol(col: pd.core.frame.DataFrame,
                 algorithm=nlopt.LN_COBYLA, maxtime=0.05) -> tuple:
     step = 1
-    period = 1
+    errore = 50
     results = []
     result = ()
     oldResult = ()
@@ -53,8 +53,8 @@ def optimizeCol(col: pd.core.frame.DataFrame,
     ftol = STARTING_TOL
     xtol = STARTING_TOL
     x_coordinates = []
-    while period < 5e3:
-        data["b"] = period
+    while errore > 0:
+        data["b"] = errore
         # print(f"periodo: {period}")
         try:
             oldResult = result
@@ -64,22 +64,15 @@ def optimizeCol(col: pd.core.frame.DataFrame,
             # print(f"pulsazione: {result[1][1]}")
             # print(f"periodo: {math.pi*2 / result[1][1]}")
             results.append(result)
-            if not math.isclose(period, math.pi*2 / result[1][1],
-                                rel_tol=1e-2):
-
-                if (math.pi*2 / result[1][1] <= 1e5):
-                    x_coordinates.append(math.pi*2 / result[1][1])
 
             if (len(results) > 1 and (math.isclose(
                 math.pi*2 / result[1][1], math.pi
                     * 2 / oldResult[1][1], rel_tol=1e-1))):
                 step *= 2
-            elif (step > STARTING_STEP
-                  and not math.isclose(period, math.pi*2 / result[1][1],
-                                       rel_tol=1e-2)):
+            elif (step > STARTING_STEP):
                 step = STARTING_STEP
             # print(f"step: {step}\n")
-            period += step
+            errore -= step
         except nlopt.RoundoffLimited:
             ftol = ftol * 10
             xtol = xtol * 10
@@ -126,7 +119,7 @@ def num_sol(period: float, results: list) -> int:
 
 def compute(puls: float, algorithm: int) -> None:
     print(f"PULSAZIONE: {puls}")
-    test = pd.DataFrame(generateValues(1, puls, 0, 10))
+    test = pd.DataFrame(generateValues(1, puls, 0, 30))
     start = time.time()
 
     results = optimizeCol(test, algorithm=algorithm)
@@ -137,13 +130,14 @@ def compute(puls: float, algorithm: int) -> None:
     result = utopic(results)
     print(
         f"numero di sol nell'intorno: {num_sol(math.pi*2 / puls, results[0])}")
+    print(f"numero di soluioni {len(result)}")
     # plt.scatter([math.pi*2 / result[1][1]], [0], c='blue')  # soluzione scelta
     # plt.scatter([results[1]], [results[2]], c='purple')  # punto utopia
     # plt.scatter([math.pi*2/puls], [0], c='green')  # punto sinusoide
-    plotter(results[0], results[1], 0)
-    plt.xlabel('Periodo [s]')
-    plt.ylabel('Errore[m^2]')
-    plt.show()
+    # plotter(results[0], results[1], 0)
+    # plt.xlabel('Periodo [s]')
+    # plt.ylabel('Errore[m^2]')
+    # plt.show()
     print(f"errore quadratico: {result[0]}")
     print(f"pulsazione: {result[1][1]}")
     print(f"periodo: {math.pi*2 / result[1][1]}")

@@ -27,13 +27,13 @@ class Cobyla(Model):
             self.opt.set_maxtime(self.config["maxtime"])
         self.opt.set_min_objective(
              lambda x, grad: derivativeFree.f(
-                 x, grad, self.data["numeroPunti"]))
+                 x, grad))
 
     def constraints(self):
         self.opt.add_inequality_constraint(
             derivativeFree.pulsazionePositiva, 1e-6)
         self.opt.add_inequality_constraint(
-            lambda x, grad: derivativeFree.periodo(x, grad, self.data["b"]),
+            lambda x, grad: derivativeFree.errore(x, grad, self.data["b"]),
             self.config["sinTol"])
         self.opt.add_inequality_constraint(
             derivativeFree.pulsazionePositiva, 1e-6)

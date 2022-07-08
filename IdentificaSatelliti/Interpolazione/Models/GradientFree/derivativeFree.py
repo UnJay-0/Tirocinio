@@ -13,14 +13,17 @@ def pulsazionePositiva(x, grad):
     return -x[1] + 1e-6
 
 
-def periodo(x, grad, b):
+def errore(x, grad, b):
     """
     Meaning
     -------------------
      w * b - 2π <= 0
       2π /w >= b
     """
-    return (x[1] * b) - 2 * math.pi
+    val = 0
+    for err in x[3:]:
+        val += err**2
+    return (val)/len(x[3:]) - b
 
 
 def sin(result, x, grad, data):
@@ -55,7 +58,7 @@ def sin(result, x, grad, data):
             math.sin(x[1] * data["t"][i] + x[2]) + x[i + 3]
 
 
-def f(x, grad, nPunti):
+def f(x, grad):
     """
     Meaning
     -------------------
@@ -76,7 +79,4 @@ def f(x, grad, nPunti):
     -------------------
     the value of the objective function on the parameters x.
     """
-    val = 0
-    for err in x[3:]:
-        val += err**2
-    return (val)/len(x[3:])
+    return x[1]

@@ -1,7 +1,7 @@
 from ..model import Model
 import nlopt
 import math
-from .derivativeFree import *
+from . import derivativeFree
 
 
 class GenericDf(Model):
@@ -27,8 +27,8 @@ class GenericDf(Model):
         if self.config["maxtime"] is not None:
             self.opt.set_maxtime(self.config["maxtime"])
         self.opt.set_min_objective(
-             lambda x, grad: f(
-                 x, grad, self.data["numeroPunti"]))
+             lambda x, grad: derivativeFree.f(
+                 x, grad))
         lopt = nlopt.opt(self.config["algorithm"],
                          3 + self.data["numeroPunti"])
         lopt.set_ftol_rel(1e-3)
@@ -37,14 +37,14 @@ class GenericDf(Model):
 
     def constraints(self):
         self.opt.add_inequality_constraint(
-            pulsazionePositiva, 1e-6)
+            derivativeFree.pulsazionePositiva, 1e-6)
         self.opt.add_inequality_constraint(
-            lambda x, grad: periodo(x, grad, self.data["b"]),
+            lambda x, grad: derivativeFree.errore(x, grad, self.data["b"]),
             self.config["sinTol"])
         self.opt.add_inequality_constraint(
-            pulsazionePositiva, 1e-6)
+            derivativeFree.pulsazionePositiva, 1e-6)
         self.opt.add_equality_mconstraint(
-            lambda result, x, grad: sin(
+            lambda result, x, grad: derivativeFree.sin(
                 result, x, grad, self.data),
             [self.config["sinTol"] for i in range(self.data["numeroPunti"])])
 
