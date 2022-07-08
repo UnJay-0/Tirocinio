@@ -85,7 +85,6 @@ def optimizeCol(col: pd.core.frame.DataFrame,
             xtol = xtol * 10
     print(f"numero risultati: {len(results)}")
     utopicX = np.mean(x_coordinates)
-    # plotter(results, utopicX, 0)
     return (results, utopicX, 0)
 
 
@@ -101,8 +100,7 @@ def plotter(results, x, y) -> None:
             x_coordinates.append(abs(math.pi*2 / result[1][1]))
             y_coordinates.append(result[0])
     plt.scatter(x_coordinates, y_coordinates)
-    plt.scatter([x], [y])
-    plt.show()
+    # plt.scatter([x], [y])
 
 
 def utopic(results: tuple) -> dict:
@@ -128,22 +126,27 @@ def num_sol(period: float, results: list) -> int:
 
 def compute(puls: float, algorithm: int) -> None:
     print(f"PULSAZIONE: {puls}")
-    test = pd.DataFrame(generateValues(1, puls, 0, 30))
+    test = pd.DataFrame(generateValues(1, puls, 0, 10))
     start = time.time()
+
     results = optimizeCol(test, algorithm=algorithm)
-    # result = utopic((results[0], math.pi*2/puls, 0))
+    result = utopic((results[0], math.pi*2/puls, 0))
+
+    end = time.time()
     # plt.scatter([math.pi*2 / result[1][1]], [0], c='red')  # soluzione "giusta"
-    # result = utopic(results)
+    result = utopic(results)
     print(
         f"numero di sol nell'intorno: {num_sol(math.pi*2 / puls, results[0])}")
     # plt.scatter([math.pi*2 / result[1][1]], [0], c='blue')  # soluzione scelta
     # plt.scatter([results[1]], [results[2]], c='purple')  # punto utopia
     # plt.scatter([math.pi*2/puls], [0], c='green')  # punto sinusoide
-    # plt.show()
-    end = time.time()
-    # print(f"errore quadratico: {result[0]}")
-    # print(f"pulsazione: {result[1][1]}")
-    # print(f"periodo: {math.pi*2 / result[1][1]}")
+    plotter(results[0], results[1], 0)
+    plt.xlabel('Periodo [s]')
+    plt.ylabel('Errore[m^2]')
+    plt.show()
+    print(f"errore quadratico: {result[0]}")
+    print(f"pulsazione: {result[1][1]}")
+    print(f"periodo: {math.pi*2 / result[1][1]}")
 
     total_time = end - start
     print(f"computational time: {str(total_time)}\n")

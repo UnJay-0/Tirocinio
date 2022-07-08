@@ -1,0 +1,95 @@
+10 PUNTI
+
+PULSAZIONE: 0.8 10
+errore quadratico: 5.0704687214686065e-09
+pulsazione: 0.7999775267251513
+periodo: 7.854202271032426
+computational time: 1.8659710884094238
+
+PULSAZIONE: 0.0125 10
+errore quadratico: 5.14305674562613e-07
+pulsazione: 0.010437184895647152
+periodo: 602.0
+computational time: 2.7319390773773193
+
+PULSAZIONE: 0.005 10
+errore quadratico: 8.912144727340715e-06
+pulsazione: 0.0035719043032147514
+periodo: 1759.0575709222258
+computational time: 2.1074280738830566
+
+PULSAZIONE: 0.0013 10
+errore quadratico: 6.411162804505432e-08
+pulsazione: 0.0014051382058581266
+periodo: 4471.578155788887
+computational time: 2.282756805419922
+
+PULSAZIONE: 0.001 10
+errore quadratico: 9.085667556283677e-07
+pulsazione: 0.0013565106300437997
+periodo: 4631.8732548205035
+computational time: 2.249683141708374
+
+20 PUNTI
+
+PULSAZIONE: 0.8 20
+errore quadratico: 0.011748778938705896
+pulsazione: 0.7853981633974483
+periodo: 8.0
+computational time: 4.143871068954468
+
+PULSAZIONE: 0.0125 20
+errore quadratico: 0.0
+pulsazione: 0.007834395644862328
+periodo: 801.9999999999999
+computational time: 6.054666042327881
+
+PULSAZIONE: 0.005 20
+errore quadratico: 0.0
+pulsazione: 0.0051333213293950864
+periodo: 1224.0
+computational time: 2.622654914855957
+
+PULSAZIONE: 0.0013 20
+errore quadratico: 0.0
+pulsazione: 0.0012804534964702642
+periodo: 4907.0
+computational time: 2.087871789932251
+
+PULSAZIONE: 0.001 20
+errore quadratico: 1.0062963414568437e-34
+pulsazione: 0.001124922709379537
+periodo: 5585.437341419788
+computational time: 1.9800739288330078
+
+30 PUNTI
+
+PULSAZIONE: 0.8 30
+errore quadratico: 0.025637054746493974
+pulsazione: 0.7853981633974483
+periodo: 8.0
+computational time: 2.5603110790252686
+
+PULSAZIONE: 0.0125 30
+errore quadratico: 0.0
+pulsazione: 0.008456507815854086
+periodo: 743.0
+computational time: 2.2622430324554443
+
+PULSAZIONE: 0.005 30
+errore quadratico: 0.0
+pulsazione: 0.0013255665205020224
+periodo: 4740.0
+computational time: 2.29171085357666
+
+PULSAZIONE: 0.0013 30
+errore quadratico: 0.0
+pulsazione: 0.0013987500683837013
+periodo: 4492.0
+computational time: 2.3293511867523193
+
+PULSAZIONE: 0.001 30
+errore quadratico: 0.0
+pulsazione: 0.001280714493921644
+periodo: 4906.0
+computational time: 2.0924038887023926

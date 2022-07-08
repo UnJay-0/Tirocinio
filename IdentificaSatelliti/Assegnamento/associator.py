@@ -5,6 +5,7 @@ from numpy import median
 from .associatorRange import optimizeCol
 from .valuesReader import valReader
 from .valuesWriter import generateValues
+from .solCollector import ErrorStandards
 """
 Overview
 -------------------
@@ -14,12 +15,11 @@ al risultato dell'interpolazione.
 
 STARTING_TOL = 1e-6
 STARTING_STEP = 1
-MAX_NON_UPGRADE = 10
-LEAF_STOPPING_CRITERIA = 1e-1
-NODE_STOPPING_CRITERIA = 0.1
+LEAF_STOPPING_CRITERIA = ErrorStandards.LV3.value
+NODE_STOPPING_CRITERIA = ErrorStandards.LV2.value
 reader = valReader("IdentificaSatelliti/values.csv")
 LEAF_SIZE = valReader.leafSize(reader.getNumValues())
-THRESHOLD = 30
+THRESHOLD = ErrorStandards.LV5.value
 WHEN_SHUFFLE = reader.getNumSat()
 
 
@@ -94,8 +94,7 @@ def nodeOptimal(values1: pd.core.frame.DataFrame,
                 return optimalDataframe
         perm.columns = values1.columns
         temp = pd.concat([values1, perm])
-        i = 0
-        while i < temp.shape[1]:
+        for i in range(0, temp.shape[1], 2):
             print(f"permutazione nodo ordinaria\n{temp}")
             print(f" colonna \n{temp.iloc[:, i:i+2]}")
             colValue = optimizeCol(temp.iloc[:, i:i+2])
@@ -116,7 +115,6 @@ def nodeOptimal(values1: pd.core.frame.DataFrame,
                 break
             if colValue < optimalcol[2]:
                 optimalcol = [perm, temp.iloc[:, i:i+2], colValue]
-            i += 2
     return optimalDataframe
 
 
@@ -160,9 +158,8 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                     [optimalDataframe, perm], axis=1)
                 return optimalDataframe
         print(f"permutazione ordinaria\n {perm}")
-        i = 0
         permValues = []
-        while i < perm.shape[1]:
+        for i in range(0, perm.shape[1], 2):
             colValue = optimizeCol(perm.iloc[:, i:i+2])
             permValues.append(colValue)
             print(f"valore: {colValue}")
@@ -182,7 +179,6 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                 break
             elif colValue < optimalcol[2]:
                 optimalcol = [perm, perm.iloc[:, i:i+2], colValue]
-            i += 2
         print(f"mediana: {median(permValues)}")
         if median(permValues) > THRESHOLD:
             shuffle_i += 1
@@ -221,56 +217,6 @@ def writeValues(values: pd.core.frame.DataFrame) -> dict:
         else:
             dataValues["y"] = values[label].tolist()
     return dataValues
-
-
-# def optimizeCol(col: pd.core.frame.DataFrame,
-#                 algorithm=nlopt.LN_COBYLA, maxtime=0.05) -> list:
-#     """
-#     Overview
-#     -------------------
-#     Calcola la sinusoide che interpola i punti passati per parametro.
-#     La sinusoide calcolata è la sinusoide che interpola i punti con minimo
-#     errore e massimo periodo.
-#
-#     Params
-#     -------------------
-#     col (DataFrame) - Colonna (x, y) con i punti da interpolare
-#     algorithm (int) - intero identificativo di un algoritmo specificato
-#                       all'interno del modulo nlopt.
-#     maxtime (float) - tempo massimo di elaborazione [s].
-#
-#     Returns
-#     -------------------
-#     float - L'errore complessivo della sinusoide rispetto ai punti.
-#
-#     """
-#     step = 1
-#     period = 1
-#     optimal = [9999999]
-#     data = writeValues(col)
-#     ftol = STARTING_TOL
-#     xtol = STARTING_TOL
-#     while period < 1e3:
-#         data["b"] = period
-#         print(f"periodo: {period}")
-#         try:
-#             result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
-#                                    maxtime=maxtime, algorithm=algorithm)
-#             if result[0] < optimal[0]:
-#                 optimal = result
-#                 if (step > STARTING_STEP):
-#                     step = STARTING_STEP
-#                 print(f"errore quadratico: {result[0]}")
-#                 print(f"pulsazione: {result[1][1]}")
-#                 print(f"periodo: {math.pi*2 / result[1][1]}")
-#             else:
-#                 step *= 10
-#             print(f"step: {step}\n")
-#             period += step
-#         except nlopt.RoundoffLimited:
-#             ftol = ftol * 10
-#             xtol = xtol * 10
-#     return optimal
 
 
 if __name__ == '__main__':

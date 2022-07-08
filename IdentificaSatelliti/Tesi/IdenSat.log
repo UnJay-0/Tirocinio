@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.10)  10 JUN 2022 11:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.10)  28 JUN 2022 12:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -397,33 +397,42 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box70
 \@float@everytoks=\toks32
 \@floatcapt=\box71
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen191
+\TX@old@table=\dimen192
+\TX@old@col=\dimen193
+\TX@target=\dimen194
+\TX@delta=\dimen195
+\TX@cols=\count311
+\TX@ftn=\toks33
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks33
-\inpenc@posthook=\toks34
+\inpenc@prehook=\toks34
+\inpenc@posthook=\toks35
 )
-\c@myteor=\count311
+\c@myteor=\count312
  (./IdenSat.aux)
 \openout1 = `IdenSat.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -461,17 +470,17 @@ LaTeX Font Info:    ... okay on input line 51.
 
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count312
-\scratchdimen=\dimen191
+\scratchcounter=\count313
+\scratchdimen=\dimen196
 \scratchbox=\box72
-\nofMPsegments=\count313
-\nofMParguments=\count314
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count315
-\MPscratchDim=\dimen192
-\MPnumerator=\count316
-\makeMPintoPDFobject=\count317
-\everyMPtoPDFconversion=\toks36
+\nofMPsegments=\count314
+\nofMParguments=\count315
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen197
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
+\everyMPtoPDFconversion=\toks37
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
  (/usr/local/texlive/2022/texmf-dist/tex/latex/grfext/grfext.sty
@@ -484,7 +493,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 51.
+Package hyperref Info: Link coloring OFF on input line 52.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -492,17 +501,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count318
+\c@section@level=\count319
 )
-LaTeX Info: Redefining \ref on input line 51.
-LaTeX Info: Redefining \pageref on input line 51.
-LaTeX Info: Redefining \nameref on input line 51.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
  (./IdenSat.out) (./IdenSat.out)
 \@outlinefile=\write3
 \openout3 = `IdenSat.out'.
 
-LaTeX Info: Redefining \it@ocap on input line 51.
-LaTeX Info: Redefining \it@ccap on input line 51.
+LaTeX Info: Redefining \it@ocap on input line 52.
+LaTeX Info: Redefining \it@ccap on input line 52.
 
 
 File italian.ldf warning: 
@@ -510,14 +519,14 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 51.
+italian.ldf    on input line 52.
 
-Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 51.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 74.
+Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 74.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -534,16 +543,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [5
 
-]
+] [6]
 Capitolo 1.
 [1
 
 ]
 Capitolo 2.
-<img/sinusoide_cerchio.png, id=139, 553.06625pt x 215.80624pt>
+<img/sinusoide_cerchio.png, id=175, 553.06625pt x 215.80624pt>
 File: img/sinusoide_cerchio.png Graphic file (type png)
 <use img/sinusoide_cerchio.png>
-Package pdftex.def Info: img/sinusoide_cerchio.png  used on input line 119.
+Package pdftex.def Info: img/sinusoide_cerchio.png  used on input line 120.
 (pdftex.def)             Requested size: 276.53244pt x 107.90285pt.
 [2
 
@@ -551,7 +560,7 @@ Package pdftex.def Info: img/sinusoide_cerchio.png  used on input line 119.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.138 
+l.139 
        <./img/sinusoide_cerchio.png>] [3]
 Capitolo 3.
 [4
@@ -559,279 +568,701 @@ Capitolo 3.
 ] [5] [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `math shift' on input line 297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 298.
+(hyperref)                removing `\beta' on input line 297.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `math shift' on input line 297.
 
 [7
 pdfTeX warning (ext4): destination with the same identifier (name{algocf.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.306 \begin{equation}
+l.305 \begin{equation}
                       ] [8]
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 339--350
- [] 
- []
-
-
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 356--367
- [] 
- []
-
-
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 373--384
- [] 
+Overfull \hbox (159.09084pt too wide) in alignment at lines 355--355
+[][][][] 
  []
 
 [9
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.385 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.385 
+l.366 
       ]
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 390--401
+Overfull \hbox (17.80644pt too wide) in paragraph at lines 385--396
  [] 
  []
 
 
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 407--418
+Overfull \hbox (17.80644pt too wide) in paragraph at lines 402--413
  [] 
  []
 
 [10
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.414 
+      ]
+Overfull \hbox (17.80644pt too wide) in paragraph at lines 419--430
+ [] 
+ []
+
+
+Overfull \hbox (17.80644pt too wide) in paragraph at lines 436--447
+ [] 
+ []
+
+
+Overfull \hbox (17.80644pt too wide) in paragraph at lines 453--464
+ [] 
+ []
+
+[11
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.423 \subsection
-                 {Gestione degli errori}
+l.465 È
+         interessante analizzare il comportamento dei solutori se il modello...
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.423 \subsection
-                 {Gestione degli errori}
+l.465 È
+         interessante analizzare il comportamento dei solutori se il modello...
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.423 \subsection
-                 {Gestione degli errori}] [11] [12
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.486 Q
-       uesto succede poiché non esiste un limite superiore al periodo che s...] [13
+l.465 È
+         interessante analizzare il comportamento dei solutori se il modello...] [12
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.535 
-      ] [14
+l.524 \subsection
+                 {Selezione della soluzione}] [13
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.533 Q
+       uesto succede poiché non esiste un limite superiore al periodo che s...]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 560--560
+[][][][] 
+ []
+
+<img/puls0010/puntoUtopia10.png, id=350, 462.528pt x 346.896pt>
+File: img/puls0010/puntoUtopia10.png Graphic file (type png)
+<use img/puls0010/puntoUtopia10.png>
+Package pdftex.def Info: img/puls0010/puntoUtopia10.png  used on input line 566.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[14
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.593 \end{itemize}
-                   
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.593 \end{itemize}
-                   
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.9}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.593 \end{itemize}
-                   ]
-<img/utility/matplotlib_markers/soluzione.png, id=316, 14.0525pt x 19.07124pt>
-File: img/utility/matplotlib_markers/soluzione.png Graphic file (type png)
-<use img/utility/matplotlib_markers/soluzione.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/soluzione.png  used on input line 603.
-(pdftex.def)             Requested size: 14.05246pt x 19.07118pt.
-<img/utility/matplotlib_markers/soluzione_scelta.png, id=318, 15.1767pt x 18.7902pt>
-File: img/utility/matplotlib_markers/soluzione_scelta.png Graphic file (type png)
-<use img/utility/matplotlib_markers/soluzione_scelta.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_scelta.png  used on input line 604.
-(pdftex.def)             Requested size: 15.17664pt x 18.79015pt.
-<img/utility/matplotlib_markers/punto_utopia.png, id=319, 13.7313pt x 18.0675pt>
-File: img/utility/matplotlib_markers/punto_utopia.png Graphic file (type png)
-<use img/utility/matplotlib_markers/punto_utopia.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/punto_utopia.png  used on input line 605.
-(pdftex.def)             Requested size: 13.73123pt x 18.06744pt.
-<img/utility/matplotlib_markers/soluzione_ideale.png, id=320, 11.5632pt x 16.6221pt>
-File: img/utility/matplotlib_markers/soluzione_ideale.png Graphic file (type png)
-<use img/utility/matplotlib_markers/soluzione_ideale.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_ideale.png  used on input line 607.
-(pdftex.def)             Requested size: 11.56317pt x 16.62204pt.
-<img/utility/matplotlib_markers/punto_sinusoide.png, id=321, 12.2859pt x 19.5129pt>
-File: img/utility/matplotlib_markers/punto_sinusoide.png Graphic file (type png)
-<use img/utility/matplotlib_markers/punto_sinusoide.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/punto_sinusoide.png  used on input line 608.
-(pdftex.def)             Requested size: 12.28586pt x 19.51283pt.
-<img/puls005/tutte_le_soluzioni.png, id=322, 462.528pt x 346.896pt>
-File: img/puls005/tutte_le_soluzioni.png Graphic file (type png)
-<use img/puls005/tutte_le_soluzioni.png>
-Package pdftex.def Info: img/puls005/tutte_le_soluzioni.png  used on input line 612.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls005/tutte_le_soluzioni_2.png, id=323, 462.528pt x 346.896pt>
-File: img/puls005/tutte_le_soluzioni_2.png Graphic file (type png)
-<use img/puls005/tutte_le_soluzioni_2.png>
-Package pdftex.def Info: img/puls005/tutte_le_soluzioni_2.png  used on input line 613.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls005/soluzione_corretta.png, id=325, 462.528pt x 346.896pt>
-File: img/puls005/soluzione_corretta.png Graphic file (type png)
-<use img/puls005/soluzione_corretta.png>
-Package pdftex.def Info: img/puls005/soluzione_corretta.png  used on input line 620.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls005/soluzione_scelta.png, id=327, 462.528pt x 346.896pt>
-File: img/puls005/soluzione_scelta.png Graphic file (type png)
-<use img/puls005/soluzione_scelta.png>
-Package pdftex.def Info: img/puls005/soluzione_scelta.png  used on input line 628.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+l.570 
+      ]
+<img/puls0010/puntoUtopia20.png, id=358, 508.0581pt x 346.896pt>
+File: img/puls0010/puntoUtopia20.png Graphic file (type png)
+<use img/puls0010/puntoUtopia20.png>
+Package pdftex.def Info: img/puls0010/puntoUtopia20.png  used on input line 573.
+(pdftex.def)             Requested size: 355.63824pt x 242.82553pt.
+<img/puls0010/puntoUtopia30.png, id=360, 511.6716pt x 346.896pt>
+File: img/puls0010/puntoUtopia30.png Graphic file (type png)
+<use img/puls0010/puntoUtopia30.png>
+Package pdftex.def Info: img/puls0010/puntoUtopia30.png  used on input line 580.
+(pdftex.def)             Requested size: 358.16768pt x 242.82553pt.
  [15
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.638 U
-       na soluzione alternativa può essere la modifica dell'algoritmo di co... <./img/utility/matplotlib_markers/soluzione.png> <./img/utility/matplotlib_markers/soluzione_scelta.png> <./img/utility/matplotlib_markers/punto_utopia.png> <./img/utility/matplotlib_markers/soluzione_ideale.png> <./img/utility/matplotlib_markers/punto_sinusoide.png>] [16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.638 U
-       na soluzione alternativa può essere la modifica dell'algoritmo di co... <./img/puls005/tutte_le_soluzioni.png> <./img/puls005/tutte_le_soluzioni_2.png>] [17
+l.584 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.638 U
-       na soluzione alternativa può essere la modifica dell'algoritmo di co...
+l.584 
+       <./img/puls0010/puntoUtopia10.png> <./img/puls0010/puntoUtopia20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 599--599
+[][][][] 
+ []
+
+<img/puls0013/puntoUtopia10.png, id=369, 462.528pt x 346.896pt>
+File: img/puls0013/puntoUtopia10.png Graphic file (type png)
+<use img/puls0013/puntoUtopia10.png>
+Package pdftex.def Info: img/puls0013/puntoUtopia10.png  used on input line 605.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.638 U
-       na soluzione alternativa può essere la modifica dell'algoritmo di co... <./img/puls005/soluzione_corretta.png> <./img/puls005/soluzione_scelta.png>]
-<img/puls08/tutte_le_soluzioni.png, id=358, 462.528pt x 346.896pt>
-File: img/puls08/tutte_le_soluzioni.png Graphic file (type png)
-<use img/puls08/tutte_le_soluzioni.png>
-Package pdftex.def Info: img/puls08/tutte_le_soluzioni.png  used on input line 644.
-(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
-<img/puls08/soluzione_corretta.png, id=362, 462.528pt x 346.896pt>
-File: img/puls08/soluzione_corretta.png Graphic file (type png)
-<use img/puls08/soluzione_corretta.png>
-Package pdftex.def Info: img/puls08/soluzione_corretta.png  used on input line 653.
+l.609 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.609 
+       <./img/puls0010/puntoUtopia30.png>]
+<img/puls0013/puntoUtopia20.png, id=377, 462.528pt x 346.896pt>
+File: img/puls0013/puntoUtopia20.png Graphic file (type png)
+<use img/puls0013/puntoUtopia20.png>
+Package pdftex.def Info: img/puls0013/puntoUtopia20.png  used on input line 612.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls08/posizione_utopia.png, id=364, 462.528pt x 346.896pt>
-File: img/puls08/posizione_utopia.png Graphic file (type png)
-<use img/puls08/posizione_utopia.png>
-Package pdftex.def Info: img/puls08/posizione_utopia.png  used on input line 660.
+<img/puls0013/puntoUtopia30.png, id=379, 462.528pt x 346.896pt>
+File: img/puls0013/puntoUtopia30.png Graphic file (type png)
+<use img/puls0013/puntoUtopia30.png>
+Package pdftex.def Info: img/puls0013/puntoUtopia30.png  used on input line 619.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [18
+ [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.670 I
-       l problema di questa metodologia di specifica del periodo per il punt... <./img/puls08/tutte_le_soluzioni.png>] [19
+l.623 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.670 I
-       l problema di questa metodologia di specifica del periodo per il punt...
+l.623 
+       <./img/puls0013/puntoUtopia10.png> <./img/puls0013/puntoUtopia20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 639--639
+[][][][] 
+ []
+
+<img/puls005/puntoUtopia10.png, id=389, 462.528pt x 346.896pt>
+File: img/puls005/puntoUtopia10.png Graphic file (type png)
+<use img/puls005/puntoUtopia10.png>
+Package pdftex.def Info: img/puls005/puntoUtopia10.png  used on input line 645.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.670 I
-       l problema di questa metodologia di specifica del periodo per il punt... <./img/puls08/soluzione_corretta.png> <./img/puls08/posizione_utopia.png>]
-<img/puls08/da_zero_a_venti.png, id=382, 462.528pt x 346.896pt>
-File: img/puls08/da_zero_a_venti.png Graphic file (type png)
-<use img/puls08/da_zero_a_venti.png>
-Package pdftex.def Info: img/puls08/da_zero_a_venti.png  used on input line 674.
+l.649 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.649 
+       <./img/puls0013/puntoUtopia30.png>]
+<img/puls005/puntoUtopia20.png, id=398, 462.528pt x 346.896pt>
+File: img/puls005/puntoUtopia20.png Graphic file (type png)
+<use img/puls005/puntoUtopia20.png>
+Package pdftex.def Info: img/puls005/puntoUtopia20.png  used on input line 652.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [20
+<img/puls005/puntoUtopia30.png, id=400, 462.528pt x 346.896pt>
+File: img/puls005/puntoUtopia30.png Graphic file (type png)
+<use img/puls005/puntoUtopia30.png>
+Package pdftex.def Info: img/puls005/puntoUtopia30.png  used on input line 659.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [19
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.691 
-       <./img/puls08/da_zero_a_venti.png>] [21
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.3}) has been already used, duplicate ignored
+l.663 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.719 
-      ] [22] [23
+l.663 
+       <./img/puls005/puntoUtopia10.png> <./img/puls005/puntoUtopia20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 679--679
+[][][][] 
+ []
+
+File: img/puls005/puntoUtopia10.png Graphic file (type png)
+<use img/puls005/puntoUtopia10.png>
+Package pdftex.def Info: img/puls005/puntoUtopia10.png  used on input line 684.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.688 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.688 
+       <./img/puls005/puntoUtopia30.png>]
+<img/puls0125/puntoUtopia20.png, id=420, 462.528pt x 346.896pt>
+File: img/puls0125/puntoUtopia20.png Graphic file (type png)
+<use img/puls0125/puntoUtopia20.png>
+Package pdftex.def Info: img/puls0125/puntoUtopia20.png  used on input line 691.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0125/puntoUtopia30.png, id=422, 462.528pt x 346.896pt>
+File: img/puls0125/puntoUtopia30.png Graphic file (type png)
+<use img/puls0125/puntoUtopia30.png>
+Package pdftex.def Info: img/puls0125/puntoUtopia30.png  used on input line 698.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [21
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.702     \item $
+                  e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.702     \item $
+                  e(t)~=~sin(0.8t)$ sinusoide con periodo pari a: <./img/puls0125/puntoUtopia20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 716--716
+[][][][] 
+ []
+
+[22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.13}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.726 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.820     \item $
-                  e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
+l.726 
+       <./img/puls0125/puntoUtopia30.png>]
+<img/utility/matplotlib_markers/soluzione.png, id=443, 14.0525pt x 19.07124pt>
+File: img/utility/matplotlib_markers/soluzione.png Graphic file (type png)
+<use img/utility/matplotlib_markers/soluzione.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/soluzione.png  used on input line 729.
+(pdftex.def)             Requested size: 14.05246pt x 19.07118pt.
+<img/utility/matplotlib_markers/soluzione_scelta.png, id=444, 15.1767pt x 18.7902pt>
+File: img/utility/matplotlib_markers/soluzione_scelta.png Graphic file (type png)
+<use img/utility/matplotlib_markers/soluzione_scelta.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_scelta.png  used on input line 730.
+(pdftex.def)             Requested size: 15.17664pt x 18.79015pt.
+<img/utility/matplotlib_markers/punto_utopia.png, id=445, 13.7313pt x 18.0675pt>
+File: img/utility/matplotlib_markers/punto_utopia.png Graphic file (type png)
+<use img/utility/matplotlib_markers/punto_utopia.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/punto_utopia.png  used on input line 731.
+(pdftex.def)             Requested size: 13.73123pt x 18.06744pt.
+<img/utility/matplotlib_markers/soluzione_ideale.png, id=446, 11.5632pt x 16.6221pt>
+File: img/utility/matplotlib_markers/soluzione_ideale.png Graphic file (type png)
+<use img/utility/matplotlib_markers/soluzione_ideale.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_ideale.png  used on input line 733.
+(pdftex.def)             Requested size: 11.56317pt x 16.62204pt.
+<img/utility/matplotlib_markers/punto_sinusoide.png, id=447, 12.2859pt x 19.5129pt>
+File: img/utility/matplotlib_markers/punto_sinusoide.png Graphic file (type png)
+<use img/utility/matplotlib_markers/punto_sinusoide.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/punto_sinusoide.png  used on input line 734.
+(pdftex.def)             Requested size: 12.28586pt x 19.51283pt.
+<img/puls005/tutte_le_soluzioni.png, id=448, 462.528pt x 346.896pt>
+File: img/puls005/tutte_le_soluzioni.png Graphic file (type png)
+<use img/puls005/tutte_le_soluzioni.png>
+Package pdftex.def Info: img/puls005/tutte_le_soluzioni.png  used on input line 738.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls005/tutte_le_soluzioni_2.png, id=449, 476.982pt x 346.896pt>
+File: img/puls005/tutte_le_soluzioni_2.png Graphic file (type png)
+<use img/puls005/tutte_le_soluzioni_2.png>
+Package pdftex.def Info: img/puls005/tutte_le_soluzioni_2.png  used on input line 739.
+(pdftex.def)             Requested size: 333.88512pt x 242.82553pt.
+<img/puls005/soluzione_corretta.png, id=451, 538.01pt x 385.44pt>
+File: img/puls005/soluzione_corretta.png Graphic file (type png)
+<use img/puls005/soluzione_corretta.png>
+Package pdftex.def Info: img/puls005/soluzione_corretta.png  used on input line 746.
+(pdftex.def)             Requested size: 376.60443pt x 269.80615pt.
+<img/puls005/soluzione_scelta.png, id=453, 462.528pt x 346.896pt>
+File: img/puls005/soluzione_scelta.png Graphic file (type png)
+<use img/puls005/soluzione_scelta.png>
+Package pdftex.def Info: img/puls005/soluzione_scelta.png  used on input line 754.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls08/tutte_le_soluzioni.png, id=458, 462.528pt x 346.896pt>
+File: img/puls08/tutte_le_soluzioni.png Graphic file (type png)
+<use img/puls08/tutte_le_soluzioni.png>
+Package pdftex.def Info: img/puls08/tutte_le_soluzioni.png  used on input line 770.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+<img/puls08/soluzione_corretta.png, id=462, 462.528pt x 346.896pt>
+File: img/puls08/soluzione_corretta.png Graphic file (type png)
+<use img/puls08/soluzione_corretta.png>
+Package pdftex.def Info: img/puls08/soluzione_corretta.png  used on input line 779.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls08/posizione_utopia.png, id=464, 462.528pt x 346.896pt>
+File: img/puls08/posizione_utopia.png Graphic file (type png)
+<use img/puls08/posizione_utopia.png>
+Package pdftex.def Info: img/puls08/posizione_utopia.png  used on input line 786.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [23 <./img/utility/matplotlib_markers/soluzione.png> <./img/utility/matplotlib_markers/soluzione_scelta.png> <./img/utility/matplotlib_markers/punto_utopia.png> <./img/utility/matplotlib_markers/soluzione_ideale.png> <./img/utility/matplotlib_markers/punto_sinusoide.png>] [24
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.795 
+       <./img/puls005/tutte_le_soluzioni.png> <./img/puls005/tutte_le_soluzioni_2.png>] [25
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.15}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.795 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.16}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.795 
+       <./img/puls005/soluzione_corretta.png> <./img/puls005/soluzione_scelta.png>] [26
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.17}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.795 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.18}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.795 
+       <./img/puls08/tutte_le_soluzioni.png> <./img/puls08/soluzione_corretta.png>]
+<img/puls08/da_zero_a_venti.png, id=503, 462.528pt x 346.896pt>
+File: img/puls08/da_zero_a_venti.png Graphic file (type png)
+<use img/puls08/da_zero_a_venti.png>
+Package pdftex.def Info: img/puls08/da_zero_a_venti.png  used on input line 800.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.19}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.818 
+       <./img/puls08/posizione_utopia.png>] [28
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.20}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.846 
+       <./img/puls08/da_zero_a_venti.png>] [29
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.859   \item L
+               ivello 7: errore $<$ 7]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 888--888
+[][][][] 
+ []
+
+<img/puls0010/standard10.png, id=549, 462.528pt x 346.896pt>
+File: img/puls0010/standard10.png Graphic file (type png)
+<use img/puls0010/standard10.png>
+Package pdftex.def Info: img/puls0010/standard10.png  used on input line 894.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[30
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.820     \item $
-                  e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
+l.898 
+      ]
+<img/puls0010/standard20.png, id=557, 462.528pt x 346.896pt>
+File: img/puls0010/standard20.png Graphic file (type png)
+<use img/puls0010/standard20.png>
+Package pdftex.def Info: img/puls0010/standard20.png  used on input line 901.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0010/standard30.png, id=559, 462.528pt x 346.896pt>
+File: img/puls0010/standard30.png Graphic file (type png)
+<use img/puls0010/standard30.png>
+Package pdftex.def Info: img/puls0010/standard30.png  used on input line 908.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [31
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.21}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.912 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.22}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.912 
+       <./img/puls0010/standard10.png> <./img/puls0010/standard20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 929--929
+[][][][] 
+ []
+
+<img/puls0013/standard10.png, id=570, 462.528pt x 346.896pt>
+File: img/puls0013/standard10.png Graphic file (type png)
+<use img/puls0013/standard10.png>
+Package pdftex.def Info: img/puls0013/standard10.png  used on input line 935.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[32
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.23}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.939 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.820     \item $
-                  e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:] [24
+l.939 
+       <./img/puls0010/standard30.png>]
+<img/puls0013/standard20.png, id=579, 462.528pt x 346.896pt>
+File: img/puls0013/standard20.png Graphic file (type png)
+<use img/puls0013/standard20.png>
+Package pdftex.def Info: img/puls0013/standard20.png  used on input line 942.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0013/standard30.png, id=581, 462.528pt x 346.896pt>
+File: img/puls0013/standard30.png Graphic file (type png)
+<use img/puls0013/standard30.png>
+Package pdftex.def Info: img/puls0013/standard30.png  used on input line 949.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [33
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.24}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.953 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.25}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.953 
+       <./img/puls0013/standard10.png> <./img/puls0013/standard20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 970--970
+[][][][] 
+ []
+
+<img/puls005/standard10.png, id=591, 462.528pt x 346.896pt>
+File: img/puls005/standard10.png Graphic file (type png)
+<use img/puls005/standard10.png>
+Package pdftex.def Info: img/puls005/standard10.png  used on input line 976.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[34
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.26}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.980 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.879   \end{table}
-                   
+l.980 
+       <./img/puls0013/standard30.png>]
+<img/puls005/standard20.png, id=600, 462.528pt x 346.896pt>
+File: img/puls005/standard20.png Graphic file (type png)
+<use img/puls005/standard20.png>
+Package pdftex.def Info: img/puls005/standard20.png  used on input line 983.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls005/standard30.png, id=602, 462.528pt x 346.896pt>
+File: img/puls005/standard30.png Graphic file (type png)
+<use img/puls005/standard30.png>
+Package pdftex.def Info: img/puls005/standard30.png  used on input line 990.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [35
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.27}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.994 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.28}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.994 
+       <./img/puls005/standard10.png> <./img/puls005/standard20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1011--1011
+[][][][] 
+ []
+
+<img/puls0125/standard10.png, id=612, 462.528pt x 346.896pt>
+File: img/puls0125/standard10.png Graphic file (type png)
+<use img/puls0125/standard10.png>
+Package pdftex.def Info: img/puls0125/standard10.png  used on input line 1017.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[36
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.29}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1021 
+       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.879   \end{table}
-                   
+l.1021 
+        <./img/puls005/standard30.png>]
+<img/puls0125/standard20.png, id=621, 462.528pt x 346.896pt>
+File: img/puls0125/standard20.png Graphic file (type png)
+<use img/puls0125/standard20.png>
+Package pdftex.def Info: img/puls0125/standard20.png  used on input line 1024.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0125/standard30.png, id=623, 462.528pt x 346.896pt>
+File: img/puls0125/standard30.png Graphic file (type png)
+<use img/puls0125/standard30.png>
+Package pdftex.def Info: img/puls0125/standard30.png  used on input line 1031.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [37
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.30}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1035 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.31}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1035 
+        <./img/puls0125/standard10.png> <./img/puls0125/standard20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1054--1054
+[][][][] 
+ []
+
+<img/puls08/standard10.png, id=634, 462.528pt x 346.896pt>
+File: img/puls08/standard10.png Graphic file (type png)
+<use img/puls08/standard10.png>
+Package pdftex.def Info: img/puls08/standard10.png  used on input line 1060.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[38
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.32}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1064 
+       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.879   \end{table}
-                   ] [25
+l.1064 
+        <./img/puls0125/standard30.png>]
+<img/puls08/standard20.png, id=643, 462.528pt x 346.896pt>
+File: img/puls08/standard20.png Graphic file (type png)
+<use img/puls08/standard20.png>
+Package pdftex.def Info: img/puls08/standard20.png  used on input line 1067.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls08/standard30.png, id=645, 462.528pt x 346.896pt>
+File: img/puls08/standard30.png Graphic file (type png)
+<use img/puls08/standard30.png>
+Package pdftex.def Info: img/puls08/standard30.png  used on input line 1074.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [39
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.33}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1078 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.34}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1078 
+        <./img/puls08/standard10.png> <./img/puls08/standard20.png>] [40
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.35}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1095   \item L
+                ivello 8: errore $<$ 5 <./img/puls08/standard30.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1116--1116
+[][][][] 
+ []
+
+
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1137--1137
+[][][][] 
+ []
+
+<img/puls0010/lv_stringenti10.png, id=665, 462.528pt x 346.896pt>
+File: img/puls0010/lv_stringenti10.png Graphic file (type png)
+<use img/puls0010/lv_stringenti10.png>
+Package pdftex.def Info: img/puls0010/lv_stringenti10.png  used on input line 1143.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[41
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.17}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.938 \end{itemize}
-                   
+l.1147 
+       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.18}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.938 \end{itemize}
-                   
+l.1147 
+       ]
+<img/puls0013/lv_stingenti10.png, id=673, 462.528pt x 346.896pt>
+File: img/puls0013/lv_stingenti10.png Graphic file (type png)
+<use img/puls0013/lv_stingenti10.png>
+Package pdftex.def Info: img/puls0013/lv_stingenti10.png  used on input line 1150.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [42
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.36}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1158 I
+        nfine un ulteriore modifica per l'accelerazione del l'algoritmo è a...
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.37}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1158 I
+        nfine un ulteriore modifica per l'accelerazione del l'algoritmo è a... <./img/puls0010/lv_stringenti10.png> <./img/puls0013/lv_stingenti10.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1176--1176
+[][][][] 
+ []
+
+
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1196--1196
+[][][][] 
+ []
+
+
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1216--1216
+[][][][] 
+ []
+
+[43
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.19}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.938 \end{itemize}
-                   ] [26
+l.1219 
+       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.20}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.948 \begin{thebibliography}{00}
-                                 ] [27
+l.1219 
+       ]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1236--1236
+[][][][] 
+ []
+
+
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1257--1257
+[][][][] 
+ []
+
+[44
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.21}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1265 \chapter
+               {Sviluppo dell'algoritmo}
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.22}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1265 \chapter
+               {Sviluppo dell'algoritmo}
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.23}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1265 \chapter
+               {Sviluppo dell'algoritmo}]
+Capitolo 4.
+[45
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.24}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1298 P
+        er queste motivazioni, ho implementato un algoritmo divide et impera...] [46
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1331   N
+          el caso non si trovi una colonna che rispetti il criterio di selez...] [47] [48
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1409 \begin{thebibliography}{00}
+                                  ] [49
 
 ] (./IdenSat.aux)
 Package rerunfilecheck Info: File `IdenSat.out' has not changed.
-(rerunfilecheck)             Checksum: AE710B3CA341F44A9EDCCCC847159682;3437.
+(rerunfilecheck)             Checksum: A4C45D5694B763A86924EB2D456E306D;4566.
  ) 
 Here is how much of TeX's memory you used:
- 16872 strings out of 478268
- 308206 string characters out of 5846347
- 622027 words of memory out of 5000000
- 34691 multiletter control sequences out of 15000+600000
- 482451 words of font info for 76 fonts, out of 8000000 for 9000
+ 17304 strings out of 478268
+ 317489 string characters out of 5846347
+ 628575 words of memory out of 5000000
+ 35001 multiletter control sequences out of 15000+600000
+ 483099 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,23n,79p,992b,853s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 70i,25n,79p,992b,844s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on IdenSat.pdf (32 pages, 307308 bytes).
+cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on IdenSat.pdf (55 pages, 686254 bytes).
 PDF statistics:
- 566 PDF objects out of 1000 (max. 8388607)
- 467 compressed objects within 5 object streams
- 163 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 907 PDF objects out of 1000 (max. 8388607)
+ 724 compressed objects within 8 object streams
+ 269 named destinations out of 1000 (max. 500000)
+ 419 words of extra memory for PDF output out of 10000 (max. 10000000)
 

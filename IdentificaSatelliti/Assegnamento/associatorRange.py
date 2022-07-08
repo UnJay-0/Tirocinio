@@ -1,16 +1,18 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 import nlopt
 import math
 import time
 from ..Interpolazione.client import interpolation
 from .valuesReader import valReader
 from .valuesWriter import generateValues
-from .solCollector import SolCollector
+from .solCollector import SolCollector, ErrorStandards
 
 
 reader = valReader("IdentificaSatelliti/values.csv")
 STARTING_TOL = 1e-6
 STARTING_STEP = 1
+testing = []
 
 
 def writeValues(values: pd.core.frame.DataFrame) -> dict:
@@ -51,27 +53,34 @@ def optimizeCol(col: pd.core.frame.DataFrame,
     data = writeValues(col)
     ftol = STARTING_TOL
     xtol = STARTING_TOL
+    k = 5
     while period < 5e3:
         data["b"] = period
-        # print(f"periodo: {period}")
+        data["init"] = 2 * math.pi / \
+            (data["b"] + ((5e3 - data["b"]) / 2))  # (data[b])
+        print(f"periodo: {period}")
         try:
             oldResult = result
             result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
                                    maxtime=maxtime, algorithm=algorithm)
-            # print(f"errore quadratico: {result[0]}")
-            # print(f"pulsazione: {result[1][1]}")
-            # print(f"periodo: {math.pi*2 / result[1][1]}")
+            print(f"periodo iniziale: {(data['b'] + ((5e3 - data['b']) / 2))}")
+            print(f"errore quadratico: {result[0]}")
+            print(f"pulsazione: {result[1][1]}")
+            print(f"periodo: {math.pi*2 / result[1][1]}")
             sol.insert(result)
+            testing.append(result)
             if (oldResult != () and math.isclose(
                 math.pi*2 / result[1][1], math.pi
-                    * 2 / oldResult[1][1], rel_tol=1e-1)
-                    or math.isclose(period, math.pi*2 / result[1][1],
-                                    rel_tol=1e-2)
-                    or SolCollector.rangeOf(result[0]) >= 6):
-                step *= 2
+                    * 2 / oldResult[1][1], rel_tol=1e-1)  # ):
+                # or math.isclose(period, math.pi*2 / result[1][1],
+                #                 rel_tol=1e-2)
+                    or ErrorStandards.rangeOf(result[0]) >= 5):
+                step *= k
             elif (step > STARTING_STEP):
+                step = step / k
+            if (step < STARTING_STEP):
                 step = STARTING_STEP
-            # print(f"step: {step}\n")
+            print(f"step: {step}\n")
             period += step
         except nlopt.RoundoffLimited:
             ftol = ftol * 10
@@ -79,15 +88,53 @@ def optimizeCol(col: pd.core.frame.DataFrame,
     return sol.getSol()
 
 
-if __name__ == '__main__':
-    test = pd.DataFrame(generateValues(1, 0.005, 0, 30))
-    dataframe = reader.getRangeValues(0, reader.getNumValues()).iloc[:, 0: 2]
-    start = time.time()
-    result = optimizeCol(test, algorithm=nlopt.LN_COBYLA)
-    end = time.time()
-    print(f"errore quadratico: {result[0]}")
-    print(f"pulsazione: {result[1][1]}")
-    print(f"periodo: {math.pi*2 / result[1][1]}")
+def plotter(results, lv) -> None:
+    x_coordinates = []
+    y_coordinates = []
+    for result in results:
+        if ErrorStandards.rangeOf(result[0]) == lv:
+            x_coordinates.append(abs(math.pi*2 / result[1][1]))
+            y_coordinates.append(result[0])
+    plt.xlabel('Periodo [s]')
+    plt.ylabel('Errore')
+    plt.scatter(x_coordinates, y_coordinates)
+    plt.show()
 
+
+def plotter2(results) -> None:
+    x_coordinates = []
+    y_coordinates = []
+    for result in results:
+        x_coordinates.append(abs(math.pi*2 / result[1][1]))
+        y_coordinates.append(result[0])
+    plt.xlabel('Periodo [s]')
+    plt.ylabel('Errore')
+    plt.scatter(x_coordinates, y_coordinates)
+    plt.show()
+
+
+def compute(puls: float, algorithm: int) -> None:
+    punti = 30
+    test = pd.DataFrame(generateValues(1, puls, 0, punti))
+    start = time.time()
+    result = optimizeCol(test, algorithm=algorithm)
+    end = time.time()
     total_time = end - start
-    print(f"computational time: {str(total_time)}")
+    string = ''
+    string += f"\nPULSAZIONE: {puls} {punti}\n" + \
+        f"errore quadratico: {result[0]}\n" + \
+        f"pulsazione: {result[1][1]}\n" + \
+        f"periodo: {math.pi*2 / result[1][1]}\n" + \
+        f"computational time: {str(total_time)}\n"
+    # with open('output3.txt', "a") as out:
+    #    out.write(string)
+    print(string)
+
+    # plotter(testing, ErrorStandards.rangeOf(result[0]))
+    plotter2(testing)
+
+
+if __name__ == '__main__':
+    puls = [0.8, 0.0125, 0.005, 0.0013, 0.0010]
+    for el in puls:
+        compute(el, nlopt.LN_COBYLA)

@@ -35,6 +35,7 @@
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{float}
+\usepackage{tabularx}
 \sisetup{output-decimal-marker={.}}
 \newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
 \def\HiLi{\leavevmode\rlap{\hbox to \hsize{\color{yellow!50}\leaders\hrule height .8\baselineskip depth .5ex\hfill}}}
@@ -163,16 +164,14 @@ L'identificazione attraverso l'analisi del moto orbitale può essere utile in tu
 Propongo un modello per la risoluzione del sottoproblema di interpolazione.
 La sinusoide che si vuole ottenere dall'interpolazione dei punti deve avere determinate caratteristiche. Tra tutte le sinusoidi possibili che interpolano gli n valori, che in questo contesto chiamerò punti, si vuole quella di massimo periodo e sicché le misurazioni possono essere affette da errore si deve combinare la ricerca del massimo periodo con quella di minimo errore, definendo un problema a due obiettivi.
 
-\textcolor{red}{\dots Motivazioni sulla ricerca della sinusoide con massimo periodo \dots}
-
-\textcolor{red}{\dots Attenzione a sinusoidi con basso periodo rispetto alla sinusoide da inviduare\dots}
-
 Il processo risolutivo per un problema a molti obiettivi in conflitto tra loro, cioè che il miglioramento di una comporti un peggioramento di un'altra, prevede:
 \begin{enumerate}
   \item Il calcolo della regione pareto-ottima, cioè l'insieme di soluzioni ammissibili non dominate, denominate anche soluzioni paretiane.
   \item La scelta di una soluzione tra quelle individuate.
 \end{enumerate}
 La determinazione della regione pareto-ottima può essere effettuata in diversi modi. I modelli che ho definito inseguito utilizzano rispettivamente metodo dei pesi e metodo dei vincoli, i due modelli si differenziano solo per vincoli e funzione obiettivo.
+
+In questo processo di interpolazione è necessario fare attenzione alle sinusoidi con basso periodo rispetto alla sinusoide da individuare: si può osservare dalle regioni paretiane rappresentate dalle figure da \ref{fig:reg_ammis_10_0010} a \ref{fig:reg_ammis_30_0010} del paragrafo \ref{ss:sel_sol} che aumentando la frequenza, quindi al diminuire del periodo, esiste sempre un modo di interpolare n punti con una sinusoide minimizzando a piacimento l'errore di interpolazione.
 
 % perché
 % dati
@@ -212,7 +211,7 @@ Le due funzioni obiettivo da ottimizzare sono:
 
 \begin{equation}
 \label{fo:periodo}
-max \, f_1 = \frac{2\pi}{\omega}
+min \, f_1 = \omega
 \end{equation}
 La massimizzazione del periodo
 \begin{equation}
@@ -224,7 +223,7 @@ La minimizzazione dell'errore complessivo, calcolo l'errore qudratico complessiv
 I pesi definiti per le funzioni $ f_1 $ e $ f_2 $ sono rispettivamente 1 e -1, quindi ottenendo la funzione obiettivo:
 
 \begin{equation}
-max \, f = f_1 - f_2
+max \, f = f_1 + f_2
 \end{equation}
 Questa configurazione dei pesi di partenza permette di penalizzare tutte quelle soluzioni ammissibili che massimizzano il periodo ma hanno un errore elevato.
 
@@ -311,6 +310,53 @@ Si moltiplica il passo p per una costante k, è possibile variare la velocità d
 
 Un altro fattore che determina l'esplorazione è la dimensione dell'intorno. È necessario definire un intorno poiché è possibile che con approssimazioni e specifiche interne del solutore o anche in base alle caratteristiche della regione ammissibile, non si individui l'esatto valore di un minimo locale, ma un valore nell'intorno di esso in iterazioni successive. Perciò è necessario definire un livello di tolleranza con il quale definire se due soluzioni sono da cosiderare uguali (riga \ref{aumentoPasso}).
 % definizione del range di periodi
+
+\subsection{Punto di inizializzazione}
+Il processo di inzializzazione di un modello, consiste nel fissare le variabili del problema a dei valori di partenza. Generalmente definire una soluzione iniziale per il solutore nei problemi di programmazione non lineare è importante, poiché ne determina l'abilità di individuare un minimo locale diverso da un altro, e poter indidivuare un minimo locale migliore sotto una determinata caratteristica.
+
+In questo problema la qualità della soluzione è individuata prevalentemente nel periodo e nell'errore, perciò la variabile che assume più importanza nella determinazione di una soluzione iniziale è la pulsazione $\omega$, gli errori per ogni punto sono variabili risultanti perciò non vanno fissate.
+
+Con questa definizione del modello, mi è risultato difficile discernere un algoritmo di definizione della soluzione di partenza, a partire dai test effettuati. La difficoltà nasce dal interpretare il comportamento del solutore dato un problema e una serie di soluzioni di partenza all'aumentare del minimo periodo $ \beta $, quindi dall'indiviuazione di un pattern chiaro e veloce che definisca la posizione ideale della soluzione di partenza, nelle successive iterazioni.
+
+I test sono stati effetuati eseguendo l'algoritmo di controllo, \ref{controllo} dando come punto di iniziale il seguente:
+\begin{itemize}
+  \item $A$ = 0
+  \item $\phi$ = 0
+  \item $w = \frac{4\pi}{5000 - \beta}$
+\end{itemize}
+
+Con i seguenti parametri dell'algoritmo \ref{controllo}:
+\begin{itemize}
+  \item $f(x)$ in riga \ref{velocitaPasso}, algoritmo \ref{controllo} pari alla funzione \eqref{velocitaPassoEspl} con $k = 5$
+  \item $periodoIniziale = 0s$
+  \item $periodoFinale = 5000s$
+\end{itemize}
+
+Fissando $ \omega $ con il periodo a metà tra il periodo limite e il minimo periodo $\beta$, ad esempio nel problema con 30 punti generati dalla sinusoide $ e(t)~=~sin(\omega t)$
+
+\begin{table}[H]
+  \caption{Iterazioni effettuate per il problema con Sinusoide con $\omega = 0.8~rad/s$}
+  \label{tab:init_08}
+  \begin{center}
+    \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
+      \toprule
+      {Periodo limite $\beta$ (s)} & {Periodo di partenza (s)} & {Periodo soluzione (s)} & {Errore quadratico \newline medio} \\
+      \midrule
+      1 &  1201 & 7.5 & $\expnumber{1.3}{-11}$\\
+      2 &  2095 & 10.3 & $\expnumber{7.5}{-5}$\\
+      7 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
+      32 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
+      157 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
+      782 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
+      3907 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
+      4532 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
+      4657 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
+      \bottomrule
+    \end{tabularx}
+  \end{center}
+\end{table}
+
+
 \subsection{Criterio arresto }
 \label{ss:arresto}
 È necessario specificare un criterio di arresto per l'algoritmo di controllo. L'idea applicata è quella di determinare l'arresto fissando un periodo limite per il minimo periodo $ \beta $ (riga \ref{periodoLimite}). Effettuando una ricerca sui satelliti del sistema solare, ho individuato che il massimo periodo di un satellite nel sistema solare è pari a 9374.0 giorni \cite{nasa}.
@@ -366,7 +412,7 @@ I parametri dell'algoritmo \ref{controllo} per le seguenti sperimentazioni sono:
     \end{tabular}
 \end{table}
 
-\begin{table}[H]
+\begin{table}
   \caption{Prestazioni dei solutori: Sinusoide con $\omega = 0.005~rad/s$}
   \label{tab:prestazioni_sol005}
   \center
@@ -383,7 +429,7 @@ I parametri dell'algoritmo \ref{controllo} per le seguenti sperimentazioni sono:
     \end{tabular}
 \end{table}
 
-\begin{table}{H}
+\begin{table}[H]
   \caption{Prestazioni dei solutori: Sinusoide con $\omega = 0.0013~rad/s$}
   \label{tab:prestazioni_sol0013}
   \center
@@ -416,7 +462,8 @@ I parametri dell'algoritmo \ref{controllo} per le seguenti sperimentazioni sono:
       \bottomrule
     \end{tabular}
 \end{table}
-
+È interessante analizzare il comportamento dei solutori se il modello utilizzasse trasformasse in vincolo la funzione dell'errore (funzione  \ref{fo:errore}) invece del periodo:
+l'
 L'algoritmo scelto dall'insieme disponibile è COBYLA \cite{COBYLA}, da come si può notare, è l'unico solutore che individua soluzioni nell'intorno specificato. È da evidenziare la difficoltà per il solutore COBYLA nel individuare soluzioni al di fuori del range di esplorazione fissato per il criterio d'arresto, come da esempio in tabella \ref{tab:prestazioni_sol0010} dove i punti del problema sono generati da una sinusoide con periodo pari a $T = \frac{2\pi}{\omega} = \frac{2\pi}{0.0010} = 6280s$.
 
 % gestione degli errori
@@ -502,18 +549,38 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
     \caption{periodo da individuare uguale a 6280s}
     \label{tab:fuori_}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 &  1045.8 & 4.6\\
-        20 &  386.8 & 5.8\\
-        30 &   4158.2 & 5.5\\
+        10 &  662 & 4.5 & $\expnumber{2.7}{-8}$\\
+        20 &  499 & 5.4 & $\expnumber{3.6}{-5}$\\
+        30 &   1342 & 3.09 & $\expnumber{1.7}{-4}$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
 
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0010/puntoUtopia10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:fuori_}}
+    \label{fig:reg_ammis_10_0010}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0010/puntoUtopia20.png}
+    \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:fuori_}}
+    \label{fig:reg_ammis_20_0010}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0010/puntoUtopia30.png}
+    \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:fuori_}}
+    \label{fig:reg_ammis_30_0010}
+  \end{figure}
 
   \item $ e(t)~=~sin(0.0013t)$ sinusoide con periodo pari a:
   $T = 4830.7s$
@@ -521,17 +588,38 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
     \caption{periodo da individuare uguale a 4830.7s}
     \label{tab:limiteSup_}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 & 919.1 & 5.7\\
-        20 &  321.6 & 5.0\\
-        30 &  4728.5 & 10.3\\
+        10 &  1201 & 7.5 & $\expnumber{1.3}{-11}$\\
+        20 &  2095 & 10.3 & $\expnumber{7.5}{-5}$\\
+        30 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0013/puntoUtopia10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:limiteSup_}}
+    \label{fig:reg_ammis_10_0013}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0013/puntoUtopia20.png}
+    \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:limiteSup_}}
+    \label{fig:reg_ammis_20_0013}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0013/puntoUtopia30.png}
+    \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:limiteSup_}}
+    \label{fig:reg_ammis_30_0013}
+  \end{figure}
 
 
   \item $ e(t)~=~sin(0.005t)$ sinusoide con periodo pari a:
@@ -540,17 +628,38 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
     \caption{periodo da individuare uguale a 1256s}
     \label{tab:centro1_}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 & 922 & 9.6\\
-        20 &  3679.1 & 20.9\\
-        30 &  1881.6 & 11.8\\
+        10 &  753  & 6.8 & $\expnumber{1.3}{-6}$\\
+        20 &  1321 & 16.2 & $\expnumber{1.7}{-4}$\\
+        30 &  1681 & 8.2 & $\expnumber{9.6}{-4}$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls005/puntoUtopia10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:centro1_}}
+    \label{fig:reg_ammis_10_005}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls005/puntoUtopia20.png}
+    \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:centro1_}}
+    \label{fig:reg_ammis_20_005}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls005/puntoUtopia30.png}
+    \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:centro1_}}
+    \label{fig:reg_ammis_30_005}
+  \end{figure}
 
   \item $ e(t)~=~sin(0.0125t)$ sinusoide con periodo pari a:
       T = 502.4s
@@ -559,35 +668,52 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
       \caption{periodo da individuare uguale a 502.4s}
       \label{tab:centro2_}
       \begin{center}
-        \begin{tabular}{SSS}
-          \toprule
-          {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
-          \midrule
-          10 &  521.7 & 6.8\\
-          20 &  653.4 & 15.6\\
-          30 &  642.7 & 7.3\\
-          \bottomrule
-        \end{tabular}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
+        \toprule
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
+        \midrule
+        10 &  425  & 6.4 & $\expnumber{2.5}{-10}$\\
+        20 &  701 & 18.1 & $\expnumber{2.7}{-4}$\\
+        30 &  589 & 9.3 & $\expnumber{6.0}{-4}$\\
+        \bottomrule
+      \end{tabularx}
       \end{center}
     \end{table}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.70]{img/puls005/puntoUtopia10.png}
+      \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:centro2_}}
+      \label{fig:reg_ammis_10_0125}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.70]{img/puls0125/puntoUtopia20.png}
+      \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:centro2_}}
+      \label{fig:reg_ammis_20_0125}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.70]{img/puls0125/puntoUtopia30.png}
+      \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:centro2_}}
+      \label{fig:reg_ammis_30_0125}
+    \end{figure}
     \item $ e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
         T = 7.85s
-
-
-
       \begin{table}[H]
         \caption{periodo da individuare uguale a 7.85s}
         \begin{center}
           \label{tab:limiteInf_}
-          \begin{tabular}{SSS}
+          \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
             \toprule
-            {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+            {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
             \midrule
-            10 &  7.8 & 2.3\\
-            20 &  8909.3 & 87.0\\
-            30 &  1286.5 & 6.1\\
+            10 &  40  & 2.2 & $\expnumber{1.3}{-6}$\\
+            20 &  8313 & 97.0 & $\expnumber{1.7}{-4}$\\
+            30 &  4519 & 12.1 & $\expnumber{9.6}{-4}$\\
             \bottomrule
-          \end{tabular}
+          \end{tabularx}
         \end{center}
       \end{table}
 \end{itemize}
@@ -642,7 +768,7 @@ L'altra probabile causa è la mancata normalizzazione dei domini dell'errore e d
 \begin{figure}
   \center
   \includegraphics[scale=0.80]{img/puls08/tutte_le_soluzioni.png}
-  \caption{Soluzioni generate per il problema di tabe\ref{tab:limiteInf_} con 20 punti}
+  \caption{Soluzioni generate per il problema di tabella \ref{tab:limiteInf_} con 20 punti}
   \label{fig:tutte_le_soluzioni_08}
 \end{figure}
 
@@ -686,6 +812,7 @@ Riassumendo, per il miglioramento del criterio di selezione esplicito le seguent
 Dato le ampie modifiche richieste, ho optato per l'individuazione e definizione di un altro criterio di selezione.
 
 \subsubsection{Criterio degli standard sull'errore}
+\label{sss:standard}
 Gli standard sono valori-soglia al di sotto dei quali non si vuole che gli
 obiettivi possano peggiorare. Data la non predicibilità del periodo ottimale in questo problema, è possibile definire gli standard solo per l'errore. La modalità con il quale ho definito gli standard per la scelta della soluzione prevede la suddivisione in range del dominio dell'errore, ipotizzando che ogni soluzione in uno stesso range sia equivalente, se si considera solo l'errore. Ogni range è identificato con un numero ordinale specificandoli come livelli: primo livello, secondo livello, ... , n-esimo livello, dove per ordine crescente dei livelli si ha l'aumento del range d'errore. I range devono essere definiti a priori, in maniera attenta rispetto all'errore intriseco dello strumento di rilevazione dei punti. È necessario inoltre effettuare ipotesi sul errore di una soluzione: errore di una soluzione ottimale, errore di una soluzione non correlata ai punti, errore di una soluzione legata ad un sottoproblema con un assegnamento di punti errato.
 
@@ -707,7 +834,7 @@ Il seguente pseudocodice illustra una procedura di una struttura dati che ho def
               $\SolOttimale \gets \SolCorrente$\\
           }
        } {
-          \If{$\SolCorrente[periodo] < \SolOttimale[periodo]$}{ \label{std:per}
+          \If{$\SolCorrente[periodo] > \SolOttimale[periodo]$}{ \label{std:per}
               $\SolOttimale \gets \SolCorrente$\\
           }
        }
@@ -737,7 +864,7 @@ Ho fissato i range in maniera da ottenere maggiore precisione e diversificazione
 
 I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni sono:
 \begin{itemize}
-  \item $f(x)$ in riga \ref{velocitaPasso}, algoritmo \ref{controllo} pari alla funzione \eqref{velocitaPassoEspl} con $k = 2$
+  \item $f(x)$ in riga \ref{velocitaPasso}, algoritmo \ref{controllo} pari alla funzione \eqref{velocitaPassoEspl} con $k = 5$
   \item $periodoIniziale = 0s$
   \item $periodoFinale = 5000s$
   \item $tolleranzaDefault = \expnumber{1}{-6}$
@@ -749,17 +876,39 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
     \caption{periodo da individuare uguale a 6280s}
     \label{tab:fuori}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 &  4830.7 & 3.2\\
-        20 &  4485.7 & 2.9\\
-        30 &  4186.6 & 0.6\\
+        % 1648.2 % 694.6 % 1374
+        10 &  4631.8  & 2.2 & $\expnumber{9.0}{-7}$\\
+        20 &  5585.4 & 1.9 & $\expnumber{1.0}{-34}$\\
+        30 &  4906.0 & 2.0 & $\expnumber{6.0}{-4}$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0010/standard10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:fuori}}
+    \label{fig:reg_ammis_10_0010_std}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0010/standard20.png}
+    \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:fuori}}
+    \label{fig:reg_ammis_20_0010_std}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0010/standard30.png}
+    \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:fuori}}
+    \label{fig:reg_ammis_30_0010_std}
+  \end{figure}
 
 
   \item $ e(t)~=~sin(0.0013t)$ sinusoide con periodo pari a:
@@ -768,17 +917,39 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
     \caption{periodo da individuare uguale a 4830.7s}
     \label{tab:limiteSup}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 &  1495.2 & 2.9\\
-        20 &  4186.6 & 3.8\\
-        30 &  4186.6 & 0.6\\
+        % 359.7 % 76.3 % 338.7
+        10 &  4471.5  & 2.2 & $\expnumber{6.4}{-8}$\\
+        20 &  4907.0 & 2.0 & $0.0$\\
+        30 &  4492.0 & 2.3 & $0.0$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0013/standard10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:limiteSup}}
+    \label{fig:reg_ammis_10_0013_std}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0013/standard20.png}
+    \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:limiteSup}}
+    \label{fig:reg_ammis_20_0013_std}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0013/standard30.png}
+    \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:limiteSup}}
+    \label{fig:reg_ammis_30_0013_std}
+  \end{figure}
 
 
   \item $ e(t)~=~sin(0.005t)$ sinusoide con periodo pari a:
@@ -787,17 +958,39 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
     \caption{periodo da individuare uguale a 1256s}
     \label{tab:centro1}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 &  1225.8 & 6.7\\
-        20 &  1395.5 & 4.7\\
-        30 &  4485.7 & 2.0\\
+        % 503 % 32 % 3484
+        10 &  1759.0  & 2.1 & $\expnumber{8.9}{-6}$\\
+        20 &  1224.0 & 2.6 & $0.0$\\
+        30 &  4740 & 2.0 & $0.0$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls005/standard10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:centro1}}
+    \label{fig:reg_ammis_10_005_std}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls005/standard20.png}
+    \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:centro1}}
+    \label{fig:reg_ammis_20_005_std}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls005/standard30.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:centro1}}
+    \label{fig:reg_ammis_30_005_std}
+  \end{figure}
 
   \item $ e(t)~=~sin(0.0125t)$ sinusoide con periodo pari a:
       T = 502.4s
@@ -806,17 +999,40 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
       \caption{periodo da individuare uguale a 502.4s}
       \label{tab:centro2}
       \begin{center}
-        \begin{tabular}{SSS}
+        \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
           \toprule
-          {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+          {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
           \midrule
-          10 &  697.8 & 3.6\\
-          20 &  785 & 11.6\\
-          30 &  514.7 & 0.6\\
+          % 99.6 % 299.3 % 240.6
+          10 &  602.0  & 2.7 & $\expnumber{5.1}{-7}$\\
+          20 &  801.9 & 6.0 & $0.0$\\
+          30 &  743.0  & 2.2 & $0.0$\\
           \bottomrule
-        \end{tabular}
+        \end{tabularx}
       \end{center}
     \end{table}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.70]{img/puls0125/standard10.png}
+      \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:centro2}}
+      \label{fig:reg_ammis_10_0125_std}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.70]{img/puls0125/standard20.png}
+      \caption{Regione paretiana per problema da 20 punti di tabella \ref{tab:centro2}}
+      \label{fig:reg_ammis_20_0125_std}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.70]{img/puls0125/standard30.png}
+      \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:centro2}}
+      \label{fig:reg_ammis_30_0125_std}
+    \end{figure}
+
     \item $ e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
         T = 7.85s
 
@@ -826,36 +1042,138 @@ I parametri dell'algoritmo \ref{controlloErrore} per le seguenti sperimentazioni
         \caption{periodo da individuare uguale a 7.85s}
         \begin{center}
           \label{tab:limiteInf}
-          \begin{tabular}{SSS}
+          \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
             \toprule
-            {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+            {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
             \midrule
-            10 &  7.85 & 0.6\\
-            20 &  7.85 & 80.0\\
-            30 &  7.85 & 4.2\\
+            % 0.05 % 0.15 %0.15
+            10 &  7.8  & 1.8 & $\expnumber{5.0}{-9}$\\
+            20 &  8.0 & 4.1 & $\expnumber{1.1}{-2}$\\
+            30 &  8.0  & 2.5 & $\expnumber{2.5}{-2}$\\
             \bottomrule
-          \end{tabular}
+          \end{tabularx}
         \end{center}
       \end{table}
-\end{itemize}
-L'esecuzione dell'algoritmo è caratterizzato da uno scostamento medio dal periodo da individuare di $937.2s$ e una mediana di $282.6s$ ed infine un tempo medio di esecuzione di $8.4s$ e una mediana di $3.2s$.
 
-È possibile provare a diminuire il tempo di esecuzione modificando l'algoritmo di controllo ed esploranzione, aggiungendo come condizione di aumento del passo, l'individuazione di una soluzione dal livello maggiore di un livello di soglia. Questo permette una velocizzazione dell'esplorazione saltando tutti quei periodi di partenza lontani dal periodo della sinusoide da individuare. Effettuando questa modifica, scegliendo ad esempio come livello di soglia il sesto, si ottengono i seguenti risultati:
+      \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.70]{img/puls08/standard10.png}
+        \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:limiteInf}}
+        \label{fig:reg_ammis_10_08_std}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.70]{img/puls08/standard20.png}
+        \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:limiteInf}}
+        \label{fig:reg_ammis_20_08_std}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.70]{img/puls08/standard30.png}
+        \caption{Regione paretiana per problema da 30 punti di tabella \ref{tab:limiteInf}}
+        \label{fig:reg_ammis_30_08_std}
+      \end{figure}
+
+\end{itemize}
+
+L'esecuzione dell'algoritmo è caratterizzato da uno scostamento medio dal periodo da individuare di $610.0s$ e una mediana di $299.3s$ ed infine un tempo medio di esecuzione di $2.5s$ e una mediana di $2.2s$.
+
+È possibile provare a diminuire il tempo di esecuzione modificando l'algoritmo di controllo ed esploranzione, aggiungendo come condizione di aumento del passo, l'individuazione di una soluzione dal livello maggiore di un livello di soglia. Questo permette una velocizzazione dell'esplorazione saltando tutti quei periodi di partenza lontani dal periodo della sinusoide da individuare.
+
+Inoltre si può notare che l'errore delle soluzioni individuate si distribuisce in un range pari a $[0.0, \expnumber{2.5}{-2}]$, questo potrebbe suggerire  la definizione di livelli dai range più stringenti come ad esempio:
+
+\begin{itemize}
+  \item Livello 1: errore $<$ $\expnumber{1}{-9}$
+  \item Livello 2: errore $<$ $\expnumber{1}{-7}$
+  \item Livello 3: errore $<$ $\expnumber{1}{-5}$
+  \item Livello 4: errore $<$ $\expnumber{1}{-3}$
+  \item Livello 5: errore $<$ $\expnumber{1}{-1}$
+  \item Livello 6: errore $<$ 1
+  \item Livello 7: errore $<$ 3
+  \item Livello 8: errore $<$ 5
+  \item Livello 9: errore $\geq$ 5
+\end{itemize}
+
+Ma eseguendo i problemi da periodo elevato come i problemi di tabella \ref{tab:fuori} e \ref{tab:limiteSup}, si può notare nelle tabelle successive \ref{tab:fuori_stringente} e \ref{tab:limiteSup_stringente}, che le sinusoidi individuate per i problemi da 10 punti, si scostano mediamente di $4409.1s$ dalla sinusoide da individuare, evidenziando il problema delle sinusoidi da basso periodo rispetto alla sinusoide da individuare.
+
+\begin{itemize}
+  \item $ e(t)~=~sin(0.0010t)$ sinusoide con periodo pari~a: $T = \frac{2\pi}{\omega} = \frac{2\pi}{0.0010} = 6280s$
+  \begin{table}[H]
+    \caption{periodo da individuare uguale a 6280s}
+    \label{tab:fuori_stringente}
+    \begin{center}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
+        \toprule
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
+        \midrule
+        % 1648.2 % 694.6 % 1374
+        10 &  1587.0  & 1.29 & $\expnumber{5.0}{-10}$\\
+        20 &  4388 & 0.65 & $0.0$\\
+        30 &  4907.0 & 0.9 & $0.0$ \\
+        \bottomrule
+      \end{tabularx}
+    \end{center}
+  \end{table}
+
+
+
+  \item $ e(t)~=~sin(0.0013t)$ sinusoide con periodo pari a:
+  $T = 4830.7s$
+  \begin{table}[H]
+    \caption{periodo da individuare uguale a 4830.7s}
+    \label{tab:limiteSup_stringente}
+    \begin{center}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
+        \toprule
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
+        \midrule
+        % 359.7 % 76.3 % 338.7
+        10 &  704  & 2.2 & $\expnumber{6.4}{-8}$\\
+        20 &  4478.0 & 0.77 & $0.0$\\
+        30 &  4935.0 & 0.8 & $0.0$\\
+        \bottomrule
+      \end{tabularx}
+    \end{center}
+  \end{table}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0010/lv_stringenti10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:fuori_stringente}}
+    \label{fig:reg_ammis_10_0010_stringente}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.70]{img/puls0013/lv_stingenti10.png}
+    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:limiteSup_stringente}}
+    \label{fig:reg_ammis_10_0013_stringente}
+  \end{figure}
+\end{itemize}
+
+Perciò ho deciso di mantenere i livelli precedentemente definiti.
+
+Infine un ulteriore modifica per l'accelerazione del l'algoritmo è agire sul parametro k della $f(x)$ in riga \ref{velocitaPasso}, algoritmo \ref{controllo}, fissandolo pari a $10$ il doppio del valore fissato precedentemente.
+
+Effettuando questa modifiche e scegliendo come livello di soglia il quinto, si ottengono i seguenti risultati:
 \begin{itemize}
   \item $ e(t)~=~sin(0.0010t)$ sinusoide con periodo pari~a: $T = \frac{2\pi}{\omega} = \frac{2\pi}{0.0010} = 6280s$
   \begin{table}[H]
     \caption{periodo da individuare uguale a 6280s}
     \label{tab:fuori_2}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 &  4830.7 & 3.2\\
-        20 &  4830.7 & 3.9\\
-        30 &  4186.6 & 0.6\\
+        % 1669.2 % 1819 % 1374
+        10 &  4610.8  & 1.2 & $\expnumber{9.8}{-7}$\\
+        20 &  4461.0 & 1.2 & $0.0$\\
+        30 &  4906.0 & 1.2 & $0.0$ \\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
 
@@ -866,15 +1184,16 @@ L'esecuzione dell'algoritmo è caratterizzato da uno scostamento medio dal perio
     \caption{periodo da individuare uguale a 4830.7s}
     \label{tab:limiteSup_2}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 &  1495.2 & 2.9\\
-        20 &  5709.0 & 7.3\\
-        30 &  4186.6 & 0.6\\
+        % 248.7 % 111.3 % 369.7
+        10 &  4582.0  & 1.0 & $\expnumber{4.3}{-8}$\\
+        20 &  4942.0 & 1.2 & $0.0$\\
+        30 &  4461.0 & 1.2 & $0.0$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
 
@@ -885,15 +1204,16 @@ L'esecuzione dell'algoritmo è caratterizzato da uno scostamento medio dal perio
     \caption{periodo da individuare uguale a 1256s}
     \label{tab:centro1_2}
     \begin{center}
-      \begin{tabular}{SSS}
+      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
         \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
         \midrule
-        10 &  1495.2 & 5.9\\
-        20 &  1231.3 & 1.6\\
-        30 &  3140.0 & 10.4\\
+        % 472 % 32 % 3064.4
+        10 &  1683.0  & 1.3 & $\expnumber{8.2}{-6}$\\
+        20 &  1224.0 & 1.8 & $0.0$\\
+        30 &  4320.4 & 2.3 & $0.0$\\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{center}
   \end{table}
 
@@ -904,15 +1224,16 @@ L'esecuzione dell'algoritmo è caratterizzato da uno scostamento medio dal perio
       \caption{periodo da individuare uguale a 502.4s}
       \label{tab:centro2_2}
       \begin{center}
-        \begin{tabular}{SSS}
+        \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
           \toprule
-          {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+          {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
           \midrule
-          10 &  592.4 & 5.09\\
-          20 &  785 & 11.8\\
-          30 &  514.7 & 0.6\\
+          % 4.3 % 203.6 % 353.6
+          10 &  498.1 & 1.8 & $\expnumber{3.1}{-7}$\\
+          20 &  706.0 & 2.2 & $0.0$\\
+          30 &  756.0 & 1.4 & $0.0$\\
           \bottomrule
-        \end{tabular}
+        \end{tabularx}
       \end{center}
     \end{table}
     \item $ e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
@@ -924,22 +1245,162 @@ L'esecuzione dell'algoritmo è caratterizzato da uno scostamento medio dal perio
         \caption{periodo da individuare uguale a 7.85s}
         \begin{center}
           \label{tab:limiteInf_2}
-          \begin{tabular}{SSS}
+          \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
             \toprule
-            {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)}\\
+            {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
             \midrule
-            10 &  7.85 & 0.6\\
-            20 &  7.85 & 0.7\\
-            30 &  7.85 & 0.6\\
+            % 0.0 % 0.05 % 0.05
+            10 &  7.8  & 1.1 & $\expnumber{5.7}{-5}$\\
+            20 &  8.0 & 1.2 & $\expnumber{1.1}{-2}$\\
+            30 &  8.0 & 1.2 & $\expnumber{2.5}{-2}$\\
             \bottomrule
-          \end{tabular}
+          \end{tabularx}
         \end{center}
       \end{table}
 \end{itemize}
 
-Così ottenendo uno scostamento medio di $825.5s$ e con mediana pari a $282.6s$ e un tempo medio di esecuzione di~$3.7s$ con mediana pari a $2.9s$.
-Si ottiene così una diminuzione sia dello scostamento medio che dei tempi di esecuzione.
+Così ottenendo uno scostamento medio di $648.1s$ e con mediana pari a $248.7s$ e un tempo medio di esecuzione di~$1.4s$ con mediana pari a $1.2s$.
+Si ottiene così una diminuzione dei tempi di esecuzione.
 
+\chapter{Sviluppo dell'algoritmo}
+% Il compito dell'algoritmo di assegnamento
+Date n osservazioni composti da k valori, dove k è il numero di satelliti, l'algoritmo di assegnamento ha il compito di definire e valutare gli assegnamenti di n valori, presi da n osservazioni differenti. Lo scopo è di individuare gli assegnamenti che identificano le sinusoidi corrispondenti al moto dei satelliti.
+
+\begin{table}[H]
+  \caption{Esempio di struttura dati per le osservazioni}
+  \label{tab:osservazioni}
+  \center
+    \begin{tabular}{lcccc}
+      \toprule
+      {} & {\ang{1} satellite} & {\ang{2} satellite} & {...} & {k-esimo satellite}\\
+      \midrule
+      $\ang{1}$ osservazione & val & val & ... & val \\
+      $\ang{2}$ osservazione & val & val & ... & val  \\
+      ...                    & val & val & ... & val \\
+      $k-esima$ osservazione & val & val & ... & val \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+% Struttura e approccio
+\section{Struttura e approccio}
+
+Il concetto alla base è quello di generare tutte le permutazioni possibili delle n osservazioni, e di valutarle tramite i parametri restituiti dal modulo di interpolazione. Il numero delle permutazioni è pari a $(k!)^{n}$.
+
+La permutazione di una singola osservazione produce $k!$ elementi, ognuno di questi elementi deve essere assegnato a tutti i $k!$ elementi delle successive osservazioni fino alla n-esima osservazione:
+\begin{equation}
+ \label{numPerm}
+  \prod_{i=1}^{n}k!
+\end{equation}
+
+Il numero delle permutazioni evidenzia il costo estensivo del processo e comporta l'applicazione di metodologie atti a ridurre il numero di permutazioni valutate per l'individuazione degli assegnamenti corretti in tempo utile.
+
+Per queste motivazioni, ho implementato un algoritmo divide et impera, che divide il problema di assegnamento in sottoproblemi dal numero di osservazioni minore e unisce i risultati ottenuti nei vari nodi fino ad ottenere la soluzione del problema originario.
+
+  % Creazione nodi
+\subsection{Creazione dei sottoproblemi}
+
+  Per la generazione dei sottoproblemi, sfrutto la tecnica della ricorsione, generando un albero di chiamate dove ogni nodo corrisponde ad un sottoproblema.
+  I nodi figli sono definiti in un nodo suddividendo a metà il numero di osservazioni dati in input, si effettua questo processo finché il numero di osservazioni in un nodo è minore o uguale ad un numero di osservazioni fissato, determinando i nodi foglia.
+
+  Una volta che i nodi foglia individuano una assegnazione dei punti ritenuta corretta, questa viene restituita al nodo padre che unirà la soluzione con la soluzione individuata dall'altro nodo figlio.
+  \begin{algorithm}
+  \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+  \SetKwData{valori}{valori}
+  \SetKwData{noss}{nOss}
+  \SetKwFunction{gen}{GeneraAlbero}
+  \SetKwFunction{nodo}{OttimizzaNodo}
+  \SetKwFunction{foglia}{OttimizzaFoglia}
+  \SetKwFunction{nOss}{NumeroOsservazioni}
+  \caption{Generatore Albero}\label{alg:genera_albero}
+  \Input{\valori Matrice contenente n osservazioni da k valori}
+  \Output{Struttura dati contenente n osservazioni da k valori}
+  $\noss \leftarrow \nOss{\valori}$ \\
+  \If{ \noss $<= dimensioneFoglia$}{ \label{genAlbero:foglia}
+    \Return \foglia{\valori} \\
+  }
+  \Return \nodo{\gen{$\valori[0: \noss / 2]$}, \gen{$\valori[\noss / 2: \noss]$}} \\
+
+  \end{algorithm}
+  % Gestione nodo
+  \subsection{Gestione dei nodi non foglia}
+  Il compito di un nodo non foglia è quello di unire gli assegnamenti individuati nei nodi figli. Questo viene effettuato tramite la permutazione delle colonne di uno delle due matrici, unendo per le colonne, la matrice non permutata con la matrice permutata.
+
+  Le colonne della matrice risultante sono valutate ad una ad una tramite il modulo di interpolazione, non appena si individua una colonna dall'errore con livello inferiore ad un livello soglia (riferimento ai livelli dell'algoritmo di selezione di una soluzione in \ref{sss:standard}), la si memorizza nella matrice da restituire, tolgliendo le colonne che compongono la colonna memorizzata dalla matrice da permutare e dalla matrice non permutata.
+
+  Nel caso non si trovi una colonna che rispetti il criterio di selezione, si seleziona la colonna con errore dal livello minore individuata nel corso di tutte le permutazioni (da riga \ref{nocond1} a \ref{nocond2} dell'algoritmo \ref{alg:gestione_nodo}).
+
+  Si effettuano queste operazioni finché non rimane una sola colonna nella matrice da permutare e nella matrice non permutata.
+
+  \begin{algorithm}
+  \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+  \SetKwData{primo}{val1}
+  \SetKwData{secondo}{val2}
+  \SetKwData{perm}{permutazioni}
+  \SetKwData{optCol}{colonnaMigliore}
+  \SetKwData{ass}{assegnamentoOttimale}
+  \SetKwData{unione}{unione}
+  \SetKwData{sin}{sinusoide}
+  \SetKwFunction{LivelloDi}{LivelloDi}
+  \SetKwFunction{genPerm}{GeneraPermutazioni}
+  \SetKwFunction{sinFun}{IndividuaSinusoide}
+  \SetKwFunction{ncol}{NumeroColonne}
+  \SetKwFunction{unisci}{Unisci}
+  \SetKw{KwTo}{in}
+  \SetKw{KwBr}{break}
+  \caption{Gestione nodo}\label{alg:gestione_nodo}
+  \Input{\primo  Matrice contenente $j$ osservazioni da $k$ valori \\
+         \secondo  Matrice contenente $j$ osservazioni da $k$ valori}
+  \Output{Struttura dati contenente $2j$ osservazioni da $k$ valori}
+  \perm $\leftarrow$ \genPerm{\secondo} \\
+  \optCol $\leftarrow [~]$ \\
+  \While{True} {
+    \For{$perm~\KwTo~\perm$} {
+      \unione $\leftarrow$ \unisci{\primo, $perm$} \\
+      \For{$col~\KwTo~\unione$}{
+        \sin $\leftarrow$ \sinFun{$col$} \\
+        \If{\LivelloDi{\sin} $<= livelloSoglia$} {
+          rimuovi le colonne di \primo e \secondo che compongono $col$\\
+          rimuovi $col$ da $\unione$\\
+          \perm $\leftarrow$ \genPerm{\secondo} \\
+          aggiungi col ad \ass \\
+          \If{\ncol{$\unione$} $=$ 1} {
+            rimuovi le colonne di \primo e \secondo che compongono la colonna rimasta in $\unione$\\
+            aggiungi la colonna rimasta in $\unione$ ad \ass \\
+            \Return \ass \\
+          }
+          \KwBr \\
+
+        }
+        \If{\LivelloDi{sin} $\leq$ \LivelloDi{\optCol}}{
+          \optCol $\leftarrow$ $col$ \\
+        }
+      }
+    }
+    rimuovi le colonne di \primo e \secondo che compongono \optCol\\ \label{nocond1}
+    \perm $\leftarrow$ \genPerm{\secondo} \\
+    aggiungi col ad \ass \\
+    \If{\ncol{$\secondo$} $=$ 1} {
+      rimuovi le colonne di \primo e \secondo rimaste \\
+      aggiungi $\optCol$ ad \ass \\
+      \Return \ass \\
+    } \label{nocond2}
+  }
+  \end{algorithm}
+    Il caso migliore è identificato nella individuazione della colonna ottimale nella prima iterazione delle permutazioni, dall'inizio fino ad ogni rimozione di colonna, dove l'algoritmo analizza $k-1$ permutazioni, $k$ rappresenta il numero di colonne. Il caso peggiore è identificato nell'individuazione della colonna ottimale nell'ultima iterazione delle permutazioni dall'inizio fino ad ogni rimozione di colonna, dove l'algoritmo analizza  $\sum_{i=0}^k (k-i)!$ permutazioni.
+    Nel caso si valutasse le colonne di una permutazione complessivamente, quindi senza rimozioni di colonne, sarebbe necessario valutare tutte le permutazioni, l'algoritmo analizzerebbe $k!$ permutazioni.
+
+    Ho scelto di applicare l'operazione di rimozione per i vantaggi portati dal suo caso migliore e dal fatto che il caso peggiore non abbia un aumento così drastico delle permutazioni da analizzare.
+
+
+  % Gestione foglia
+  \subsection{Gestione dei nodi foglia}
+  I nodi foglia sono caratterizzati da un numero di osservazioni minore o uguale ad un determinato valore (riga \ref{genAlbero:foglia}, algoritmo \ref{alg:genera_albero}). Questo valore determina il numero di nodi foglia che verranno generati, per esempio con foglie di dimensioni pari a 10 osservazioni su un totale di 20, si hanno $\frac{20}{10} = 2$ foglie, oppure con foglie di dimensione pari a 5, si hanno $\frac{20}{5} = 4$ foglie. Per ridurre il numero di permutazioni valutate, l'obiettivo è quello di generare quante più foglie possibili. La riduzione del numero di permutazioni valutate è dimostrata dalla seguente espressione:
+  \begin{equation}
+    lavori~in~corso
+  \end{equation}
+  Nella determinazione del numero di osservazioni massimo per una foglia è necessario tenere a mente anche il modulo di interpolazione: non è fattibile o è di difficile esecuzione l'interpolazione di una sinusoide a partire da pochi punti, come un solo punto o due.
+% Valutazione prestazioni
 
 
 %

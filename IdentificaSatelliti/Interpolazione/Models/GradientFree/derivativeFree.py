@@ -79,4 +79,4 @@ def f(x, grad, nPunti):
     val = 0
     for err in x[3:]:
         val += err**2
-    return (val)
+    return (val)/len(x[3:])

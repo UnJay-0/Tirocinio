@@ -116,7 +116,7 @@ class valReader():
             n -= 1
         max = 0
         for i in range(1, int(n) // 2 + 1):
-            if n % i == 0 and max < i:
+            if n % i == 0 and max < i and isprime(i):
                 max = i
         return max
 

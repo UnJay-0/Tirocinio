@@ -1,5 +1,4 @@
 import nlopt
-from .interpolator import Interpolator
 from .slsqpCreator import SlsqpCreator
 from .genericDfCreator import GenericDfCreator
 from .genericGbCreator import GenericGbCreator
