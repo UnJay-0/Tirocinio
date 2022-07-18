@@ -2,7 +2,7 @@ import pandas as pd
 import math
 from .permutation import dataframePerm, leafPerm, shuffleValues
 from numpy import median
-from .associatorRange import optimizeCol
+from .associatorUtopic import optimizeCol
 from .valuesReader import valReader
 from .valuesWriter import generateValues
 from .solCollector import ErrorStandards
@@ -220,7 +220,7 @@ def writeValues(values: pd.core.frame.DataFrame) -> dict:
 
 
 if __name__ == '__main__':
-    test = pd.DataFrame(generateValues(1, 0.009, 0, 10))
+    test = pd.DataFrame(generateValues(1, 0.0013, 0, 10))
     result = optimizeCol(test)
     print(f"errore quadratico: {result[0]}")
     print(f"pulsazione: {result[1][1]}")
