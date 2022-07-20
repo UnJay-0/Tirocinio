@@ -147,17 +147,17 @@ def compute(puls: float, algorithm: int) -> None:
 
 
 if __name__ == '__main__':
-    inits = [0.0025, 0.0017, 0.0015]
+    inits = [0.0025, 0.005, 0.0125]
     solvers = [nlopt.LN_COBYLA,  nlopt.LN_BOBYQA,
                nlopt.LN_PRAXIS, nlopt.LN_NEWUOA, nlopt.LN_SBPLX]
     for solver in solvers:
         for init in inits:
-            col = pd.DataFrame(generateValues(1, 0.0013, 0, 10))
+            col = pd.DataFrame(generateValues(1, 0.8, 0, 10))
             data = writeValues(col)
-            data["b"] = 1e-5
+            data["b"] = 1e-6
             data["init"] = init
             result = interpolation(data, ftol_rel=1e-6, xtol_rel=1e-6,
-                                   maxtime=0.05, algorithm=solver)
+                                   maxtime=0.1, algorithm=solver)
             val = 0
             for err in result[1][3:]:
                 val += err**2
@@ -168,8 +168,8 @@ if __name__ == '__main__':
                 f"pulsazione: {result[1][1]}\n" + \
                 f"periodo: {math.pi*2 / result[1][1]}\n"
             print(string)
-            # with open('output_vincolo.txt', "a") as out:
-            #     out.write(string)
+            with open('output_vincolo.txt', "a") as out:
+                out.write(string)
     # puls = [0.8, 0.0125, 0.005, 0.0013, 0.0010]
     # for el in puls:
     #     compute(el, nlopt.LN_COBYLA)
