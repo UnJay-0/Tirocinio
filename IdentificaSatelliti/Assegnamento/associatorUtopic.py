@@ -153,7 +153,7 @@ def compute(puls: float, algorithm: int) -> None:
 
 
 if __name__ == '__main__':
-    inits = [1, -500, -1250]
+    inits = [-2500, -1250, -500]
     solvers = [nlopt.LN_COBYLA,  nlopt.LN_BOBYQA,
                nlopt.LN_PRAXIS, nlopt.LN_NEWUOA, nlopt.LN_SBPLX]
     for solver in solvers:

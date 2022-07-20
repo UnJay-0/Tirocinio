@@ -36,6 +36,7 @@
 \usepackage{siunitx}
 \usepackage{float}
 \usepackage{tabularx}
+\usepackage[flushleft]{threeparttable}
 \sisetup{output-decimal-marker={.}}
 \newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
 \def\HiLi{\leavevmode\rlap{\hbox to \hsize{\color{yellow!50}\leaders\hrule height .8\baselineskip depth .5ex\hfill}}}
@@ -216,7 +217,7 @@ min \, f_1 = \omega
 La massimizzazione del periodo
 \begin{equation}
 \label{fo:errore}
-min \, f_2 = \sum_{i=1}^n \varepsilon_i^2
+min \, f_2 = \frac{\sum_{i=1}^n \varepsilon_i^2}{n}
 \end{equation}
 La minimizzazione dell'errore complessivo, calcolo l'errore qudratico complessivo per l'eliminazione dei possibili valori negativi che si possono generare.
 
@@ -241,15 +242,151 @@ Il metodo dei vincoli consiste nell'ottimizzare una delle funzioni obiettivo, tr
 \end{equation}
 Il termine noto $ \beta $ sta ad indicare il minimo periodo ammissibile per una soluzione, questo permette di escudere le soluzioni a basso periodo rendendo inammisibili soluzioni con periodo più piccolo del termine noto.
 
+Oppure se si applica il metodo dei vincoli sulla funzione obiettivo sull'errore (\ref{fo:errore}) si ottiene:
+
+\begin{equation}
+\label{vin:errore}
+\frac{\sum_{i=1}^n \varepsilon_i^2}{n} \le \alpha
+\end{equation}
+
+Il termine noto $ \alpha $ rappresenta il massimo errore ammissibile per una soluzione.
+
 \subparagraph{Funzione obiettivo}
 La funzione obiettivo definita è la funzione \eqref{fo:errore}.
 
 L'individuazione delle soluzioni paretiane è effettuata variando il termine noto parametrico nel vincolo \eqref{vin:periodo}.
-Ho scelto di definire il vincolo \eqref{vin:periodo} perché permette di avere un controllo migliore sull'esplorazione dei periodi possibili della sinusoide da individuare, data dalla possibilità di definire come punto di partenza del modello, un assegnazione della variabile che rappresenta la pulsazione a partire dal termine noto~$\beta $.
+Ho scelto di definire il vincolo \eqref{vin:periodo} perché permette di avere un controllo migliore sull'esplorazione dei periodi possibili della sinusoide da individuare, data dalla possibilità di definire come soluzione di partenza del modello, un assegnazione della variabile che rappresenta la pulsazione a partire dal termine~noto~$\beta $.
 \begin{equation}
   \omega = \frac{2\pi}{\beta}
 \end{equation}
-Da un analisi ipotetica dei range di periodi, che possono essere rilevati nel campo di applicazione in questione, è possibile esplorare e individuare sinusoidi entro il range ipotizzato. Al contrario definendo un vincolo a partire dalla funzione obiettivo dell'errore \eqref{fo:errore}, sarebbe di difficile gestione e modellazione la determinazione della variazione dell'errore, per tutte le tipologie di assegnamenti di punti della quale può essere richiesta l'interpolazione ad esempio: punti completamente non relazionati tra di essi, punti rilevati con un alto errore nel processo di misurazione.
+Questa scelta risulta preferibile anche a seguito di sperimentazioni. Eseguendo i solutori con un modello definito con il metodo dei vincoli sull'errore e un modello con il metodo dei vincoli definito sul periodo, dai seguenti problemi e punti di inizializzazione si ottiene:
+\begin{itemize}
+  \item Problema di 10 punti generati dalla sinusoide $e_i = \sin(\omega t_i)$ con $\omega$ pari a $0.0013\frac{rad}{s}$ che corrisponde ad un periodo di 4830s, con $t_i$ che assume i valori nell'insieme intero [$0$, $9$]
+  \begin{table}[H]
+    \begin{threeparttable}
+    \caption{Prestazioni dei solutori con modello con vincolo sull'errore}
+    \label{tab:prestazioni_vincolo_err1}
+    \center
+      \begin{tabular}{lSSSSSS}
+        \toprule
+        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = 2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 3694s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 4186s}\\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+        & {periodo (s)} & {errore (n)} & {periodo(s)} & {errore (n)} & {periodo (s)} & {errore (n)} \\
+        \midrule
+        COBYLA & $\expnumber{6}{6}$ & $\expnumber{1.0}{-3}$ & $\expnumber{6}{6}$ & $\expnumber{3.0}{-4}$ &
+        $\expnumber{6}{6}$ & $\expnumber{3.7}{-4}$ \\
+        BOBYQA & $\expnumber{14}{9}$ & $\expnumber{4.6}{-5}$ & $\expnumber{14}{9}$ & $\expnumber{4.6}{-5}$ &
+        $\expnumber{14}{9}$ & $\expnumber{4.6}{-5}$  \\
+        NEWUOA & $\expnumber{6}{6}$ & $\expnumber{4.8}{-5}$ & $\expnumber{6}{6}$ & $\expnumber{4.8}{-5}$ &
+        $\expnumber{6}{6}$ & $\expnumber{4.8}{-5}$\\
+        PRAXIS & $\expnumber{2}{5}$ & $\expnumber{4.8}{-5}$ &
+        $\expnumber{2}{4}$ & $\expnumber{4.1}{-5}$ &
+        $\expnumber{5}{5}$ & $\expnumber{5.1}{-5}$\\
+        SBPLX  & $\expnumber{3}{5}$ & $\expnumber{3.7}{-5}$ &
+        $\expnumber{3}{5}$ & $\expnumber{3.7}{-5}$ &
+        $\expnumber{3}{5}$ & $\expnumber{3.7}{-5}$ \\
+        \bottomrule
+      \end{tabular}
+      \begin{tablenotes}
+      \small
+      \item $p_{init}$ rappresenta il periodo di inizializzazione da cui si ricava la pulsazione da fissare alla variabile~$\omega$, per otterenere una soluzione inziale.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  \begin{table}[H]
+    \begin{threeparttable}
+    \caption{Prestazioni dei solutori con modello con vincolo sul periodo}
+    \label{tab:prestazioni_vincolo_per1}
+    \center
+      \begin{tabular}{lS[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]}
+        \toprule
+        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = 2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 3694s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 4186s}\\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+        & {periodo (s)} & {errore (n)} & {periodo(s)} & {errore (n)} & {periodo (s)} & {errore (n)} \\
+        \midrule
+        COBYLA & 4244 & $\expnumber{2.4}{-5}$ &
+        4477 & $\expnumber{1.4}{-5}$ &
+        4185 & $\expnumber{1.6}{-5}$\\
+        BOBYQA & $\expnumber{7324}{5}$ & $\expnumber{3.4}{-5}$ &
+        $\expnumber{9645}{3}$ & $\expnumber{3.1}{-5}$ &
+        $\expnumber{2708}{6}$ & $\expnumber{3.4}{-5}$ \\
+        NEWUOA & $\expnumber{3980}{-7}$ & 0.0 &
+        $\expnumber{2707}{-7}$ & 0.0 &
+        $\expnumber{2388}{-7}$ & 0.0 \\
+        PRAXIS & $\expnumber{3982}{-6}$ &  $\expnumber{3}{-1}$ &
+        $\expnumber{2710}{-6}$ & 6.3 &
+        $\expnumber{2387}{-6}$ & 6.2 \\
+        SBPLX  & inf &  &  inf & & 4188 & $\expnumber{1.3}{-15}$\\
+        \bottomrule
+      \end{tabular}
+      \begin{tablenotes}
+      \small
+      \item $p_{init}$ rappresenta il periodo di inizializzazione da cui si ricava la pulsazione da fissare alla variabile~$\omega$, per otterenere una soluzione inziale.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  \item Problema di 10 punti generati dalla sinusoide $e_i = \sin(\omega t_i)$ con $\omega$ pari a $0.8~\frac{rad}{s}$ che corrisponde ad un periodo di 7.8s con $t_i$ intero da $0$ a $9$ che assume i valori nell'insieme intero [$0$, $9$]
+  \begin{table}[H]
+    \begin{threeparttable}
+    \caption{Prestazioni dei solutori con modello con vincolo sull'errore}
+    \label{tab:prestazioni_vincolo_err2}
+    \center
+      \begin{tabular}{lS[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]}
+        \toprule
+        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = 2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 1250s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 500s}\\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+        & {periodo (s)} & {errore (n)} & {periodo(s)} & {errore (n)} & {periodo (s)} & {errore (n)} \\
+        \midrule
+        COBYLA & 514.7 & 0.2 & 230.0 & 0.2 & 184.5 & 0.2 \\
+        BOBYQA & 787.6 & 0.4 & 870.6 & 0.3 & 870.6 & 0.3  \\
+        NEWUOA & 999.9 & 0.0 & 999.9 & 0.0 & 999.9 & 0.0 \\
+        PRAXIS & 999.9 & 0.0 & 999.9 & 0.0 & 999.9 & 0.0 \\
+        SBPLX  & inf & & inf &  & inf &  \\
+        \bottomrule
+      \end{tabular}
+      \begin{tablenotes}
+      \small
+      \item $p_{init}$ rappresenta il periodo di inizializzazione da cui si ricava la pulsazione da fissare alla variabile~$\omega$, per otterenere una soluzione inziale.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  \begin{table}[H]
+    \begin{threeparttable}
+    \caption{Prestazioni dei solutori con modello con vincolo sul periodo}
+    \label{tab:prestazioni_vincolo_per2}
+    \center
+      \begin{tabular}{lS[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]}
+        \toprule
+        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = 2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 1250s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 500s}\\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+        & {periodo (s)} & {errore (n)} & {periodo(s)} & {errore (n)} & {periodo (s)} & {errore (n)} \\
+        \midrule
+        COBYLA & 0.8 & 0.2 & 1.1 & 0.3 & 0.1 & 0.1 \\
+        BOBYQA & 0.003 & 0.09 & 0.007 & 0.1 & 0.02 & 0.1\\
+        NEWUOA & 0.0004 & $\expnumber{4.8}{-23}$ & 0.0008 & $\expnumber{3}{-21}$ & 0.002 & $\expnumber{7.4}{-19}$\\
+        PRAXIS & 0.0004 & 0.2 & 0.0008 & 0.02 & 0.002 & 15894  \\
+        SBPLX  & 0.0008 & $\expnumber{1.7}{-12}$ &  0.001 & $\expnumber{1}{-12}$ & 0.004 & $\expnumber{3.7}{-11}$\\
+        \bottomrule
+      \end{tabular}
+      \begin{tablenotes}
+      \small
+      \item $p_{init}$ rappresenta il periodo di inizializzazione da cui si ricava la pulsazione da fissare alla variabile~$\omega$, per otterenere una soluzione inziale, inoltre si fissano periodi negativi a causa del vincolo \ref{vin:periodo} che vincola la ricerca a periodi maggiori del termine noto $\beta$
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+
+\end{itemize}
+
+Dai risultati delle sperimentazioni si può notare che nel primo problema, il solutore COBYLA utilizzato con il vincolo sul periodo individua soluzioni che si scostano mediamente di 529s, a differenza se utilizzato con il vincolo sull'errore con gli stessi punti di inizializzazione si ottengono soluzioni dal periodo molto più distanti. Le stesse osservazioni possono essere effettuate nel secondo problema. Invece il restante dei solutori non ottiene soluzione accettabile con nessuno dei due modelli.
+
+Per le sperimentazioni effettuate  ho fissato il termine noto $\alpha$ nel vincolo dell'errore (\ref{vin:errore}) a $\expnumber{1}{-3}$, anche provando a dimunuire il valore del termine noto, quindi vincolare il solutore ad individuare soluzioni dall'errore quadratico medio entro il valore fissato, i risultati risultano peggiori rispetto all'utilizzo di un modello con metodo dei vicoli applicato alla funzione obiettivo del periodo, da come si può osservare dalle tabelle ...
+
+Dati i risultati ed il miglior controllo sull'inizializzazione e sul vincolo \ref{vin:periodo}, ho scelto di utilizzare il modello con il metodo dei vincoli applicato al periodo.
+
 
 
 \section{Algoritmo di controllo}
