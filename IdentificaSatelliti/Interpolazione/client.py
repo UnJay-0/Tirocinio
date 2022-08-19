@@ -3,11 +3,13 @@ from .slsqpCreator import SlsqpCreator
 from .genericDfCreator import GenericDfCreator
 from .genericGbCreator import GenericGbCreator
 from .cobylaCreator import CobylaCreator
+from .amplModCreator import AmplModCreator
 
 LN = [nlopt.LN_BOBYQA, nlopt.LN_PRAXIS, nlopt.LN_SBPLX,
       nlopt.LN_NEWUOA, nlopt.LN_NELDERMEAD]
 LD = [nlopt.LD_MMA, nlopt.LD_VAR1, nlopt.LD_VAR2,
       nlopt.LD_CCSAQ, nlopt.LD_LBFGS, nlopt.LD_TNEWTON]
+AMPL = ["snopt", "knitro", "lgo", "minos", "loqo", "conopt"]
 
 
 def interpolation(data: dict, algorithm=nlopt.LN_COBYLA, sinTol=1e-6,
@@ -59,6 +61,8 @@ def interpolation(data: dict, algorithm=nlopt.LN_COBYLA, sinTol=1e-6,
         intModel = SlsqpCreator()
     elif (config["algorithm"] in LD):
         intModel = GenericGbCreator()
+    elif (config["algorithm"] in AMPL):
+        intModel = AmplModCreator()
     else:
         raise Exception("algorithm non è noto")
     return intModel.interpolate(data, config)

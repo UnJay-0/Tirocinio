@@ -1,0 +1,37 @@
+
+data;
+param maxW := 0.441682; # min periodo
+param minW := 0.00628; # max periodo
+param maxA := 9.8;
+param minA := 0.98;
+
+var w := 0.01256;
+var a := 5;
+
+
+param nOss := 10;
+param tempo := 
+1	1
+2	2
+3	3
+4	4
+5	5
+6	6
+7	7
+8	8
+9	9
+10	10;
+
+param y := 
+1	0.84
+2	0.90
+3	0.14
+4	-0.75
+5	-0.95
+6	-0.27
+7	0.65
+8	0.98
+9	0.41
+10	-0.54;
+
+end;

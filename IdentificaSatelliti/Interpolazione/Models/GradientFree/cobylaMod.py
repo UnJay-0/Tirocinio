@@ -1,6 +1,5 @@
 from ..model import Model
 import nlopt
-import math
 from . import derivativeFree
 
 

@@ -128,7 +128,7 @@ Il legame tra l'orbite dei satelliti e le sinusoidi può essere spiegata conside
 
 % spiegare meglio relazione
 
-Dove il periodo corrisponde al tempo di rivoluzione del satellite, l'ampiezza alla massima distanza che intercorre nel periodo tra il satellite e il corrispettivo pianeta, e(t) lo spostamento del satellite lungo l'orbita. È quindi possibile descrivere la sinusoide risultante tramite l'espressione analitica:
+Dove il periodo corrisponde al tempo di rivoluzione del satellite, l'ampiezza alla massima distanza che intercorre nel periodo tra il satellite e il corrispettivo pianeta, e(t) lo spostamento e la distanza del satellite lungo l'orbita, dal pianeta di riferimento. È quindi possibile descrivere la sinusoide risultante tramite l'espressione analitica:
 $ e(t) = A\sin(\omega t + \phi)$
 
 
@@ -172,7 +172,37 @@ Il processo risolutivo per un problema a molti obiettivi in conflitto tra loro, 
 \end{enumerate}
 La determinazione della regione pareto-ottima può essere effettuata in diversi modi. I modelli che ho definito inseguito utilizzano rispettivamente metodo dei pesi e metodo dei vincoli, i due modelli si differenziano solo per vincoli e funzione obiettivo.
 
-In questo processo di interpolazione è necessario fare attenzione alle sinusoidi con basso periodo rispetto alla sinusoide da individuare: si può osservare dalle regioni paretiane rappresentate dalle figure da \ref{fig:reg_ammis_10_0010} a \ref{fig:reg_ammis_30_0010} del paragrafo \ref{ss:sel_sol} che aumentando la frequenza, quindi al diminuire del periodo, esiste sempre un modo di interpolare n punti con una sinusoide minimizzando a piacimento l'errore di interpolazione.
+In questo processo di interpolazione è necessario fare attenzione alle sinusoidi con basso periodo rispetto alla sinusoide da individuare: si può osservare dalle figure \ref{fig:bassoperiodo2}, \ref{fig:bassoperiodo1} e \ref{fig:bassoperiodo3} che aumentando la frequenza, quindi al diminuire del periodo, esiste sempre un modo di interpolare n punti con una sinusoide minimizzando a piacimento l'errore di interpolazione, poiché i punti possono corrispondere o essere vicini alle intersezioni tra le sinusoidi.
+
+\begin{figure}[H]
+  \caption{Problema sinuoidi da basso periodo rispetto alla sinusoide da individuare}
+  \begin{center}
+  \includegraphics[scale=0.03]{img/bassoperiodo2.png}
+  \end{center}
+  Ascisse: Periodo (s) \\ Ordinate: Distanza del satellite dal pianeta (m)
+  \label{fig:bassoperiodo2}
+\end{figure}
+
+\begin{figure}[H]
+
+  \caption{Problema sinuoidi da basso periodo rispetto alla sinusoide da individuare}
+  \begin{center}
+  \includegraphics[scale=0.05]{img/bassoperiodo1.png}
+  \end{center}
+    Ascisse: Periodo (s) \\ Ordinate: Distanza del satellite dal pianeta (m)
+  \label{fig:bassoperiodo1}
+\end{figure}
+
+\begin{figure}[H]
+  \caption{Problema sinuoidi da basso periodo rispetto alla sinusoide da individuare}
+  \begin{center}
+  \includegraphics[scale=0.05]{img/bassoperiodo3.png}
+  \end{center}
+    Ascisse: Periodo (s) \\ Ordinate: Distanza del satellite dal pianeta (m)
+  \label{fig:bassoperiodo3}
+\end{figure}
+
+
 
 % perché
 % dati
@@ -224,7 +254,7 @@ La minimizzazione dell'errore complessivo, calcolo l'errore qudratico complessiv
 I pesi definiti per le funzioni $ f_1 $ e $ f_2 $ sono rispettivamente 1 e -1, quindi ottenendo la funzione obiettivo:
 
 \begin{equation}
-max \, f = f_1 + f_2
+min \, f = f_1 + f_2
 \end{equation}
 Questa configurazione dei pesi di partenza permette di penalizzare tutte quelle soluzioni ammissibili che massimizzano il periodo ma hanno un errore elevato.
 
@@ -360,7 +390,7 @@ Questa scelta risulta preferibile anche a seguito di sperimentazioni. Eseguendo 
     \center
       \begin{tabular}{lS[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]}
         \toprule
-        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = 2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 1250s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 500s}\\
+        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = -2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = -1250s} & \multicolumn{2}{c}{soluzione $p_{init}$ = -500s}\\
         \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
         & {periodo (s)} & {errore (n)} & {periodo(s)} & {errore (n)} & {periodo (s)} & {errore (n)} \\
         \midrule
@@ -383,7 +413,79 @@ Questa scelta risulta preferibile anche a seguito di sperimentazioni. Eseguendo 
 
 Dai risultati delle sperimentazioni si può notare che nel primo problema, il solutore COBYLA utilizzato con il vincolo sul periodo individua soluzioni che si scostano mediamente di 529s, a differenza se utilizzato con il vincolo sull'errore con gli stessi punti di inizializzazione si ottengono soluzioni dal periodo molto più distanti. Le stesse osservazioni possono essere effettuate nel secondo problema. Invece il restante dei solutori non ottiene soluzione accettabile con nessuno dei due modelli.
 
-Per le sperimentazioni effettuate  ho fissato il termine noto $\alpha$ nel vincolo dell'errore (\ref{vin:errore}) a $\expnumber{1}{-3}$, anche provando a dimunuire il valore del termine noto, quindi vincolare il solutore ad individuare soluzioni dall'errore quadratico medio entro il valore fissato, i risultati risultano peggiori rispetto all'utilizzo di un modello con metodo dei vicoli applicato alla funzione obiettivo del periodo, da come si può osservare dalle tabelle ...
+Per le sperimentazioni effettuate  ho fissato il termine noto $\alpha$ nel vincolo dell'errore (\ref{vin:errore}) a $\expnumber{1}{-3}$, anche provando a dimunuire il valore del termine noto, quindi vincolare il solutore ad individuare soluzioni dall'errore quadratico medio entro il valore fissato, i risultati risultano peggiori rispetto all'utilizzo del modello con metodo dei vicoli applicato alla funzione obiettivo del periodo, da come si può osservare dalle tabelle~\ref{tab:prestazioni_vincolo_err1_str}~e~\ref{tab:prestazioni_vincolo_err2_str}.
+
+A seguito della diminuzione del limite d'errore, la gran parte dei solutori non riesce ad individuare una soluzione ammissibile, questo può essere causato dal fatto che le soluzioni di inzializzazione siano inammissibili,  aggiungendo il necessario compito di individuare per ogni problema soluzioni di inizializzazione ammisibili, per permettere una eventuale ricerca più fruttuosa.
+
+Nonostante questi svantaggi si può notare che con il solutore COBYLA nel problema di tabella \ref{tab:prestazioni_vincolo_err2}, il periodo della soluzione individuata diminuisce al diminuire del periodo della soluzione di inizializzazione avvicinandosi in maniera costante al periodo della sinusoide del problema.
+Questo suggerisce una direzione di ottimizzazione corretta, che sarebbe possibile individuare tramite un algoritmo iterativo se valesse per tutti o per la maggior parte dei casi.
+
+
+\begin{itemize}
+  \item Problema di 10 punti generati dalla sinusoide $e_i = \sin(\omega t_i)$ con $\omega$ pari a $0.0013~rad/s$ che corrisponde ad un periodo di 4830s, con $t_i$ che assume i valori nell'insieme intero [$0$, $9$]
+  \begin{table}[H]
+    \begin{threeparttable}
+    \caption{Prestazioni dei solutori con modello con vincolo sull'errore e $\alpha = \expnumber{1}{-6}$}
+    \label{tab:prestazioni_vincolo_err1_str}
+    \center
+      \begin{tabular}{lSSSSSS}
+        \toprule
+        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = 2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 3694s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 4186s}\\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+        & {periodo (s)} & {errore (n)} & {periodo(s)} & {errore (n)} & {periodo (s)} & {errore (n)} \\
+        \midrule
+        COBYLA & $\expnumber{6}{6}$ & $\expnumber{1.4}{-5}$ & $\expnumber{6}{6}$ & $\expnumber{2.7}{-4}$ &
+        $\expnumber{6}{6}$ & $\expnumber{2.9}{-4}$ \\
+        BOBYQA & $\expnumber{24}{3}$ & $\expnumber{1.5}{-5}$ & $\expnumber{21}{3}$ & $\expnumber{1.5}{-5}$ &
+        $\expnumber{24}{3}$ & $\expnumber{1.5}{-5}$  \\
+        NEWUOA & $\expnumber{1}{6}$ & 0.0 &
+        $\expnumber{1}{6}$ & 0.0 &
+        $\expnumber{1}{6}$ & 0.0\\
+        PRAXIS & $\expnumber{1}{6}$ & 0.0 &
+        $\expnumber{1}{6}$ & 0.0 &
+        $\expnumber{1}{6}$ & 0.0\\
+        SBPLX  & $\expnumber{8}{5}$ & $\expnumber{4.0}{-5}$ &
+        $\expnumber{8}{5}$ & $\expnumber{4.0}{-5}$ &
+        $\expnumber{8}{5}$ & $\expnumber{4.0}{-5}$ \\
+        \bottomrule
+      \end{tabular}
+      \begin{tablenotes}
+      \small
+      \item $p_{init}$ rappresenta il periodo di inizializzazione da cui si ricava la pulsazione da fissare alla variabile~$\omega$, per otterenere una soluzione inziale.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+
+  \item Problema di 10 punti generati dalla sinusoide $e_i = \sin(\omega t_i)$ con $\omega$ pari a $0.8~rad/s$ che corrisponde ad un periodo di 7.8s con $t_i$ intero da $0$ a $9$ che assume i valori nell'insieme intero [$0$, $9$]
+  \begin{table}[H]
+    \begin{threeparttable}
+    \caption{Prestazioni dei solutori con modello con vincolo sull'errore e $\alpha = \expnumber{1}{-6}$}
+    \label{tab:prestazioni_vincolo_err2_str}
+    \center
+      \begin{tabular}{lS[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]S[table-parse-only]}
+        \toprule
+        {Solutore} & \multicolumn{2}{c}{soluzione $p_{init}$ = 2500s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 1250s} & \multicolumn{2}{c}{soluzione $p_{init}$ = 500s}\\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+        & {periodo (s)} & {errore (n)} & {periodo(s)} & {errore (n)} & {periodo (s)} & {errore (n)} \\
+        \midrule
+        COBYLA & 356.2 & 0.2 & 266.0 & 0.2 & 101.5 & 0.2 \\
+        BOBYQA & 173.6 & 0.4 & 173.6 & 0.4 & 173.6 & 0.4 \\
+        NEWUOA & $\expnumber{1}{6}$ & $0.0$ &
+        $\expnumber{1}{6}$ & $0.0$ &
+        $\expnumber{1}{6}$ & $0.0$\\
+        PRAXIS & $\expnumber{1}{6}$ & $0.0$ &
+        $\expnumber{1}{6}$ & $0.0$ &
+        $\expnumber{1}{6}$ & $0.0$\\
+        SBPLX  & 339 & 0.3 & 354 & 0.3 & 339 & 0.3 \\
+        \bottomrule
+      \end{tabular}
+      \begin{tablenotes}
+      \small
+      \item $p_{init}$ rappresenta il periodo di inizializzazione da cui si ricava la pulsazione da fissare alla variabile~$\omega$, per otterenere una soluzione inziale.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{table}
+\end{itemize}
 
 Dati i risultati ed il miglior controllo sull'inizializzazione e sul vincolo \ref{vin:periodo}, ho scelto di utilizzare il modello con il metodo dei vincoli applicato al periodo.
 
@@ -393,6 +495,8 @@ Dati i risultati ed il miglior controllo sull'inizializzazione e sul vincolo \re
 \label{ss:controllo}
 % scelta del modello da utilizzare
 Il modello che ho scelto di implementare è il modello che utilizza il metodo dei vincoli per i vantaggi citati nella sua specificicazione. Una volta definito l'implementazione del modello è necessario specificare un algoritmo di controllo e di esecuzione di esso. I compiti sono la definizione del valore del minimo periodo $ \beta $, nel vincolo \eqref{vin:periodo} ad ogni iterazione e la gestione di eventuali errori.
+
+
 
 \begin{algorithm}
   \caption{Algoritmo di controllo del modello}
@@ -448,51 +552,6 @@ Si moltiplica il passo p per una costante k, è possibile variare la velocità d
 Un altro fattore che determina l'esplorazione è la dimensione dell'intorno. È necessario definire un intorno poiché è possibile che con approssimazioni e specifiche interne del solutore o anche in base alle caratteristiche della regione ammissibile, non si individui l'esatto valore di un minimo locale, ma un valore nell'intorno di esso in iterazioni successive. Perciò è necessario definire un livello di tolleranza con il quale definire se due soluzioni sono da cosiderare uguali (riga \ref{aumentoPasso}).
 % definizione del range di periodi
 
-\subsection{Punto di inizializzazione}
-Il processo di inzializzazione di un modello, consiste nel fissare le variabili del problema a dei valori di partenza. Generalmente definire una soluzione iniziale per il solutore nei problemi di programmazione non lineare è importante, poiché ne determina l'abilità di individuare un minimo locale diverso da un altro, e poter indidivuare un minimo locale migliore sotto una determinata caratteristica.
-
-In questo problema la qualità della soluzione è individuata prevalentemente nel periodo e nell'errore, perciò la variabile che assume più importanza nella determinazione di una soluzione iniziale è la pulsazione $\omega$, gli errori per ogni punto sono variabili risultanti perciò non vanno fissate.
-
-Con questa definizione del modello, mi è risultato difficile discernere un algoritmo di definizione della soluzione di partenza, a partire dai test effettuati. La difficoltà nasce dal interpretare il comportamento del solutore dato un problema e una serie di soluzioni di partenza all'aumentare del minimo periodo $ \beta $, quindi dall'indiviuazione di un pattern chiaro e veloce che definisca la posizione ideale della soluzione di partenza, nelle successive iterazioni.
-
-I test sono stati effetuati eseguendo l'algoritmo di controllo, \ref{controllo} dando come punto di iniziale il seguente:
-\begin{itemize}
-  \item $A$ = 0
-  \item $\phi$ = 0
-  \item $w = \frac{4\pi}{5000 - \beta}$
-\end{itemize}
-
-Con i seguenti parametri dell'algoritmo \ref{controllo}:
-\begin{itemize}
-  \item $f(x)$ in riga \ref{velocitaPasso}, algoritmo \ref{controllo} pari alla funzione \eqref{velocitaPassoEspl} con $k = 5$
-  \item $periodoIniziale = 0s$
-  \item $periodoFinale = 5000s$
-\end{itemize}
-
-Fissando $ \omega $ con il periodo a metà tra il periodo limite e il minimo periodo $\beta$, ad esempio nel problema con 30 punti generati dalla sinusoide $ e(t)~=~sin(\omega t)$
-
-\begin{table}[H]
-  \caption{Iterazioni effettuate per il problema con Sinusoide con $\omega = 0.8~rad/s$}
-  \label{tab:init_08}
-  \begin{center}
-    \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
-      \toprule
-      {Periodo limite $\beta$ (s)} & {Periodo di partenza (s)} & {Periodo soluzione (s)} & {Errore quadratico \newline medio} \\
-      \midrule
-      1 &  1201 & 7.5 & $\expnumber{1.3}{-11}$\\
-      2 &  2095 & 10.3 & $\expnumber{7.5}{-5}$\\
-      7 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
-      32 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
-      157 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
-      782 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
-      3907 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
-      4532 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
-      4657 &  4175 & 10.9 & $\expnumber{3.2}{-4}$\\
-      \bottomrule
-    \end{tabularx}
-  \end{center}
-\end{table}
-
 
 \subsection{Criterio arresto }
 \label{ss:arresto}
@@ -500,6 +559,304 @@ Fissando $ \omega $ con il periodo a metà tra il periodo limite e il minimo per
 
 Quindi è possibile fissare un periodo limite, effettuando un mappaggio da giorni in secondi, pari a 5000s.
 Non è necessario fissare esattamente il valore estratto dallo studio dei periodi del sistema solare, poiché il periodo $ \beta $, utilizzato nel vincolo \eqref{vin:periodo}  come limite inferiore, non impedisce al solutore di individuare periodi dai valori molto più grandi rispetto ai periodi del sistema solare, tutto questo facendo partire l'individuazione delle soluzioni da un periodo pari a 0, escudendo i periodi negativi. L'esclusione dei periodi negativi non influisce sull'individuazione delle soluzioni poiché i punti sono rilevati all'avanzare del tempo.
+
+\subsection{Punto di inizializzazione}
+Il processo di inzializzazione di un modello, consiste nel fissare le variabili del problema a dei valori di partenza. Generalmente definire una soluzione iniziale per il solutore nei problemi di programmazione non lineare è importante, poiché ne determina l'abilità di individuare un minimo locale diverso da un altro, e poter indidivuare un minimo locale migliore sotto una determinata caratteristica.
+
+In questo problema la qualità della soluzione è individuata prevalentemente nel periodo e nell'errore, perciò la variabile che assume più importanza nella determinazione di una soluzione iniziale è la pulsazione $\omega$, gli errori per ogni punto sono variabili risultanti perciò non vanno fissate.
+
+Con questa definizione del modello, mi è risultato difficile discernere un algoritmo di definizione della soluzione di partenza, a partire dalle sperimentazioni effettuate. La difficoltà nasce nell'interpretare il comportamento del solutore dato un problema, quindi dall'indiviuazione di un pattern chiaro che definisca la posizione ideale della soluzione di partenza, nelle successive iterazioni.
+
+Le sperimentazioni sono state effettuate eseguendo il modello dando come soluzione iniziale il seguente:
+\begin{itemize}
+  \item $A$ = 0
+  \item $\phi$ = 0
+  \item $w = \frac{2*\pi}{periodo di partenza}$
+\end{itemize}
+
+  \begin{table}
+    \caption{Problema di 30 punti generati dalla sinusoide $e_i = 1\sin(\omega t_i)$ con $\omega = 0.0125~rad/s$, perciò periodo di 502.4s}
+    \label{tab:init_0125}
+    \begin{center}
+      \begin{tabular}{SSp{4cm}}
+        \toprule
+       {Periodo di partenza (s)} & {Periodo soluzione (s)} & Errore quadratico \newline medio ($m^2$) \\
+        \midrule
+        3000 & 1887.2 & $\expnumber{2.3}{-3}$\\
+        2500 & 1540.5 & $\expnumber{1.2}{-4}$\\
+        2000 & 1598.2 & $\expnumber{3.2}{-4}$\\
+        1500 & 1444.6 & $\expnumber{6.9}{-4}$\\
+        1000 & 499.9 & 0.0\\
+        100 & 99.9 & $\expnumber{1.8}{-3}$\\
+        50 & 260.4 & $\expnumber{6.0}{-3}$\\
+        10 & 8.6 & $\expnumber{1.2}{-2}$\\
+        1 & 1.0 & $\expnumber{1.1}{-2}$\\
+        \bottomrule
+      \end{tabular}
+    \end{center}
+  \end{table}
+
+  \begin{table}
+    \caption{Problema di 30 punti generati dalla sinusoide $e_i = 1\sin(\omega t_i)$ con $\omega = 0.0013~rad/s$, perciò periodo di 4830.7s}
+    \label{tab:init_0013}
+    \begin{center}
+      \begin{tabular}{SSp{4cm}}
+        \toprule
+       {Periodo di partenza (s)} & {Periodo soluzione (s)} & Errore quadratico \newline medio ($m^2$) \\
+        \midrule
+        6000 & 5896.9 & $\expnumber{3.8}{-6}$\\
+        4000 & 3999.9 & 0.0\\
+        3500 & 3837.5 & $\expnumber{1.2}{-4}$\\
+        3000 & 2869.3 & $\expnumber{1.1}{-4}$\\
+        2500 & 3036.6 & $\expnumber{1.2}{-4}$\\
+        2000 & 1926.1 & $\expnumber{1.9}{-5}$\\
+        1250 & 1281.8 & $\expnumber{2.4}{-5}$\\
+         750 & 750.0 & $\expnumber{1.4}{-4}$\\
+         100 & 131.6 & $\expnumber{7.1}{-5}$\\
+        \bottomrule
+      \end{tabular}
+    \end{center}
+  \end{table}
+
+  \begin{table}
+    \caption{Problema di 30 punti generati dalla sinusoide $e_i = \sin(\omega t_i)$ con $\omega = 0.8~rad/s$, perciò periodo di 7.85s}
+    \label{tab:init_8}
+    \begin{center}
+      \begin{tabular}{SSp{4cm}}
+        \toprule
+       {Periodo di partenza (s)} & {Periodo soluzione (s)} & Errore quadratico \newline medio ($m^2$) \\
+        \midrule
+        2500 & 2429.7 & $\expnumber{4.8}{-1}$\\
+        2000 & 2261.6 & $\expnumber{4.8}{-1}$\\
+        1500 & 1344.5 & $\expnumber{4.8}{-1}$\\
+        1000 & 1337.6 & $\expnumber{4.8}{-1}$\\
+        500 & 497.8 & $\expnumber{4.9}{-1}$\\
+        100 & 113.07 & $\expnumber{4.9}{-1}$\\
+         50 & 50.2 & $\expnumber{4.9}{-1}$\\
+         10 & 7.85 & $\expnumber{7.6}{-4}$\\
+         1 & 7.85 & $\expnumber{7.1}{-5}$\\
+        \bottomrule
+      \end{tabular}
+    \end{center}
+  \end{table}
+Da come si può notare dalle tabelle \ref{tab:init_0013}, \ref{tab:init_0125} e \ref{tab:init_8}, la tendenza dei periodi delle soluzioni rispetto ai periodi di partenza è crescente se il periodo di partenza è inferiore al periodo del problema, invece decrescente se maggiore, con qualche eccezione.
+
+Gli errori rimangono tendenzialmente costanti, nello stesso ordine di grandezza fino all'avvicinarsi del periodo di partenza rispetto al periodo della soluzione.
+Queste osservazioni possono indurre alla definzione iterativa in maniera crescente o decrescente del periodo di partenza, in base al periodo della soluzione precedente, questa modalità però prensenta determinate situazioni particolari che impediscono di avvicinarsi al minimo locale con periodo più vicino al periodo della soluzione:
+\begin{enumerate}
+  \item Minimi locali tra il periodo di partenza ed il periodo della soluzione
+  \item L'errore rimane tendenzialmente costante nonostante le distanze tra il periodo della soluzione individuata e il periodo del problema aumenti.
+\end{enumerate}
+
+Definendo un algoritmo (\ref{controlloInit}) che iterativamente che varia il periodo di partenza in base al periodo della soluzione individuata nell'iterazione precedente, si definisce un algoritmo con lo scopo di avvicinare il periodo di inizializzazione ad un~minimo~locale.
+
+Nel caso fosse verificata la situazione 1, il minimo locale puntato dall'algoritmo corrisponderebbe non al il minimo locale ideale, cioè quello con periodo più vicino al periodo della soluzione, ma ad uno dei minimi locali interposti tra la soluzione di partenza e la soluzione ideale.
+
+Questo lo si può osservare per esempio nella sperimentazione di tabella \ref{tab:init_8}, dove partendo da un periodo di partenza di 2500s, l'algoritmo convergerebbe il periodo di partenza al minimo locale con periodo in un intorno di 1340s prima di raggingere il minimo locale ideale.
+
+Questo problema è presente poiché per come è definito l'algoritmo, l'obiettivo non corrisponde all'individuazione del maggior numero di minimi locali, ma la semplice covergenza verso un minimo locale che potenzialmente possa essere il minimo locale ideale.
+
+Per ovviare a queste problematiche ho definito un algoritmo \ref{controlloInit} che nel momento nel quale si individua una soluzione dal periodo in un intorno del periodo di partenza restituisca una condizione di eccezione.
+Questo forzerà l'algoritmo di controllo \ref{controllo_con_init} a verificare e confrontare gli errori delle soluzioni individuate a partire da una soluzione con periodo a metà della parte superiore e periodo a metà della parte inferiore rispetto al periodo di partenza che ha causato la condizione di eccezione, per determinare il prossimo periodo di partenza.
+
+Per la determinazione della parte superiore e della parte inferiore si utilizza il range 0-5000s come definito della sezione \ref{ss:arresto}.
+
+Effettuando sperimentazioni dell'algoritmo di controllo \ref{controllo_con_init}, ho individuato che questo funzioni in maniera ottimale con problemi con un numero di punti limitato, come ad esempio 10 punti, rispetto a problemi con un numero di punti magggiore come ad esempio 20 o 30 punti. Lo si può notare dalle regioni paretiane delle sperimentazioni (\ref{fig:init_08_10}), (\ref{fig:init_08_20}) e  (\ref{fig:init_08_30}), dove nel problema da 10 punti si individuano soluzioni ideali a differenza delle soluzioni per problemi~da~30~punti,~20~punti.
+
+Questo è probabilmente spiegato dalla differenza nel numero di vincoli e quindi dalla complessità del problema generato, con il potenziale aumento di minimi locali, e siccome al verificarsi della situazione 2 se distanti dal periodo ideale, l'errore non guida la decisione di una direzione rispetto ad un'altra.
+
+È possibile utilizzare quindi alternativamente in base al numero di punti da interpolare l'algoritmo di controllo \ref{controllo}, che inizializza il problema con una soluzione allo stesso periodo del minimo periodo $\beta$ e l'algoritmo di controllo \ref{controllo_con_init}.
+
+\begin{algorithm} [H]
+  \caption{Algoritmo di selezione del periodo di partenza}
+  \label{controlloInit}
+  \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+  \SetKwData{Sol}{sol}
+  \SetKwData{perPart}{periodoPartenza}
+  \SetKwData{nperPart}{nuovoPeriodoPartenza}
+
+  \BlankLine
+  \Input{\Sol soluzione corrente individuata \newline
+        \perPart periodo di partenza nell'iterazione precedente}
+  \Output{\nperPart periodo di partenza per l'iterazione successiva}
+
+  \If{$\Sol[periodo] = \perPart$} {
+    \Return $eccezione$
+  }
+  \eIf{$\Sol[periodo] > \perPart$}{
+    \nperPart $\leftarrow \frac{5000 - \perPart}{2} + \perPart$
+  }{
+    \nperPart $\leftarrow \frac{\perPart}{2}$
+  }
+  \Return \nperPart
+
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \caption{Algoritmo di controllo del modello}
+  \label{controllo_con_init}
+  \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+  \SetKwData{Pt}{pt}
+  \SetKwProg{try}{try}{:}{}
+  \SetKwProg{catch}{catch}{:}{end}
+  \SetKwData{Soluzioni}{soluzioni}
+  \SetKwData{Passo}{passo}
+  \SetKwData{Sol}{sol}
+  \SetKwData{SolPrecedente}{solPrecedente}
+  \SetKwData{perPart}{periodoPartenza}
+  \SetKwFunction{Interpola}{Interpola}
+  \SetKwFunction{F}{f}
+
+  \BlankLine
+  \Input{\Pt Collezione di punti da interpolare $[(t_1, e_1), ..., (t_k, e_k)]$}
+  \Output{\Soluzioni Insieme di soluzioni che interpolano i punti $pt$}
+  \BlankLine
+
+  \Passo $\leftarrow 1$ \\
+  $\beta \leftarrow periodoIniziale$ \\
+  \perPart $\leftarrow periodoPartenzaIniziale$ \\ \label{periodoPartInit}
+  \Soluzioni $\leftarrow \emptyset$ \\
+  \While{$\beta <= periodo Limite$}{
+      \SolPrecedente $\leftarrow$ \Sol \\
+      \Sol $\leftarrow$ \Interpola{\Pt, $\beta$, solutore, \perPart} \\
+      Aggiungi \Sol a \Soluzioni \\
+      \eIf{$\Sol[periodo] = \SolPrecedente[periodo]$}{
+        \Passo = \F{\Passo} \\ \label{velocitaPassoInit}
+      }{
+        \Passo $\leftarrow 1$ \\
+      }
+      $\beta \leftarrow \beta + \Passo$ \\
+      \try{}{
+        \perPart $\leftarrow$ chiamata all'algoritmo \ref{controlloInit}
+      } \catch{eccezione} {
+        Chiamata all'algoritmo \ref{eccezione} per la gestione dell'eccezione
+      }
+
+  }
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \caption{Algoritmo per la gestione dell'eccezione}
+  \label{eccezione}
+  \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+  \SetKwData{Pt}{pt}
+  \SetKwProg{try}{try}{:}{}
+  \SetKwProg{catch}{catch}{:}{end}
+  \SetKwData{Soluzioni}{soluzioni}
+  \SetKwData{Passo}{passo}
+  \SetKwData{Sol}{sol}
+  \SetKwData{SolPrecedente}{solPrecedente}
+  \SetKwData{perPart}{periodoPartenza}
+  \SetKwFunction{Interpola}{Interpola}
+  \SetKwFunction{F}{f}
+
+  \BlankLine
+  $periodoSuperiore \leftarrow \frac{5000 - \perPart}{2} + \perPart$ \\
+  $periodoInferiore \leftarrow \frac{\perPart}{2}$ \\
+  $soluzioneSuperiore\leftarrow$ \Interpola{\Pt, $\beta$, solutore, $periodoSuperiore$} \\
+  $soluzioneInferiore\leftarrow$ \Interpola{\Pt, $\beta$, solutore, $periodoInferiore$} \\
+  Aggiungi $soluzioneSuperiore$ a \Soluzioni \\
+  Aggiungi $soluzioneInferiore$ a \Soluzioni \\
+  \eIf{$soluzioneSuperiore[errore] < soluzioneInferiore[errore]$} {
+    \perPart $\leftarrow$ chiamata all'algoritmo \ref{controlloInit} con $periodoSuperiore$ e \perPart  \\
+  }{
+    \perPart $\leftarrow$ chiamata all'algoritmo \ref{controlloInit} con $periodoSuperiore$ e \perPart \\
+  }
+\end{algorithm}
+
+
+I parametri per l'algoritmo \ref{controllo_con_init} utilizzati per le sperimentazioni sono:
+\begin{itemize}
+  \item $periodoIniziale = 0s$
+  \item $periodoLimite = 5000s$
+  \item $periodoPartenzaIniziale = 4000s$
+\end{itemize}
+
+\begin{table}[H]
+  \caption{Soluzioni individuate con minor scostamento dal periodo del problema per ogni sperimentazione}
+  \center
+    \begin{tabular}{Sp{2cm}p{2cm}p{2cm}p{2cm}}
+      \toprule
+      {Periodo del problema (s)} & parametri \newline della \newline soluzione & {10 punti} & {20 punti} & {30 punti} \\
+      \midrule
+      7.85
+      & errore ($m^2$) & $\expnumber{2.2}{-10}$ & 0.47 & 0.49 \\
+      & periodo (s) & 7.85 & 5214.7 & 2235.6 \\
+      502.4
+      & errore ($m^2$) & $\expnumber{8.6}{-12}$ & 0.001 & 0.0 \\
+      & periodo (s) & 516.3 & 1404.1 &  499.9\\
+      4830.7
+      & errore ($m^2$) & $\expnumber{6.3}{-10}$ & 0.0 & 0.0 \\
+      & periodo (s) & 4868.9 & 4437.5 &  4750.0\\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls08/init_10.png}
+  \caption{Regione paretiana per problema di 10 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.8~rad/s$, periodo di 7.85s}
+  \label{fig:init_08_10}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls08/init_20.png}
+  \caption{Regione paretiana per problema di 20 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.8~rad/s$, periodo di 7.85s}
+  \label{fig:init_08_20}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls08/init_30.png}
+  \caption{Regione paretiana per problema di 30 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.8~rad/s$, periodo di 7.85s}
+  \label{fig:init_08_30}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls0125/init_10.png}
+  \caption{Regione paretiana per problema di 10 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.0125~rad/s$, periodo di 502.4s}
+  \label{fig:init_0125_10}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls0125/init_20.png}
+  \caption{Regione paretiana per problema di 20 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.0125~rad/s$, periodo di 502.4s}
+  \label{fig:init_0125_20}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls0125/init_30.png}
+  \caption{Regione paretiana per problema di 30 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.0125~rad/s$, periodo di 502.4s}
+  \label{fig:init_0125_30}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls0013/init_10.png}
+  \caption{Regione paretiana per problema di 10 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.0013~rad/s$, periodo di 4830.7s}
+  \label{fig:init_0013_10}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.67]{img/puls0013/init_20.png}
+  \caption{Regione paretiana per problema di 20 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.0013~rad/s$, periodo di 4830.7s}
+  \label{fig:init_0013_20}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.70]{img/puls0013/init_30.png}
+  \caption{Regione paretiana per problema di 30 punti generati dalla sinusoide \newline $e_i = \sin(\omega t_i)$ con $\omega = 0.0013~rad/s$, periodo di 4830.7s}
+  \label{fig:init_0013_30}
+\end{figure}
+
+
 
 % scelta del solutore da utilizzare
 \subsection{Scelta del solutore}
@@ -512,7 +869,7 @@ I parametri dell'algoritmo \ref{controllo} per le seguenti sperimentazioni sono:
 \begin{itemize}
   \item $f(x)$ in riga \ref{velocitaPasso}, algoritmo \ref{controllo} pari alla funzione \eqref{velocitaPassoEspl} con $k = 2$
   \item $periodoIniziale = 0s$
-  \item $periodoFinale = 5000s$
+  \item $periodoLimite = 5000s$
 \end{itemize}
 
 \begin{table}[H]
@@ -645,7 +1002,7 @@ La tolleranza determina il criterio di arresto nel processo di individuazione di
         \HiLi \Sol $\leftarrow$ \Interpola{\Pt, $\beta$, solutore, \TolFun, \TolVar} \\
         Aggiungi \Sol a \Soluzioni \\
         \eIf{$\Sol[periodo] = \SolPrecedente[periodo]$}{
-        \Passo = \F{\Passo} \\
+        \Passo $\leftarrow$ \F{\Passo} \\
         }{
         \Passo $\leftarrow 1$ \\
         }
@@ -657,6 +1014,8 @@ La tolleranza determina il criterio di arresto nel processo di individuazione di
 
   }
 \end{algorithm}
+
+
 
 \subsection{Selezione della soluzione}
 \label{ss:sel_sol}
@@ -1233,65 +1592,6 @@ Inoltre si può notare che l'errore delle soluzioni individuate si distribuisce 
   \item Livello 9: errore $\geq$ 5
 \end{itemize}
 
-Ma eseguendo i problemi da periodo elevato come i problemi di tabella \ref{tab:fuori} e \ref{tab:limiteSup}, si può notare nelle tabelle successive \ref{tab:fuori_stringente} e \ref{tab:limiteSup_stringente}, che le sinusoidi individuate per i problemi da 10 punti, si scostano mediamente di $4409.1s$ dalla sinusoide da individuare, evidenziando il problema delle sinusoidi da basso periodo rispetto alla sinusoide da individuare.
-
-\begin{itemize}
-  \item $ e(t)~=~sin(0.0010t)$ sinusoide con periodo pari~a: $T = \frac{2\pi}{\omega} = \frac{2\pi}{0.0010} = 6280s$
-  \begin{table}[H]
-    \caption{periodo da individuare uguale a 6280s}
-    \label{tab:fuori_stringente}
-    \begin{center}
-      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
-        \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
-        \midrule
-        % 1648.2 % 694.6 % 1374
-        10 &  1587.0  & 1.29 & $\expnumber{5.0}{-10}$\\
-        20 &  4388 & 0.65 & $0.0$\\
-        30 &  4907.0 & 0.9 & $0.0$ \\
-        \bottomrule
-      \end{tabularx}
-    \end{center}
-  \end{table}
-
-
-
-  \item $ e(t)~=~sin(0.0013t)$ sinusoide con periodo pari a:
-  $T = 4830.7s$
-  \begin{table}[H]
-    \caption{periodo da individuare uguale a 4830.7s}
-    \label{tab:limiteSup_stringente}
-    \begin{center}
-      \begin{tabularx}{\textwidth}{SSSp{0.5\textwidth}}
-        \toprule
-        {Numero di punti} & {Periodo della soluzione (s)} & {Tempo di calcolo (s)} & {Errore quadratico \newline medio ($m^2$)}\\
-        \midrule
-        % 359.7 % 76.3 % 338.7
-        10 &  704  & 2.2 & $\expnumber{6.4}{-8}$\\
-        20 &  4478.0 & 0.77 & $0.0$\\
-        30 &  4935.0 & 0.8 & $0.0$\\
-        \bottomrule
-      \end{tabularx}
-    \end{center}
-  \end{table}
-
-  \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.70]{img/puls0010/lv_stringenti10.png}
-    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:fuori_stringente}}
-    \label{fig:reg_ammis_10_0010_stringente}
-  \end{figure}
-
-  \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.70]{img/puls0013/lv_stingenti10.png}
-    \caption{Regione paretiana per problema da 10 punti di tabella \ref{tab:limiteSup_stringente}}
-    \label{fig:reg_ammis_10_0013_stringente}
-  \end{figure}
-\end{itemize}
-
-Perciò ho deciso di mantenere i livelli precedentemente definiti.
-
 Infine un ulteriore modifica per l'accelerazione del l'algoritmo è agire sul parametro k della $f(x)$ in riga \ref{velocitaPasso}, algoritmo \ref{controllo}, fissandolo pari a $10$ il doppio del valore fissato precedentemente.
 
 Effettuando questa modifiche e scegliendo come livello di soglia il quinto, si ottengono i seguenti risultati:
@@ -1414,14 +1714,14 @@ Date n osservazioni composti da k valori, dove k è il numero di satelliti, l'al
       $\ang{1}$ osservazione & val & val & ... & val \\
       $\ang{2}$ osservazione & val & val & ... & val  \\
       ...                    & val & val & ... & val \\
-      $k-esima$ osservazione & val & val & ... & val \\
+      $n-esima$ osservazione & val & val & ... & val \\
       \bottomrule
     \end{tabular}
 \end{table}
 
 % Struttura e approccio
 \section{Struttura e approccio}
-
+\label{s:struttura}
 Il concetto alla base è quello di generare tutte le permutazioni possibili delle n osservazioni, e di valutarle tramite i parametri restituiti dal modulo di interpolazione. Il numero delle permutazioni è pari a $(k!)^{n}$.
 
 La permutazione di una singola osservazione produce $k!$ elementi, ognuno di questi elementi deve essere assegnato a tutti i $k!$ elementi delle successive osservazioni fino alla n-esima osservazione:
@@ -1438,9 +1738,9 @@ Per queste motivazioni, ho implementato un algoritmo divide et impera, che divid
 \subsection{Creazione dei sottoproblemi}
 
   Per la generazione dei sottoproblemi, sfrutto la tecnica della ricorsione, generando un albero di chiamate dove ogni nodo corrisponde ad un sottoproblema.
-  I nodi figli sono definiti in un nodo suddividendo a metà il numero di osservazioni dati in input, si effettua questo processo finché il numero di osservazioni in un nodo è minore o uguale ad un numero di osservazioni fissato, determinando i nodi foglia.
+  I nodi figli sono definiti in un nodo, suddividendo a metà il numero di osservazioni dati in input, si effettua questo processo finché il numero di osservazioni in un nodo è minore o uguale ad un numero di osservazioni fissato, determinando le foglie.
 
-  Una volta che i nodi foglia individuano una assegnazione dei punti ritenuta corretta, questa viene restituita al nodo padre che unirà la soluzione con la soluzione individuata dall'altro nodo figlio.
+  Una volta che le foglie individuano una assegnazione dei punti ritenuta corretta, questa viene restituita al nodo padre che unirà la soluzione con la soluzione individuata dall'altro nodo figlio.
   \begin{algorithm}
   \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
   \SetKwData{valori}{valori}
@@ -1460,8 +1760,9 @@ Per queste motivazioni, ho implementato un algoritmo divide et impera, che divid
 
   \end{algorithm}
   % Gestione nodo
-  \subsection{Gestione dei nodi non foglia}
-  Il compito di un nodo non foglia è quello di unire gli assegnamenti individuati nei nodi figli. Questo viene effettuato tramite la permutazione delle colonne di uno delle due matrici, unendo per le colonne, la matrice non permutata con la matrice permutata.
+  \subsection{Gestione dei nodi}
+  \label{ss:non_foglia}
+  Il compito di un nodo è quello di unire gli assegnamenti individuati nei nodi figli. Questo viene effettuato tramite la permutazione delle colonne di uno delle due matrici, unendo per le colonne, la matrice non permutata con la matrice permutata.
 
   Le colonne della matrice risultante sono valutate ad una ad una tramite il modulo di interpolazione, non appena si individua una colonna dall'errore con livello inferiore ad un livello soglia (riferimento ai livelli dell'algoritmo di selezione di una soluzione in \ref{sss:standard}), la si memorizza nella matrice da restituire, tolgliendo le colonne che compongono la colonna memorizzata dalla matrice da permutare e dalla matrice non permutata.
 
@@ -1525,19 +1826,254 @@ Per queste motivazioni, ho implementato un algoritmo divide et impera, che divid
   }
   \end{algorithm}
     Il caso migliore è identificato nella individuazione della colonna ottimale nella prima iterazione delle permutazioni, dall'inizio fino ad ogni rimozione di colonna, dove l'algoritmo analizza $k-1$ permutazioni, $k$ rappresenta il numero di colonne. Il caso peggiore è identificato nell'individuazione della colonna ottimale nell'ultima iterazione delle permutazioni dall'inizio fino ad ogni rimozione di colonna, dove l'algoritmo analizza  $\sum_{i=0}^k (k-i)!$ permutazioni.
-    Nel caso si valutasse le colonne di una permutazione complessivamente, quindi senza rimozioni di colonne, sarebbe necessario valutare tutte le permutazioni, l'algoritmo analizzerebbe $k!$ permutazioni.
+    Nel caso si valutassero le colonne di una permutazione complessivamente, quindi senza rimozioni di colonne, sarebbe necessario valutare tutte le permutazioni, l'algoritmo analizzerebbe $k!$ permutazioni.
 
     Ho scelto di applicare l'operazione di rimozione per i vantaggi portati dal suo caso migliore e dal fatto che il caso peggiore non abbia un aumento così drastico delle permutazioni da analizzare.
 
 
   % Gestione foglia
-  \subsection{Gestione dei nodi foglia}
-  I nodi foglia sono caratterizzati da un numero di osservazioni minore o uguale ad un determinato valore (riga \ref{genAlbero:foglia}, algoritmo \ref{alg:genera_albero}). Questo valore determina il numero di nodi foglia che verranno generati, per esempio con foglie di dimensioni pari a 10 osservazioni su un totale di 20, si hanno $\frac{20}{10} = 2$ foglie, oppure con foglie di dimensione pari a 5, si hanno $\frac{20}{5} = 4$ foglie. Per ridurre il numero di permutazioni valutate, l'obiettivo è quello di generare quante più foglie possibili. La riduzione del numero di permutazioni valutate è dimostrata dalla seguente espressione:
-  \begin{equation}
-    lavori~in~corso
-  \end{equation}
+  \subsection{Gestione delle foglie}
+  Le foglie sono caratterizzati da un numero di osservazioni minore o uguale ad un determinato valore (riga \ref{genAlbero:foglia}, algoritmo \ref{alg:genera_albero}). Questo valore determina il numero di foglie che verranno generati, per esempio con foglie di dimensioni pari a 10 osservazioni su un totale di 20, si hanno $\frac{20}{10} = 2$ foglie, oppure con foglie di dimensione pari a 5, si hanno $\frac{20}{5} = 4$ foglie. Per ridurre il numero di permutazioni valutate, l'obiettivo è quello di generare quante più foglie possibili.
+
   Nella determinazione del numero di osservazioni massimo per una foglia è necessario tenere a mente anche il modulo di interpolazione: non è fattibile o è di difficile esecuzione l'interpolazione di una sinusoide a partire da pochi punti, come un solo punto o due.
-% Valutazione prestazioni
+
+  Per la specificazione della dimensione dei nodi foglia, ho definito l'algoritmo \ref{alg:dimFoglia}, che fissa il parametro al maggior numero primo che divide il numero di osservazioni totale, scegliedo solo numeri primi maggiori di 2. Nel caso il numero di osservazioni sia un numero primo si valuta il numero precedente ad esso.
+
+  Il processo eseguito è quello descritto nella sezione \ref{s:struttura}, con la differenza che il numero di osservazioni in una foglia è minore uguale al parametro fissato per la dimensione della foglia.
+  Si generano le permutazioni di ogni punto per ogni osservazione, effettuando le stesse operazioni di rimozione dei nodi. Non appena si individua una colonna dall'errore con livello inferiore ad un livello soglia (riferimento ai livelli dell'algoritmo di selezione di una soluzione in \ref{sss:standard}), la si memorizza nella matrice da restituire, tolgliendo la colonna dalla matrice da permutare, queste operazioni vengono effettuate finché non rimane una sigola colonna nella matrice.
+
+  Il caso migliore corrisponde all'individuare una colonna ottimale alle prime permutazioni fino ad ogni rimozione, quindi il numero di permutazioni valutate corrisponde a $k-1$, mentre il caso peggiore corrisponde all'individuazione della colonna ottimale nell'ultima iterazione delle permutazioni dall'inizio fino ad ogni rimozione di colonna, dove l'algoritmo analizza  $\sum_{i=0}^{k-1} ((k-i)!)^n$ permutazioni. Nel caso non si effettuino operazioni di rimozione, il numero totale di permutazioni valutate corrisponde a $(k!)^n$. Come nella gestione dei nodi non foglia \ref{ss:non_foglia},
+  per i vantaggi portati dal caso migliore, e un aumento non significativo delle permutazioni nel caso peggiore, ho scelto di applicare le operazioni di rimozione.
+
+  % algoritmo dimensione foglia
+  \begin{algorithm}
+  \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+  \SetKwComment{Comment}{/* }{ */}
+  \SetKwData{nOss}{nOsservazioni}
+  \SetKwData{dimFoglia}{dimFoglia}
+  \SetKwFunction{primo}{Primo}
+  \SetKw{KwTo}{in}
+  \caption{Definizione della dimensione dei nodi foglia}\label{alg:dimFoglia}
+  \Input{\nOss numero di osservazioni}
+  \Output{\dimFoglia numero di osservazioni massimo nei nodi foglia}
+
+  $\dimFoglia \leftarrow 0$ \\
+  \If{$\nOss~\grave{e}~primo$}{
+    \nOss $\leftarrow$ $\nOss - 1$ \\
+  }
+  \For{$i~\KwTo~[3, \nOss]$}{
+    \If{$i~\grave{e}~primo~ed~\grave{e}~un~divisore~di~\nOss$}{
+      \dimFoglia $\leftarrow  i$ \\
+    }
+  }
+  \Return \dimFoglia \\
+
+  \end{algorithm}
+
+  % algoritmo gestione nodi foglia
+  \begin{algorithm}[H]
+  \SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+  \SetKwData{primo}{val}
+  \SetKwData{perm}{permutazioni}
+  \SetKwData{ass}{assegnamentoOttimale}
+  \SetKwData{unione}{unione}
+  \SetKwData{sin}{sinusoide}
+  \SetKwFunction{LivelloDi}{LivelloDi}
+  \SetKwFunction{genPerm}{GeneraPermutazioni}
+  \SetKwFunction{sinFun}{IndividuaSinusoide}
+  \SetKwFunction{ncol}{NumeroColonne}
+  \SetKwFunction{unisci}{Unisci}
+  \SetKw{KwTo}{in}
+  \SetKw{KwBr}{break}
+  \caption{Gestione nodo foglia}\label{alg:gestione_nodo_foglia}
+  \Input{\primo Matrice contenente $j$ osservazioni da $k$ valori}
+  \Output{\ass Struttura dati contenente $j$ osservazioni da $k$ valori}
+  \perm $\leftarrow$ \genPerm{\primo} \\
+  \While{True} {
+    \For{$perm~\KwTo~\perm$} {
+      \For{$col~\KwTo~perm$}{
+        \sin $\leftarrow$ \sinFun{$col$} \\
+        \If{\LivelloDi{\sin} $<= livelloSoglia$} {
+          rimuovi $col$ da $perm$\\
+          \perm $\leftarrow$ \genPerm{$perm$} \\
+          aggiungi col ad \ass \\
+          \If{\ncol{$perm$} $=$ 1} {
+            aggiungi la colonna rimasta in $perm$ ad \ass \\
+            \Return \ass \\
+          }
+          \KwBr \\
+        }
+      }
+    }
+  }
+\end{algorithm}
+
+\subsection{Valutazione delle prestazioni}
+% cosa valuto
+La valutazione delle prestazioni del modulo di assegnamento si concentra sull'analisi ed esaminazione dei tempi di calcolo complessivi, tempo medio di calcolo per nodo, tempo medio di calcolo per foglia e percentuale di punti correttamente assegnati.
+
+% come valuto
+I punti in input sono riordinati in modo randomico utilizzando il modulo random di python (ref) perciò definito un caso di test, è necessario eseguire per un numero fissato di volte il modulo di assegnamento. In modo da recuperare ed analizzare il comportamento del modulo indipendentemente dalle caratteristiche dell'assegnamento iniziale in ingresso. Il numero di iterazioni fissato è pari a 10.
+
+% casi di test e risultati
+I  casi di test utilizzati si differenziano per numero di osservazioni, numero di satelliti, e caratteristiche delle sinusoidi utilizzate per generare i punti. Il numero di osservazioni permette di verificare il comportamento dell'algoritmo di definizione del numero di osservazioni  massimo nelle foglie, algoritmo \ref{alg:dimFoglia} e differenza in prestazioni dei nodi rispetto alle foglie e viceversa. Il numero di satelliti insieme alle sinusoidi utilizzate permetteno di valutare il comportamento in maniera generale del modulo di assegnamento.
+I tre casi di test di tabelle \ref{tab:test10}, \ref{tab:test20} e \ref{tab:test30}, sono definiti da tre sinusoiodi, che coprono il range di periodi definito in \ref{ss:arresto}:
+\begin{itemize}
+  \item $ e(t)~=~sin(0.314t)$
+  \item $ e(t)~=~10sin(0.0027t + \pi)$
+  \item $ e(t)~=~4sin(0.00139t + \frac{\pi}{2})$
+\end{itemize}
+I tre casi di test si differenziano in numero di osservazioni, che corrispondono rispettivamente a 10, 20, 30.
+
+\begin{table}
+  \caption{caso di test 10 osservazioni}
+  \label{tab:test10}
+  \center
+    \begin{tabular}{Sp{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}}
+      \toprule
+      {iterazione} & tempo di \newline esecuzione \newline medio (s) & tempo medio nodi (s) & tempo \newline medio \newline foglie (s) & correttezza assegnamento (\%)\\
+      \midrule
+      1 & 260 & 2.3 & 128.5 & 100 \\
+      2 & 277 & 1.7 & 138   & 100 \\
+      3 &  81 & 2.6 &  39   & 100 \\
+      4 &  54 & 5.1 &  24   & 100 \\
+      5 &  20 & 1.5 &   8   & 100  \\
+      6 &  48 & 1.1 &  23   & 100 \\
+      7 & 306 & 1.7 & 152   & 100 \\
+      8 &  50 & 0.8 &  24   & 100 \\
+      9 &  55 & 6.8 &  24   & 100 \\
+      10 & 22 & 1.1 &  10   & 100 \\
+      10 & 22 & 1.1 &  10   & 100 \\
+      \bottomrule
+      {\textbf{media}} & 117.3 & 2.4 & 54.95 & 100 \\
+    \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{caso di test 20 osservazioni}
+  \label{tab:test20}
+  \center
+    \begin{tabular}{Sp{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}}
+      \toprule
+      {iterazione} & tempo di \newline esecuzione \newline medio (s) & tempo medio nodi (s) & tempo \newline medio \newline foglie (s) & correttezza assegnamento (\%)\\
+      \midrule
+      1 & 220 & 3   &  43.4 & 90  \\
+      2 & 449 & 2.2 & 110.7 & 93.3 \\
+      3 & 108 & 4.5 &  47.3 & 90 \\
+      4 & 182 & 3.9 &  42.4 & 86.6 \\
+      5 & 348 & 3.2 &  84.3 & 86.6 \\
+      6 & 149 & 3.7 &  34.4 & 86.6 \\
+      7 &  24 & 3.5 &   3.2 & 90 \\
+      8 & 384 & 2.5 &  94.2 & 90 \\
+      9 & 374 & 3.5 &  90.9 & 90 \\
+      10 & 83 & 1.8 &  38.6 & 100 \\
+      \bottomrule
+      {\textbf{media}} & 232.1 & 3.1 & 58.95 & 90.3 \\
+    \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{caso di test 30 osservazioni}
+  \label{tab:test30}
+  \center
+    \begin{tabular}{Sp{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}}
+      \toprule
+      {iterazione} & {tempo di \newline esecuzione \newline medio (s)} & {tempo medio nodi (s)} & {tempo \newline medio \newline foglie (s)} & {correttezza assegnamento (\%)}\\
+      \midrule
+      1 & 165  & 5.9 & 15.4 & 66.6\\
+      2 &  90  & 3.0 &  8.5 & 89.9 \\
+      3 & 200  & 8.5 & 17.5 & 79.9 \\
+      4 & 152  & 4.0 & 15.4 & 74.4 \\
+      5 & 108  & 3.5 & 10.4 & 68.8 \\
+      6 & 158  & 7.1 & 13.4 & 58.8 \\
+      7 & 121  & 5.3 & 10.5 & 68.8 \\
+      8 & 96.4 & 3.7 &  8.7 & 58.8 \\
+      9 & 103  & 3.1 & 10.1 & 68.8 \\
+      10 & 142 & 5.9 & 12.6 & 56.6 \\
+      \bottomrule
+      {\textbf{media}} & 133 & 5.0 & 12.2 & 69.1 \\
+    \end{tabular}
+\end{table}
+
+Gli ultimi due casi di test di tabelle \ref{tab:test3sat} e \ref{tab:test4sat}, sono definiti da sinusodi con parametri stabiliti in maniera randomica utilizzando il modulo random di python (ref) ad ogni esecuzione. L'ampiezza viene definito da un insieme [1, 10] mentre il periodo dall'insieme [1, 5000].
+
+Questo permette di sperimentare e verificare il comportamento del modulo di assegnamento in ogni caso possibile e non basare considerazioni ed analisi su sinuosodi specifiche, che potrebbero condizionare la bontà dei risultati.
+Gli ultimi due casi di test si differenziano per numero di satelliti, rispettivamente 3 e 4, mentre il numero di osservazioni è pari a 30.
+
+\begin{table}
+  \caption{caso di test 3 satelliti}
+  \label{tab:test3sat}
+  \center
+    \begin{tabular}{Sp{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}}
+      \toprule
+      {iterazione} & {tempo di \newline esecuzione \newline medio (s)} & {tempo medio nodi (s)} & {tempo \newline medio \newline foglie (s)} & {correttezza assegnamento (\%)}\\
+      \midrule
+      1 & 107 & 4.2 & 9.6  & 76.6 \\
+      2 &  86 & 5.0 & 6.3  & 95.5 \\
+      3 & 125 & 1.1 & 14.7 & 75.5 \\
+      4 & 227 & 18  & 12   & 44.4 \\
+      5 &  73 & 4.7 &  5   & 73.3 \\
+      6 & 103 & 1.8 & 11.2 & 87.7 \\
+      7 & 205 & 3.6 & 22.4 & 54.4 \\
+      8 & 259 & 15.7& 18.7 & 54.4 \\
+      9 &  32 & 1.2 &  2.9 & 58.8 \\
+      10 & 210 & 6.2 & 20  & 64.4 \\
+      \bottomrule
+      {\textbf{media}} & 142 & 6.15 & 12.28 & 68.5 \\
+    \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{caso di test 4 satelliti}
+  \label{tab:test4sat}
+  \center
+    \begin{tabular}{Sp{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}}
+      \toprule
+      {iterazione} & {tempo di \newline esecuzione \newline medio (s)} & {tempo medio nodi (s)} & {tempo \newline medio \newline foglie (s)} & {correttezza assegnamento (\%)}\\
+      \midrule
+      1 & 1207 & 36   & 119 & 69.9\\
+      2 &  638 & 20   &  61 & 73.2\\
+      3 &  269 & 14   &  20 & 88.3 \\
+      4 &  297 & 19.7 &  19.8 & 57.5  \\
+      5 &  487 &  7.9 &  53.9&  52.4\\
+      6 &  522 & 31   &  37 &  67.4\\
+      7 &  236 & 12   &  18 &  57.4\\
+      8 &  295 &  4.8 &  32 &  66.6\\
+      9 &  596 & 22.7 &  54.6& 75\\
+      10 & 1648& 28   & 181 &  65\\
+      \bottomrule
+      {\textbf{media}} & 619 & 19.61 & 59.63 & 67.2 \\
+    \end{tabular}
+\end{table}
+
+% considerazioni
+Il numero di permutazioni da valutare nelle foglie può essere molto maggiore rispetto al numero di permutazioni valutate nei nodi.
+
+I risultati delle sperimentazioni evidenziano ciò, la maggior parte del tempo di calcolo è impiegato nell'elaborazione delle foglie. Il tempo medio di elaborazione dei nodi aumenta solo all'aumentare dei satelliti rilevati. Si può notare questo nei risultati in tabella \ref{tab:test3sat} e \ref{tab:test4sat}, dove passa da 6.15s a 19.61s.
+
+Il tempo di esecuzione complessivo è fortemente influenzato dal numero di foglie definite e dal numero di osservazioni analizzate in esse. Ad esempio nel caso di test di tabella \ref{tab:test10} e \ref{tab:test20}, la dimensione delle foglie può essere minore o uguale a 5 osservazioni e in quei casi di test corrispondo esattemente al valore fissato, poiché il quoziente della divisione tra numero di osservazioni totali e la dimensione massima delle foglie è un multiplo di 2, figura \ref{fig:alberoTest20}. Nel caso di test di tabella \ref{tab:test10} si generano due foglie mentre in quello di tabella \ref{tab:test20} si generano quattro foglie, perciò a parità di dimensione di foglia, al raddoppiare del numero di foglie, il tempo medio raddoppia.
+
+La differenza tra il caso di test dei risultati di tabella \ref{tab:test30} dai casi di test di tabella \ref{tab:test10} e \ref{tab:test20} è che seppur la dimensione massima delle foglie sia uguale, le foglie definite nel caso di test da 30 osservazioni sono pari a quattro o tre osservazioni, figura \ref{fig:alberoTest30}. Questo va diminuire il numero di permutazioni valutate all'interno delle foglie, caratterizzando una diminuzione del tempo medio di esecuzione, ma comporta anche una diminuzione della correttezza dell'assegnamento.
+
+Il caso di test dei risultati di tabella \ref{tab:test3sat} è caratterizzato da una generazione randomica delle sinusoidi per la definizione dei punti da assegnare, nonostante questo i tempi medi e la correttezza dell'assegnamento non si scostano di molto dai valori medi di tabella \ref{tab:test30} con stesso numero di osservazioni e sinuoidi fissate.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{img/utility/alberoTest20.png}
+  \caption{Albero dei sottoproblemi per il caso di test \ref{tab:test20}}
+  \label{fig:alberoTest20}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5,angle=90,origin=c]{img/utility/alberoTest30.png}
+  \caption{Albero dei sottoproblemi per il caso di test \ref{tab:test30}}
+  \label{fig:alberoTest30}
+\end{figure}
+
+\subsection{Miglioramenti}
+Il threading è un miglioramento implementabile. Un thread o thread di esecuzione, è una suddivisione di un processo in due o più istanze o sottoprocessi che vengono eseguiti concorrentemente. L'esecuzione parallela nel caso del modulo di assegnamento non comporta alcuna problematica, siccome l'elaborazione dei nodi e delle foglie sono indipendenti l'uno dall'altra. È possibile quindi tramite l'utilizzo dei thread, ridurre drasticamente il tempo di esecuzione, tramite l'esecuzione parallela di interi rami o singoli nodi o foglie.
+
 
 
 %

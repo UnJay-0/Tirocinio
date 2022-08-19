@@ -4,7 +4,7 @@ from enum import Enum, unique
 
 @unique
 class ErrorStandards(Enum):
-    LV1 = 1e-5
+    LV1 = 1e-4
     LV2 = 1e-2
     LV3 = 1e-1
     LV4 = 1
