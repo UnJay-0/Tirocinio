@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.10)  5 AUG 2022 14:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.10)  19 OCT 2022 10:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -549,1874 +549,890 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [6]
 Capitolo 1.
-[1
-
-]
-Capitolo 2.
-<img/sinusoide_cerchio.png, id=185, 553.06625pt x 215.80624pt>
+<img/sinusoide_cerchio.png, id=189, 553.06625pt x 215.80624pt>
 File: img/sinusoide_cerchio.png Graphic file (type png)
 <use img/sinusoide_cerchio.png>
-Package pdftex.def Info: img/sinusoide_cerchio.png  used on input line 121.
+Package pdftex.def Info: img/sinusoide_cerchio.png  used on input line 118.
 (pdftex.def)             Requested size: 276.53244pt x 107.90285pt.
-[2
+[1
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.140 
-       <./img/sinusoide_cerchio.png>] [3]
-Capitolo 3.
-<img/bassoperiodo2.png, id=201, 9426.52174pt x 5866.43869pt>
+l.138 \section
+              {Strumenti utilizzati} <./img/sinusoide_cerchio.png>] [2]
+Capitolo 2.
+<img/bassoperiodo2.png, id=204, 9426.52174pt x 5866.43869pt>
 File: img/bassoperiodo2.png Graphic file (type png)
 <use img/bassoperiodo2.png>
-Package pdftex.def Info: img/bassoperiodo2.png  used on input line 180.
+Package pdftex.def Info: img/bassoperiodo2.png  used on input line 165.
 (pdftex.def)             Requested size: 282.78345pt x 175.98557pt.
-[4
+[3
 
 ]
-<img/bassoperiodo1.png, id=212, 6194.57143pt x 3855.08829pt>
+<img/bassoperiodo1.png, id=216, 6194.57143pt x 3855.08829pt>
 File: img/bassoperiodo1.png Graphic file (type png)
 <use img/bassoperiodo1.png>
-Package pdftex.def Info: img/bassoperiodo1.png  used on input line 190.
+Package pdftex.def Info: img/bassoperiodo1.png  used on input line 175.
 (pdftex.def)             Requested size: 309.74672pt x 192.7657pt.
-<img/bassoperiodo3.png, id=213, 5705.52632pt x 3550.73921pt>
+<img/bassoperiodo3.png, id=217, 5705.52632pt x 3550.73921pt>
 File: img/bassoperiodo3.png Graphic file (type png)
 <use img/bassoperiodo3.png>
-Package pdftex.def Info: img/bassoperiodo3.png  used on input line 199.
+Package pdftex.def Info: img/bassoperiodo3.png  used on input line 184.
 (pdftex.def)             Requested size: 285.29303pt x 177.54736pt.
- [5
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
+ [4
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.204 
+l.189 
       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.204 
-       <./img/bassoperiodo2.png> <./img/bassoperiodo1.png>] [6
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) has been already used, duplicate ignored
+l.189 
+       <./img/bassoperiodo2.png> <./img/bassoperiodo1.png>] [5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.236 
-       <./img/bassoperiodo3.png>] [7]
-Overfull \hbox (21.15921pt too wide) in paragraph at lines 297--325
-[] 
- []
-
-[8]
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Overfull \hbox (21.15921pt too wide) in paragraph at lines 329--358
-[] 
+l.218 
+       <./img/bassoperiodo3.png>] [6]
+Capitolo 3.
+[7
+
+] [8] [9] [10] [11] [12
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.465 
+      ]
+Overfull \hbox (10.63013pt too wide) in paragraph at lines 479--490
+ [] 
  []
 
 
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Overfull \hbox (21.15921pt too wide) in paragraph at lines 363--384
-[] 
+Overfull \hbox (10.63013pt too wide) in paragraph at lines 496--507
+ [] 
  []
 
-[9
+
+Overfull \hbox (10.63013pt too wide) in paragraph at lines 513--524
+ [] 
+ []
+
+
+Overfull \hbox (10.63013pt too wide) in paragraph at lines 530--541
+ [] 
+ []
+
+[13
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.385 
+l.542 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.385 
-      ]
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Overfull \hbox (27.02542pt too wide) in paragraph at lines 388--409
-[] 
- []
-
-[10
+l.542 
+      ] [14
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.419 
+l.570 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.419 
-      ]
-Overfull \hbox (21.15921pt too wide) in paragraph at lines 428--457
-[] 
- []
-
-
-Overfull \hbox (16.5501pt too wide) in paragraph at lines 425--457
-[]\OT1/cmr/m/n/12 Problema di 10 pun-ti ge-ne-ra-ti dal-la si-nu-soi-de $\OML/cmm/m/it/12 e[] \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 !t[]\OT1/cmr/m/n/12 )$ con $\OML/cmm/m/it/12 !$ \OT1/cmr/m/n/12 pa-ri a $0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0013 \OML/cmm/m/it/12 rad=s$
- []
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Package siunitx Info: Option "table-parse-only" has been deprecated in this
-(siunitx)             release.
-(siunitx)             
-(siunitx)             Use "table-alignment-mode = none" as a replacement.
-
-
-Overfull \hbox (21.15921pt too wide) in paragraph at lines 462--487
-[] 
- []
-
-[11
+l.570 
+      ] [15
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.488 \end{itemize}
-                   ]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 538.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 538.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 538.
-
-[12
+l.603 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.549 \end{equation}
-                    ] [13
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.562 
-      ] [14] [15
+l.603 
+      ]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 620--620
+[][][][] 
+ []
+
+<img/puls0013/puntoUtopia10.png, id=344, 462.528pt x 346.896pt>
+File: img/puls0013/puntoUtopia10.png Graphic file (type png)
+<use img/puls0013/puntoUtopia10.png>
+Package pdftex.def Info: img/puls0013/puntoUtopia10.png  used on input line 626.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[16
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.648   \item L
-               'errore rimane tendenzialmente costante nonostante le distanz...
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.648   \item L
-               'errore rimane tendenzialmente costante nonostante le distanz...] [16
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.9}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.661 
-      ] [17
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.738 \begin{algorithm}[H]
-                          ] [18
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.770   \item $
-               periodoIniziale = 0s$
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.770   \item $
-               periodoIniziale = 0s$]
-<img/puls08/init_10.png, id=422, 462.528pt x 346.896pt>
-File: img/puls08/init_10.png Graphic file (type png)
-<use img/puls08/init_10.png>
-Package pdftex.def Info: img/puls08/init_10.png  used on input line 798.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
-<img/puls08/init_20.png, id=423, 462.528pt x 346.896pt>
-File: img/puls08/init_20.png Graphic file (type png)
-<use img/puls08/init_20.png>
-Package pdftex.def Info: img/puls08/init_20.png  used on input line 805.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
- [19
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.809 
-      
+l.630 
+      ]
+<img/puls0013/puntoUtopia20.png, id=351, 462.528pt x 346.896pt>
+File: img/puls0013/puntoUtopia20.png Graphic file (type png)
+<use img/puls0013/puntoUtopia20.png>
+Package pdftex.def Info: img/puls0013/puntoUtopia20.png  used on input line 633.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0013/puntoUtopia30.png, id=353, 462.528pt x 346.896pt>
+File: img/puls0013/puntoUtopia30.png Graphic file (type png)
+<use img/puls0013/puntoUtopia30.png>
+Package pdftex.def Info: img/puls0013/puntoUtopia30.png  used on input line 640.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.809 
-       <./img/puls08/init_10.png>]
-<img/puls08/init_30.png, id=431, 462.528pt x 346.896pt>
-File: img/puls08/init_30.png Graphic file (type png)
-<use img/puls08/init_30.png>
-Package pdftex.def Info: img/puls08/init_30.png  used on input line 812.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
-<img/puls0125/init_10.png, id=432, 462.528pt x 346.896pt>
-File: img/puls0125/init_10.png Graphic file (type png)
-<use img/puls0125/init_10.png>
-Package pdftex.def Info: img/puls0125/init_10.png  used on input line 819.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
- [20
+l.644 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.823 
-      
+l.644 
+       <./img/puls0013/puntoUtopia10.png> <./img/puls0013/puntoUtopia20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 660--660
+[][][][] 
+ []
+
+<img/puls005/puntoUtopia10.png, id=363, 462.528pt x 346.896pt>
+File: img/puls005/puntoUtopia10.png Graphic file (type png)
+<use img/puls005/puntoUtopia10.png>
+Package pdftex.def Info: img/puls005/puntoUtopia10.png  used on input line 666.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.823 
-       <./img/puls08/init_20.png> <./img/puls08/init_30.png>]
-<img/puls0125/init_20.png, id=439, 462.528pt x 346.896pt>
-File: img/puls0125/init_20.png Graphic file (type png)
-<use img/puls0125/init_20.png>
-Package pdftex.def Info: img/puls0125/init_20.png  used on input line 826.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
-<img/puls0125/init_30.png, id=440, 462.528pt x 346.896pt>
-File: img/puls0125/init_30.png Graphic file (type png)
-<use img/puls0125/init_30.png>
-Package pdftex.def Info: img/puls0125/init_30.png  used on input line 833.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
- [21
+l.670 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.670 
+       <./img/puls0013/puntoUtopia30.png>]
+<img/puls005/puntoUtopia20.png, id=372, 462.528pt x 346.896pt>
+File: img/puls005/puntoUtopia20.png Graphic file (type png)
+<use img/puls005/puntoUtopia20.png>
+Package pdftex.def Info: img/puls005/puntoUtopia20.png  used on input line 673.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls005/puntoUtopia30.png, id=374, 462.528pt x 346.896pt>
+File: img/puls005/puntoUtopia30.png Graphic file (type png)
+<use img/puls005/puntoUtopia30.png>
+Package pdftex.def Info: img/puls005/puntoUtopia30.png  used on input line 680.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [19
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.837 
+l.684 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.837 
-       <./img/puls0125/init_10.png> <./img/puls0125/init_20.png>]
-<img/puls0013/init_10.png, id=449, 462.528pt x 346.896pt>
-File: img/puls0013/init_10.png Graphic file (type png)
-<use img/puls0013/init_10.png>
-Package pdftex.def Info: img/puls0013/init_10.png  used on input line 840.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
-<img/puls0013/init_20.png, id=450, 462.528pt x 346.896pt>
-File: img/puls0013/init_20.png Graphic file (type png)
-<use img/puls0013/init_20.png>
-Package pdftex.def Info: img/puls0013/init_20.png  used on input line 847.
-(pdftex.def)             Requested size: 309.89214pt x 232.4191pt.
- [22
+l.684 
+       <./img/puls005/puntoUtopia10.png> <./img/puls005/puntoUtopia20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 700--700
+[][][][] 
+ []
+
+File: img/puls005/puntoUtopia10.png Graphic file (type png)
+<use img/puls005/puntoUtopia10.png>
+Package pdftex.def Info: img/puls005/puntoUtopia10.png  used on input line 705.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[20
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851 
+l.709 
       
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.709 
+       <./img/puls005/puntoUtopia30.png>]
+<img/puls0125/puntoUtopia20.png, id=393, 462.528pt x 346.896pt>
+File: img/puls0125/puntoUtopia20.png Graphic file (type png)
+<use img/puls0125/puntoUtopia20.png>
+Package pdftex.def Info: img/puls0125/puntoUtopia20.png  used on input line 712.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0125/puntoUtopia30.png, id=395, 462.528pt x 346.896pt>
+File: img/puls0125/puntoUtopia30.png Graphic file (type png)
+<use img/puls0125/puntoUtopia30.png>
+Package pdftex.def Info: img/puls0125/puntoUtopia30.png  used on input line 719.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851 
-       <./img/puls0125/init_30.png> <./img/puls0013/init_10.png>]
-<img/puls0013/init_30.png, id=459, 462.528pt x 346.896pt>
-File: img/puls0013/init_30.png Graphic file (type png)
-<use img/puls0013/init_30.png>
-Package pdftex.def Info: img/puls0013/init_30.png  used on input line 854.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [23
+l.723     \item $
+                  e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.866 
-      
+l.723     \item $
+                  e(t)~=~sin(0.8t)$ sinusoide con periodo pari a: <./img/puls0125/puntoUtopia20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 737--737
+[][][][] 
+ []
+
+[22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.866 
-       <./img/puls0013/init_20.png> <./img/puls0013/init_30.png>]
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 879--890
- [] 
- []
-
-
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 896--907
- [] 
- []
-
-
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 913--924
- [] 
- []
-
-[24
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.11}) has been already used, duplicate ignored
+l.747 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.924 \end{table}
-                 
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.12}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.924 \end{table}
-                 ]
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 930--941
- [] 
- []
-
-
-Overfull \hbox (17.80644pt too wide) in paragraph at lines 947--958
- [] 
- []
-
-[25
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.13}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.964 \subsection
-                 {Gestione degli errori}
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.14}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.964 \subsection
-                 {Gestione degli errori}
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.15}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.964 \subsection
-                 {Gestione degli errori}] [26] [27
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1029 Q
-        uesto succede poiché non esiste un limite superiore al periodo che ...]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1056--1056
-[][][][] 
- []
-
-<img/puls0010/puntoUtopia10.png, id=536, 462.528pt x 346.896pt>
-File: img/puls0010/puntoUtopia10.png Graphic file (type png)
-<use img/puls0010/puntoUtopia10.png>
-Package pdftex.def Info: img/puls0010/puntoUtopia10.png  used on input line 1062.
+l.747 
+       <./img/puls0125/puntoUtopia30.png>]
+<img/utility/matplotlib_markers/soluzione.png, id=416, 14.0525pt x 19.07124pt>
+File: img/utility/matplotlib_markers/soluzione.png Graphic file (type png)
+<use img/utility/matplotlib_markers/soluzione.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/soluzione.png  used on input line 750.
+(pdftex.def)             Requested size: 14.05246pt x 19.07118pt.
+<img/utility/matplotlib_markers/soluzione_scelta.png, id=417, 15.1767pt x 18.7902pt>
+File: img/utility/matplotlib_markers/soluzione_scelta.png Graphic file (type png)
+<use img/utility/matplotlib_markers/soluzione_scelta.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_scelta.png  used on input line 751.
+(pdftex.def)             Requested size: 15.17664pt x 18.79015pt.
+<img/utility/matplotlib_markers/punto_utopia.png, id=418, 13.7313pt x 18.0675pt>
+File: img/utility/matplotlib_markers/punto_utopia.png Graphic file (type png)
+<use img/utility/matplotlib_markers/punto_utopia.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/punto_utopia.png  used on input line 752.
+(pdftex.def)             Requested size: 13.73123pt x 18.06744pt.
+<img/utility/matplotlib_markers/soluzione_ideale.png, id=419, 11.5632pt x 16.6221pt>
+File: img/utility/matplotlib_markers/soluzione_ideale.png Graphic file (type png)
+<use img/utility/matplotlib_markers/soluzione_ideale.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_ideale.png  used on input line 754.
+(pdftex.def)             Requested size: 11.56317pt x 16.62204pt.
+<img/utility/matplotlib_markers/punto_sinusoide.png, id=420, 12.2859pt x 19.5129pt>
+File: img/utility/matplotlib_markers/punto_sinusoide.png Graphic file (type png)
+<use img/utility/matplotlib_markers/punto_sinusoide.png>
+Package pdftex.def Info: img/utility/matplotlib_markers/punto_sinusoide.png  used on input line 755.
+(pdftex.def)             Requested size: 12.28586pt x 19.51283pt.
+<img/puls005/tutte_le_soluzioni.png, id=421, 462.528pt x 346.896pt>
+File: img/puls005/tutte_le_soluzioni.png Graphic file (type png)
+<use img/puls005/tutte_le_soluzioni.png>
+Package pdftex.def Info: img/puls005/tutte_le_soluzioni.png  used on input line 759.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[28
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.16}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1066 
-       ]
-<img/puls0010/puntoUtopia20.png, id=543, 508.0581pt x 346.896pt>
-File: img/puls0010/puntoUtopia20.png Graphic file (type png)
-<use img/puls0010/puntoUtopia20.png>
-Package pdftex.def Info: img/puls0010/puntoUtopia20.png  used on input line 1069.
-(pdftex.def)             Requested size: 355.63824pt x 242.82553pt.
-<img/puls0010/puntoUtopia30.png, id=545, 511.6716pt x 346.896pt>
-File: img/puls0010/puntoUtopia30.png Graphic file (type png)
-<use img/puls0010/puntoUtopia30.png>
-Package pdftex.def Info: img/puls0010/puntoUtopia30.png  used on input line 1076.
-(pdftex.def)             Requested size: 358.16768pt x 242.82553pt.
- [29
+<img/puls005/tutte_le_soluzioni_2.png, id=422, 476.982pt x 346.896pt>
+File: img/puls005/tutte_le_soluzioni_2.png Graphic file (type png)
+<use img/puls005/tutte_le_soluzioni_2.png>
+Package pdftex.def Info: img/puls005/tutte_le_soluzioni_2.png  used on input line 760.
+(pdftex.def)             Requested size: 333.88512pt x 242.82553pt.
+<img/puls005/soluzione_corretta.png, id=424, 538.01pt x 385.44pt>
+File: img/puls005/soluzione_corretta.png Graphic file (type png)
+<use img/puls005/soluzione_corretta.png>
+Package pdftex.def Info: img/puls005/soluzione_corretta.png  used on input line 767.
+(pdftex.def)             Requested size: 376.60443pt x 269.80615pt.
+<img/puls005/soluzione_scelta.png, id=426, 462.528pt x 346.896pt>
+File: img/puls005/soluzione_scelta.png Graphic file (type png)
+<use img/puls005/soluzione_scelta.png>
+Package pdftex.def Info: img/puls005/soluzione_scelta.png  used on input line 775.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls08/tutte_le_soluzioni.png, id=431, 462.528pt x 346.896pt>
+File: img/puls08/tutte_le_soluzioni.png Graphic file (type png)
+<use img/puls08/tutte_le_soluzioni.png>
+Package pdftex.def Info: img/puls08/tutte_le_soluzioni.png  used on input line 791.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+<img/puls08/soluzione_corretta.png, id=435, 462.528pt x 346.896pt>
+File: img/puls08/soluzione_corretta.png Graphic file (type png)
+<use img/puls08/soluzione_corretta.png>
+Package pdftex.def Info: img/puls08/soluzione_corretta.png  used on input line 800.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls08/posizione_utopia.png, id=437, 462.528pt x 346.896pt>
+File: img/puls08/posizione_utopia.png Graphic file (type png)
+<use img/puls08/posizione_utopia.png>
+Package pdftex.def Info: img/puls08/posizione_utopia.png  used on input line 807.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [23 <./img/utility/matplotlib_markers/soluzione.png> <./img/utility/matplotlib_markers/soluzione_scelta.png> <./img/utility/matplotlib_markers/punto_utopia.png> <./img/utility/matplotlib_markers/soluzione_ideale.png> <./img/utility/matplotlib_markers/punto_sinusoide.png>] [24
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1080 
-       
+l.816 
+       <./img/puls005/tutte_le_soluzioni.png> <./img/puls005/tutte_le_soluzioni_2.png>] [25
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1080 
-        <./img/puls0010/puntoUtopia10.png> <./img/puls0010/puntoUtopia20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1095--1095
-[][][][] 
- []
-
-<img/puls0013/puntoUtopia10.png, id=555, 462.528pt x 346.896pt>
-File: img/puls0013/puntoUtopia10.png Graphic file (type png)
-<use img/puls0013/puntoUtopia10.png>
-Package pdftex.def Info: img/puls0013/puntoUtopia10.png  used on input line 1101.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[30
+l.816 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1105 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.17}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1105 
-        <./img/puls0010/puntoUtopia30.png>]
-<img/puls0013/puntoUtopia20.png, id=564, 462.528pt x 346.896pt>
-File: img/puls0013/puntoUtopia20.png Graphic file (type png)
-<use img/puls0013/puntoUtopia20.png>
-Package pdftex.def Info: img/puls0013/puntoUtopia20.png  used on input line 1108.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls0013/puntoUtopia30.png, id=566, 462.528pt x 346.896pt>
-File: img/puls0013/puntoUtopia30.png Graphic file (type png)
-<use img/puls0013/puntoUtopia30.png>
-Package pdftex.def Info: img/puls0013/puntoUtopia30.png  used on input line 1115.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [31
+l.816 
+       <./img/puls005/soluzione_corretta.png> <./img/puls005/soluzione_scelta.png>] [26
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.17}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1119 
-       
+l.816 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.18}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1119 
-        <./img/puls0013/puntoUtopia10.png> <./img/puls0013/puntoUtopia20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1135--1135
-[][][][] 
- []
-
-<img/puls005/puntoUtopia10.png, id=577, 462.528pt x 346.896pt>
-File: img/puls005/puntoUtopia10.png Graphic file (type png)
-<use img/puls005/puntoUtopia10.png>
-Package pdftex.def Info: img/puls005/puntoUtopia10.png  used on input line 1141.
+l.816 
+       <./img/puls08/tutte_le_soluzioni.png> <./img/puls08/soluzione_corretta.png>]
+<img/puls08/da_zero_a_venti.png, id=477, 462.528pt x 346.896pt>
+File: img/puls08/da_zero_a_venti.png Graphic file (type png)
+<use img/puls08/da_zero_a_venti.png>
+Package pdftex.def Info: img/puls08/da_zero_a_venti.png  used on input line 821.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[32
+ [27
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.19}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1145 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.18}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1145 
-        <./img/puls0013/puntoUtopia30.png>]
-<img/puls005/puntoUtopia20.png, id=586, 462.528pt x 346.896pt>
-File: img/puls005/puntoUtopia20.png Graphic file (type png)
-<use img/puls005/puntoUtopia20.png>
-Package pdftex.def Info: img/puls005/puntoUtopia20.png  used on input line 1148.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls005/puntoUtopia30.png, id=588, 462.528pt x 346.896pt>
-File: img/puls005/puntoUtopia30.png Graphic file (type png)
-<use img/puls005/puntoUtopia30.png>
-Package pdftex.def Info: img/puls005/puntoUtopia30.png  used on input line 1155.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [33
+l.839 
+       <./img/puls08/posizione_utopia.png>] [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.20}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1159 
-       
+l.867 
+       <./img/puls08/da_zero_a_venti.png>] [29
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.882   \item L
+               ivello 9: errore $<$ $\expnumber{1}{-1}$]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 907--907
+[][][][] 
+ []
+
+<img/puls0013/standard10.png, id=518, 462.528pt x 346.896pt>
+File: img/puls0013/standard10.png Graphic file (type png)
+<use img/puls0013/standard10.png>
+Package pdftex.def Info: img/puls0013/standard10.png  used on input line 913.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[30
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.917 
+      ]
+<img/puls0013/standard20.png, id=525, 462.528pt x 346.896pt>
+File: img/puls0013/standard20.png Graphic file (type png)
+<use img/puls0013/standard20.png>
+Package pdftex.def Info: img/puls0013/standard20.png  used on input line 920.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0013/standard30.png, id=527, 462.528pt x 346.896pt>
+File: img/puls0013/standard30.png Graphic file (type png)
+<use img/puls0013/standard30.png>
+Package pdftex.def Info: img/puls0013/standard30.png  used on input line 927.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [31
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.21}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1159 
-        <./img/puls005/puntoUtopia10.png> <./img/puls005/puntoUtopia20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1175--1175
-[][][][] 
- []
-
-File: img/puls005/puntoUtopia10.png Graphic file (type png)
-<use img/puls005/puntoUtopia10.png>
-Package pdftex.def Info: img/puls005/puntoUtopia10.png  used on input line 1180.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[34
+l.931 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.22}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1184 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.19}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1184 
-        <./img/puls005/puntoUtopia30.png>]
-<img/puls0125/puntoUtopia20.png, id=606, 462.528pt x 346.896pt>
-File: img/puls0125/puntoUtopia20.png Graphic file (type png)
-<use img/puls0125/puntoUtopia20.png>
-Package pdftex.def Info: img/puls0125/puntoUtopia20.png  used on input line 1187.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls0125/puntoUtopia30.png, id=608, 462.528pt x 346.896pt>
-File: img/puls0125/puntoUtopia30.png Graphic file (type png)
-<use img/puls0125/puntoUtopia30.png>
-Package pdftex.def Info: img/puls0125/puntoUtopia30.png  used on input line 1194.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [35
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.23}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1198     \item $
-                   e(t)~=~sin(0.8t)$ sinusoide con periodo pari a:
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.24}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1198     \item $
-                   e(t)~=~sin(0.8t)$ sinusoide con periodo pari a: <./img/puls0125/puntoUtopia20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1212--1212
+l.931 
+       <./img/puls0013/standard10.png> <./img/puls0013/standard20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 948--948
 [][][][] 
  []
 
-[36
+<img/puls005/standard10.png, id=538, 462.528pt x 346.896pt>
+File: img/puls005/standard10.png Graphic file (type png)
+<use img/puls005/standard10.png>
+Package pdftex.def Info: img/puls005/standard10.png  used on input line 954.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[32
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.23}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.958 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.958 
+       <./img/puls0013/standard30.png>]
+<img/puls005/standard20.png, id=547, 462.528pt x 346.896pt>
+File: img/puls005/standard20.png Graphic file (type png)
+<use img/puls005/standard20.png>
+Package pdftex.def Info: img/puls005/standard20.png  used on input line 961.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls005/standard30.png, id=549, 462.528pt x 346.896pt>
+File: img/puls005/standard30.png Graphic file (type png)
+<use img/puls005/standard30.png>
+Package pdftex.def Info: img/puls005/standard30.png  used on input line 968.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [33
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.24}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.972 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.25}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1222 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.20}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1222 
-        <./img/puls0125/puntoUtopia30.png>]
-<img/utility/matplotlib_markers/soluzione.png, id=629, 14.0525pt x 19.07124pt>
-File: img/utility/matplotlib_markers/soluzione.png Graphic file (type png)
-<use img/utility/matplotlib_markers/soluzione.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/soluzione.png  used on input line 1225.
-(pdftex.def)             Requested size: 14.05246pt x 19.07118pt.
-<img/utility/matplotlib_markers/soluzione_scelta.png, id=630, 15.1767pt x 18.7902pt>
-File: img/utility/matplotlib_markers/soluzione_scelta.png Graphic file (type png)
-<use img/utility/matplotlib_markers/soluzione_scelta.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_scelta.png  used on input line 1226.
-(pdftex.def)             Requested size: 15.17664pt x 18.79015pt.
-<img/utility/matplotlib_markers/punto_utopia.png, id=631, 13.7313pt x 18.0675pt>
-File: img/utility/matplotlib_markers/punto_utopia.png Graphic file (type png)
-<use img/utility/matplotlib_markers/punto_utopia.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/punto_utopia.png  used on input line 1227.
-(pdftex.def)             Requested size: 13.73123pt x 18.06744pt.
-<img/utility/matplotlib_markers/soluzione_ideale.png, id=632, 11.5632pt x 16.6221pt>
-File: img/utility/matplotlib_markers/soluzione_ideale.png Graphic file (type png)
-<use img/utility/matplotlib_markers/soluzione_ideale.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/soluzione_ideale.png  used on input line 1229.
-(pdftex.def)             Requested size: 11.56317pt x 16.62204pt.
-<img/utility/matplotlib_markers/punto_sinusoide.png, id=633, 12.2859pt x 19.5129pt>
-File: img/utility/matplotlib_markers/punto_sinusoide.png Graphic file (type png)
-<use img/utility/matplotlib_markers/punto_sinusoide.png>
-Package pdftex.def Info: img/utility/matplotlib_markers/punto_sinusoide.png  used on input line 1230.
-(pdftex.def)             Requested size: 12.28586pt x 19.51283pt.
-<img/puls005/tutte_le_soluzioni.png, id=634, 462.528pt x 346.896pt>
-File: img/puls005/tutte_le_soluzioni.png Graphic file (type png)
-<use img/puls005/tutte_le_soluzioni.png>
-Package pdftex.def Info: img/puls005/tutte_le_soluzioni.png  used on input line 1234.
+l.972 
+       <./img/puls005/standard10.png> <./img/puls005/standard20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 989--989
+[][][][] 
+ []
+
+<img/puls0125/standard10.png, id=559, 462.528pt x 346.896pt>
+File: img/puls0125/standard10.png Graphic file (type png)
+<use img/puls0125/standard10.png>
+Package pdftex.def Info: img/puls0125/standard10.png  used on input line 995.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls005/tutte_le_soluzioni_2.png, id=635, 476.982pt x 346.896pt>
-File: img/puls005/tutte_le_soluzioni_2.png Graphic file (type png)
-<use img/puls005/tutte_le_soluzioni_2.png>
-Package pdftex.def Info: img/puls005/tutte_le_soluzioni_2.png  used on input line 1235.
-(pdftex.def)             Requested size: 333.88512pt x 242.82553pt.
-<img/puls005/soluzione_corretta.png, id=637, 538.01pt x 385.44pt>
-File: img/puls005/soluzione_corretta.png Graphic file (type png)
-<use img/puls005/soluzione_corretta.png>
-Package pdftex.def Info: img/puls005/soluzione_corretta.png  used on input line 1242.
-(pdftex.def)             Requested size: 376.60443pt x 269.80615pt.
-<img/puls005/soluzione_scelta.png, id=639, 462.528pt x 346.896pt>
-File: img/puls005/soluzione_scelta.png Graphic file (type png)
-<use img/puls005/soluzione_scelta.png>
-Package pdftex.def Info: img/puls005/soluzione_scelta.png  used on input line 1250.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls08/tutte_le_soluzioni.png, id=644, 462.528pt x 346.896pt>
-File: img/puls08/tutte_le_soluzioni.png Graphic file (type png)
-<use img/puls08/tutte_le_soluzioni.png>
-Package pdftex.def Info: img/puls08/tutte_le_soluzioni.png  used on input line 1266.
-(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
-<img/puls08/soluzione_corretta.png, id=648, 462.528pt x 346.896pt>
-File: img/puls08/soluzione_corretta.png Graphic file (type png)
-<use img/puls08/soluzione_corretta.png>
-Package pdftex.def Info: img/puls08/soluzione_corretta.png  used on input line 1275.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls08/posizione_utopia.png, id=650, 462.528pt x 346.896pt>
-File: img/puls08/posizione_utopia.png Graphic file (type png)
-<use img/puls08/posizione_utopia.png>
-Package pdftex.def Info: img/puls08/posizione_utopia.png  used on input line 1282.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [37 <./img/utility/matplotlib_markers/soluzione.png> <./img/utility/matplotlib_markers/soluzione_scelta.png> <./img/utility/matplotlib_markers/punto_utopia.png> <./img/utility/matplotlib_markers/soluzione_ideale.png> <./img/utility/matplotlib_markers/punto_sinusoide.png>] [38
+[34
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.26}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1291 
-        <./img/puls005/tutte_le_soluzioni.png> <./img/puls005/tutte_le_soluzioni_2.png>] [39
+l.999 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.13}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.999 
+       <./img/puls005/standard30.png>]
+<img/puls0125/standard20.png, id=568, 462.528pt x 346.896pt>
+File: img/puls0125/standard20.png Graphic file (type png)
+<use img/puls0125/standard20.png>
+Package pdftex.def Info: img/puls0125/standard20.png  used on input line 1002.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls0125/standard30.png, id=570, 462.528pt x 346.896pt>
+File: img/puls0125/standard30.png Graphic file (type png)
+<use img/puls0125/standard30.png>
+Package pdftex.def Info: img/puls0125/standard30.png  used on input line 1009.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [35
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.27}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1291 
+l.1013 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.28}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1291 
-        <./img/puls005/soluzione_corretta.png> <./img/puls005/soluzione_scelta.png>] [40
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.29}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1291 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.30}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1291 
-        <./img/puls08/tutte_le_soluzioni.png> <./img/puls08/soluzione_corretta.png>]
-<img/puls08/da_zero_a_venti.png, id=689, 462.528pt x 346.896pt>
-File: img/puls08/da_zero_a_venti.png Graphic file (type png)
-<use img/puls08/da_zero_a_venti.png>
-Package pdftex.def Info: img/puls08/da_zero_a_venti.png  used on input line 1296.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [41
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.31}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1314 
-        <./img/puls08/posizione_utopia.png>] [42
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.32}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1342 
-        <./img/puls08/da_zero_a_venti.png>] [43
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1355   \item L
-                ivello 7: errore $<$ 7]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1384--1384
+l.1013 
+        <./img/puls0125/standard10.png> <./img/puls0125/standard20.png>]
+Overfull \hbox (157.27556pt too wide) in alignment at lines 1032--1032
 [][][][] 
  []
 
-<img/puls0010/standard10.png, id=737, 462.528pt x 346.896pt>
-File: img/puls0010/standard10.png Graphic file (type png)
-<use img/puls0010/standard10.png>
-Package pdftex.def Info: img/puls0010/standard10.png  used on input line 1390.
+<img/puls08/standard10.png, id=581, 462.528pt x 346.896pt>
+File: img/puls08/standard10.png Graphic file (type png)
+<use img/puls08/standard10.png>
+Package pdftex.def Info: img/puls08/standard10.png  used on input line 1038.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[44
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.21}) has been already used, duplicate ignored
+[36
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.29}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1394 
+l.1042 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1042 
+        <./img/puls0125/standard30.png>]
+<img/puls08/standard20.png, id=590, 462.528pt x 346.896pt>
+File: img/puls08/standard20.png Graphic file (type png)
+<use img/puls08/standard20.png>
+Package pdftex.def Info: img/puls08/standard20.png  used on input line 1045.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/puls08/standard30.png, id=592, 462.528pt x 346.896pt>
+File: img/puls08/standard30.png Graphic file (type png)
+<use img/puls08/standard30.png>
+Package pdftex.def Info: img/puls08/standard30.png  used on input line 1052.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [37
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.30}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1056 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.31}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1056 
+        <./img/puls08/standard10.png> <./img/puls08/standard20.png>] [38
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.32}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1073 
+        <./img/puls08/standard30.png>]
+Overfull \hbox (158.48938pt too wide) in alignment at lines 1097--1097
+[][][][] 
+ []
+
+<img/puls0013/standard10_err1.png, id=621, 462.528pt x 346.896pt>
+File: img/puls0013/standard10_err1.png Graphic file (type png)
+<use img/puls0013/standard10_err1.png>
+Package pdftex.def Info: img/puls0013/standard10_err1.png  used on input line 1103.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[39
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.15}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1107 
        ]
-<img/puls0010/standard20.png, id=744, 462.528pt x 346.896pt>
-File: img/puls0010/standard20.png Graphic file (type png)
-<use img/puls0010/standard20.png>
-Package pdftex.def Info: img/puls0010/standard20.png  used on input line 1397.
+<img/puls0013/standard10_err5.png, id=631, 462.528pt x 346.896pt>
+File: img/puls0013/standard10_err5.png Graphic file (type png)
+<use img/puls0013/standard10_err5.png>
+Package pdftex.def Info: img/puls0013/standard10_err5.png  used on input line 1110.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls0010/standard30.png, id=746, 462.528pt x 346.896pt>
-File: img/puls0010/standard30.png Graphic file (type png)
-<use img/puls0010/standard30.png>
-Package pdftex.def Info: img/puls0010/standard30.png  used on input line 1404.
+<img/puls0013/standard10_err10.png, id=633, 462.528pt x 346.896pt>
+File: img/puls0013/standard10_err10.png Graphic file (type png)
+<use img/puls0013/standard10_err10.png>
+Package pdftex.def Info: img/puls0013/standard10_err10.png  used on input line 1117.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [45
+ [40
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.33}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1408 
+l.1121 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.34}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1408 
-        <./img/puls0010/standard10.png> <./img/puls0010/standard20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1425--1425
+l.1121 
+        <./img/puls0013/standard10_err1.png> <./img/puls0013/standard10_err5.png>]
+Overfull \hbox (158.48938pt too wide) in alignment at lines 1138--1138
 [][][][] 
  []
 
-<img/puls0013/standard10.png, id=756, 462.528pt x 346.896pt>
-File: img/puls0013/standard10.png Graphic file (type png)
-<use img/puls0013/standard10.png>
-Package pdftex.def Info: img/puls0013/standard10.png  used on input line 1431.
+<img/puls005/standard10_err1.png, id=643, 462.528pt x 346.896pt>
+File: img/puls005/standard10_err1.png Graphic file (type png)
+<use img/puls005/standard10_err1.png>
+Package pdftex.def Info: img/puls005/standard10_err1.png  used on input line 1144.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[46
+[41
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.35}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1435 
+l.1148 
        
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.22}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1435 
-        <./img/puls0010/standard30.png>]
-<img/puls0013/standard20.png, id=765, 462.528pt x 346.896pt>
-File: img/puls0013/standard20.png Graphic file (type png)
-<use img/puls0013/standard20.png>
-Package pdftex.def Info: img/puls0013/standard20.png  used on input line 1438.
+l.1148 
+        <./img/puls0013/standard10_err10.png>]
+<img/puls005/standard10_err5.png, id=651, 462.528pt x 346.896pt>
+File: img/puls005/standard10_err5.png Graphic file (type png)
+<use img/puls005/standard10_err5.png>
+Package pdftex.def Info: img/puls005/standard10_err5.png  used on input line 1151.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls0013/standard30.png, id=767, 462.528pt x 346.896pt>
-File: img/puls0013/standard30.png Graphic file (type png)
-<use img/puls0013/standard30.png>
-Package pdftex.def Info: img/puls0013/standard30.png  used on input line 1445.
+<img/puls005/standard10_err10.png, id=653, 462.528pt x 346.896pt>
+File: img/puls005/standard10_err10.png Graphic file (type png)
+<use img/puls005/standard10_err10.png>
+Package pdftex.def Info: img/puls005/standard10_err10.png  used on input line 1158.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [47
+ [42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.36}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1449 
+l.1162 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.37}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1449 
-        <./img/puls0013/standard10.png> <./img/puls0013/standard20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1466--1466
+l.1162 
+        <./img/puls005/standard10_err1.png> <./img/puls005/standard10_err5.png>]
+Overfull \hbox (158.48938pt too wide) in alignment at lines 1179--1179
 [][][][] 
  []
 
-<img/puls005/standard10.png, id=777, 462.528pt x 346.896pt>
-File: img/puls005/standard10.png Graphic file (type png)
-<use img/puls005/standard10.png>
-Package pdftex.def Info: img/puls005/standard10.png  used on input line 1472.
+<img/puls0125/standard10_err1.png, id=663, 462.528pt x 346.896pt>
+File: img/puls0125/standard10_err1.png Graphic file (type png)
+<use img/puls0125/standard10_err1.png>
+Package pdftex.def Info: img/puls0125/standard10_err1.png  used on input line 1185.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[48
+[43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.38}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1476 
+l.1189 
        
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.23}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.17}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1476 
-        <./img/puls0013/standard30.png>]
-<img/puls005/standard20.png, id=786, 462.528pt x 346.896pt>
-File: img/puls005/standard20.png Graphic file (type png)
-<use img/puls005/standard20.png>
-Package pdftex.def Info: img/puls005/standard20.png  used on input line 1479.
+l.1189 
+        <./img/puls005/standard10_err10.png>]
+<img/puls0125/standard10_err5.png, id=672, 462.528pt x 346.896pt>
+File: img/puls0125/standard10_err5.png Graphic file (type png)
+<use img/puls0125/standard10_err5.png>
+Package pdftex.def Info: img/puls0125/standard10_err5.png  used on input line 1192.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls005/standard30.png, id=788, 462.528pt x 346.896pt>
-File: img/puls005/standard30.png Graphic file (type png)
-<use img/puls005/standard30.png>
-Package pdftex.def Info: img/puls005/standard30.png  used on input line 1486.
+<img/puls0125/standard10_err10.png, id=674, 462.528pt x 346.896pt>
+File: img/puls0125/standard10_err10.png Graphic file (type png)
+<use img/puls0125/standard10_err10.png>
+Package pdftex.def Info: img/puls0125/standard10_err10.png  used on input line 1199.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [49
+ [44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.39}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1490 
+l.1203 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.40}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1490 
-        <./img/puls005/standard10.png> <./img/puls005/standard20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1507--1507
+l.1203 
+        <./img/puls0125/standard10_err1.png> <./img/puls0125/standard10_err5.png>]
+Overfull \hbox (158.48938pt too wide) in alignment at lines 1222--1222
 [][][][] 
  []
 
-<img/puls0125/standard10.png, id=799, 462.528pt x 346.896pt>
-File: img/puls0125/standard10.png Graphic file (type png)
-<use img/puls0125/standard10.png>
-Package pdftex.def Info: img/puls0125/standard10.png  used on input line 1513.
+<img/puls08/standard10_err1.png, id=684, 462.528pt x 346.896pt>
+File: img/puls08/standard10_err1.png Graphic file (type png)
+<use img/puls08/standard10_err1.png>
+Package pdftex.def Info: img/puls08/standard10_err1.png  used on input line 1228.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[50
+[45
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.41}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1517 
+l.1232 
        
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.24}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.18}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1517 
-        <./img/puls005/standard30.png>]
-<img/puls0125/standard20.png, id=808, 462.528pt x 346.896pt>
-File: img/puls0125/standard20.png Graphic file (type png)
-<use img/puls0125/standard20.png>
-Package pdftex.def Info: img/puls0125/standard20.png  used on input line 1520.
+l.1232 
+        <./img/puls0125/standard10_err10.png>]
+<img/puls08/standard10_err5.png, id=692, 462.528pt x 346.896pt>
+File: img/puls08/standard10_err5.png Graphic file (type png)
+<use img/puls08/standard10_err5.png>
+Package pdftex.def Info: img/puls08/standard10_err5.png  used on input line 1235.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls0125/standard30.png, id=810, 462.528pt x 346.896pt>
-File: img/puls0125/standard30.png Graphic file (type png)
-<use img/puls0125/standard30.png>
-Package pdftex.def Info: img/puls0125/standard30.png  used on input line 1527.
+<img/puls08/standard10_err10.png, id=694, 462.528pt x 346.896pt>
+File: img/puls08/standard10_err10.png Graphic file (type png)
+<use img/puls08/standard10_err10.png>
+Package pdftex.def Info: img/puls08/standard10_err10.png  used on input line 1242.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [51
+ [46
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.42}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1531 
+l.1246 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.43}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1531 
-        <./img/puls0125/standard10.png> <./img/puls0125/standard20.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1550--1550
+l.1246 
+        <./img/puls08/standard10_err1.png> <./img/puls08/standard10_err5.png>]
+Overfull \hbox (158.48938pt too wide) in alignment at lines 1261--1261
 [][][][] 
  []
 
-<img/puls08/standard10.png, id=820, 462.528pt x 346.896pt>
-File: img/puls08/standard10.png Graphic file (type png)
-<use img/puls08/standard10.png>
-Package pdftex.def Info: img/puls08/standard10.png  used on input line 1556.
+<img/entroOss/puls1/err5.png, id=704, 462.528pt x 346.896pt>
+File: img/entroOss/puls1/err5.png Graphic file (type png)
+<use img/entroOss/puls1/err5.png>
+Package pdftex.def Info: img/entroOss/puls1/err5.png  used on input line 1267.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-[52
+[47
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.44}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1560 
+l.1271 
        
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.25}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.19}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1560 
-        <./img/puls0125/standard30.png>]
-<img/puls08/standard20.png, id=829, 462.528pt x 346.896pt>
-File: img/puls08/standard20.png Graphic file (type png)
-<use img/puls08/standard20.png>
-Package pdftex.def Info: img/puls08/standard20.png  used on input line 1563.
+l.1271 
+        <./img/puls08/standard10_err10.png>]
+<img/entroOss/puls1/err10.png, id=712, 462.528pt x 346.896pt>
+File: img/entroOss/puls1/err10.png Graphic file (type png)
+<use img/entroOss/puls1/err10.png>
+Package pdftex.def Info: img/entroOss/puls1/err10.png  used on input line 1274.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<img/puls08/standard30.png, id=831, 462.528pt x 346.896pt>
-File: img/puls08/standard30.png Graphic file (type png)
-<use img/puls08/standard30.png>
-Package pdftex.def Info: img/puls08/standard30.png  used on input line 1570.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
- [53
+
+Overfull \hbox (158.48938pt too wide) in alignment at lines 1294--1294
+[][][][] 
+ []
+
+[48
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.45}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1574 
-       
+l.1296       \end{table}
+                        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.46}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1574 
-        <./img/puls08/standard10.png> <./img/puls08/standard20.png>] [54
+l.1296       \end{table}
+                         <./img/entroOss/puls1/err5.png> <./img/entroOss/puls1/err10.png>]
+<img/entroOss/puls03/err5.png, id=722, 462.528pt x 346.896pt>
+File: img/entroOss/puls03/err5.png Graphic file (type png)
+<use img/entroOss/puls03/err5.png>
+Package pdftex.def Info: img/entroOss/puls03/err5.png  used on input line 1301.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+<img/entroOss/puls03/err10.png, id=724, 462.528pt x 346.896pt>
+File: img/entroOss/puls03/err10.png Graphic file (type png)
+<use img/entroOss/puls03/err10.png>
+Package pdftex.def Info: img/entroOss/puls03/err10.png  used on input line 1308.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [49
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.20}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1312 
+       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.47}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1591   \item L
-                ivello 8: errore $<$ 5 <./img/puls08/standard30.png>]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1613--1613
+l.1312 
+        <./img/entroOss/puls03/err5.png>]
+Overfull \hbox (158.48938pt too wide) in alignment at lines 1328--1328
 [][][][] 
  []
 
-
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1633--1633
-[][][][] 
- []
-
-
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1653--1653
-[][][][] 
- []
-
-[55
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.26}) has been already used, duplicate ignored
+<img/entroOss/puls02/err5.png, id=734, 462.528pt x 346.896pt>
+File: img/entroOss/puls02/err5.png Graphic file (type png)
+<use img/entroOss/puls02/err5.png>
+Package pdftex.def Info: img/entroOss/puls02/err5.png  used on input line 1334.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+[50
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.48}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1656 
+l.1338 
        
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.27}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.21}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1656 
-       ]
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1673--1673
-[][][][] 
- []
-
-
-Overfull \hbox (157.27556pt too wide) in alignment at lines 1694--1694
-[][][][] 
- []
-
-[56
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.28}) has been already used, duplicate ignored
+l.1338 
+        <./img/entroOss/puls03/err10.png>]
+<img/entroOss/puls02/err10.png, id=742, 462.528pt x 346.896pt>
+File: img/entroOss/puls02/err10.png Graphic file (type png)
+<use img/entroOss/puls02/err10.png>
+Package pdftex.def Info: img/entroOss/puls02/err10.png  used on input line 1341.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [51
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.49}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1702 \chapter
-               {Sviluppo dell'algoritmo}
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.29}) has been already used, duplicate ignored
+l.1352 \chapter
+               {Identificazione di sinusoidi sovrapposte}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.50}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1702 \chapter
-               {Sviluppo dell'algoritmo}
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.30}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1702 \chapter
-               {Sviluppo dell'algoritmo}]
+l.1352 \chapter
+               {Identificazione di sinusoidi sovrapposte} <./img/entroOss/puls02/err5.png> <./img/entroOss/puls02/err10.png>]
 Capitolo 4.
-[57
+[52
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.31}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.22}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1735 P
-        er queste motivazioni, ho implementato un algoritmo divide et impera...] [58
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.7}) has been already used, duplicate ignored
+l.1384 
+       ] [53
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1769   N
-          el caso non si trovi una colonna che rispetti il criterio di selez...] [59] [60
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.8}) has been already used, duplicate ignored
+l.1418 
+       ] [54] [55
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1844 
-       ] [61
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.9}) has been already used, duplicate ignored
+l.1495 
+       ] [56
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1911 \subsection
-                  {Valutazione delle prestazioni}] [62
-pdfTeX warning (ext4): destination with the same identifier (name{algocf.10}) has been already used, duplicate ignored
+l.1562 \subsection
+                  {Valutazione delle prestazioni}] [57
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1921 \begin{itemize}
-                      ]
-Underfull \hbox (badness 10000) in paragraph at lines 1934--1935
+l.1573 I
+          casi di test utilizzati si differenziano per numero di osservazion...]
+Underfull \hbox (badness 10000) in paragraph at lines 1582--1583
 []|\OT1/cmr/m/n/12 correttezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1934--1935
+Underfull \hbox (badness 10000) in paragraph at lines 1582--1583
 \OT1/cmr/m/n/12 as-se-gna-men-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1958--1959
+Underfull \hbox (badness 10000) in paragraph at lines 1605--1606
 []|\OT1/cmr/m/n/12 correttezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1958--1959
+Underfull \hbox (badness 10000) in paragraph at lines 1605--1606
 \OT1/cmr/m/n/12 as-se-gna-men-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1981--1982
+Underfull \hbox (badness 10000) in paragraph at lines 1628--1629
 []|\OT1/cmr/m/n/12 correttezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1981--1982
+Underfull \hbox (badness 10000) in paragraph at lines 1628--1629
 \OT1/cmr/m/n/12 as-se-gna-men-to
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2009--2010
-[]|\OT1/cmr/m/n/12 correttezza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2009--2010
-\OT1/cmr/m/n/12 as-se-gna-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2032--2033
-[]|\OT1/cmr/m/n/12 correttezza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2032--2033
-\OT1/cmr/m/n/12 as-se-gna-men-to
- []
-
-[63
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.32}) has been already used, duplicate ignored
+[58
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.23}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2053 
-       ] [64
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.33}) has been already used, duplicate ignored
+l.1653 
+       ] [59
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.24}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2053 
+l.1653 
        
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.34}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.25}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2053 
-       ] [65
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.35}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2053 
-       
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.36}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2053 
+l.1653 
        ]
-<img/utility/alberoTest20.png, id=1013, 753.81625pt x 322.20375pt>
+<img/utility/alberoTest20.png, id=888, 753.81625pt x 322.20375pt>
 File: img/utility/alberoTest20.png Graphic file (type png)
 <use img/utility/alberoTest20.png>
-Package pdftex.def Info: img/utility/alberoTest20.png  used on input line 2062.
+Package pdftex.def Info: img/utility/alberoTest20.png  used on input line 1657.
 (pdftex.def)             Requested size: 376.90721pt x 161.10147pt.
-<img/utility/alberoTest30.png, id=1015, 1361.085pt x 452.69125pt>
+<img/utility/alberoTest30.png, id=890, 1361.085pt x 452.69125pt>
 File: img/utility/alberoTest30.png Graphic file (type png)
 <use img/utility/alberoTest30.png>
-Package pdftex.def Info: img/utility/alberoTest30.png  used on input line 2069.
+Package pdftex.def Info: img/utility/alberoTest30.png  used on input line 1664.
 (pdftex.def)             Requested size: 680.54085pt x 226.34506pt.
- [66
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.48}) has been already used, duplicate ignored
+ [60
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.51}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2073 
+l.1668 
         <./img/utility/alberoTest20.png>]
 Overfull \vbox (116.82004pt too high) has occurred while \output is active []
 
- [67
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.49}) has been already used, duplicate ignored
+ [61
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.52}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2073 
-        <./img/utility/alberoTest30.png>] [68] [69
+l.1668 
+        <./img/utility/alberoTest30.png>] [62] [63
 
 ] (./IdenSat.aux)
 Package rerunfilecheck Info: File `IdenSat.out' has not changed.
-(rerunfilecheck)             Checksum: 22B74C53BFF91A6159EEAC1A9C86DFD5;4827.
+(rerunfilecheck)             Checksum: CC8F6FCB21323EB2157DD0BA40D88799;5116.
  ) 
 Here is how much of TeX's memory you used:
- 17631 strings out of 478268
- 323256 string characters out of 5846347
- 658769 words of memory out of 5000000
- 35191 multiletter control sequences out of 15000+600000
- 484647 words of font info for 85 fonts, out of 8000000 for 9000
+ 17508 strings out of 478268
+ 322579 string characters out of 5846347
+ 642228 words of memory out of 5000000
+ 35141 multiletter control sequences out of 15000+600000
+ 480798 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,25n,79p,992b,884s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msl12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on IdenSat.pdf (75 pages, 1797366 bytes).
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on IdenSat.pdf (69 pages, 1760378 bytes).
 PDF statistics:
- 1210 PDF objects out of 1440 (max. 8388607)
- 975 compressed objects within 10 object streams
- 395 named destinations out of 1000 (max. 500000)
- 495 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1056 PDF objects out of 1200 (max. 8388607)
+ 828 compressed objects within 9 object streams
+ 318 named destinations out of 1000 (max. 500000)
+ 526 words of extra memory for PDF output out of 10000 (max. 10000000)
 

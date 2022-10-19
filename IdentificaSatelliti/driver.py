@@ -4,10 +4,9 @@ import random
 import pandas as pd
 from .Assegnamento.valuesReader import valReader
 from .Assegnamento.associator import obtainOptimal, writeMeanTimes
-from .Assegnamento.associatorRange import optimizeCol
 from .Assegnamento.valuesWriter import generateValues, writeDataValues
 
-N_OBSERVATIONS = 30
+N_OBSERVATIONS = 10
 
 
 def compare(result, sinousoids) -> tuple:
@@ -43,8 +42,8 @@ if __name__ == '__main__':
                                    math.pi*2/x[1], math.pi, sinousoids[0])
     sinousoids[3] = generateValues(random.randint(1, 10),
                                    math.pi*2/x[2], math.pi/2, sinousoids[0])
-    # sinousoids[4] = generateValues(random.randint(1, 10),
-    #                               math.pi*2/x[3], 3*math.pi/2, sinousoids[0])
+    sinousoids[4] = generateValues(random.randint(1, 10),
+                                   math.pi*2/x[3], 3*math.pi/2, sinousoids[0])
     # sinousoids[1] = generateValues(1, 0.314, 0, sinousoids[0])
     # sinousoids[2] = generateValues(10, 0.0027, math.pi, sinousoids[0])
     # sinousoids[3] = generateValues(4, 0.00139, math.pi/2, sinousoids[0])

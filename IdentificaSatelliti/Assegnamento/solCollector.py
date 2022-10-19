@@ -4,22 +4,16 @@ from enum import Enum, unique
 
 @unique
 class ErrorStandards(Enum):
-    LV1 = 1e-4
-    LV2 = 1e-2
-    LV3 = 1e-1
-    LV4 = 1
-    LV5 = 3
-    LV6 = 5
-    LV7 = 7
-    LV8 = 10
-    # LV1 = 1e-9
-    # LV2 = 1e-7
-    # LV3 = 1e-5
-    # LV4 = 1e-3
-    # LV5 = 1e-1
-    # LV6 = 1
-    # LV7 = 3
-    # LV8 = 5
+    LV1 = 1e-13
+    LV2 = 1e-12
+    LV3 = 1e-11
+    LV4 = 1e-10
+    LV5 = 1e-9
+    LV6 = 1e-7
+    LV7 = 1e-5
+    LV8 = 1e-3
+    LV9 = 1e-1
+    LV10 = 1
 
     def rangeOf(error: float):
         if error < ErrorStandards.LV1.value:
@@ -38,22 +32,30 @@ class ErrorStandards(Enum):
             return 7
         if error < ErrorStandards.LV8.value:
             return 8
-        else:
+        if error < ErrorStandards.LV9.value:
             return 9
+        if error < ErrorStandards.LV10.value:
+            return 10
+        else:
+            return 11
 
 
 class SolCollector():
 
     def __init__(self):
-        self.range = 10
+        self.range = 12
         self.sol = {}
 
     def insert(self, sol: tuple) -> None:
+        if sol[0] == 0.0:
+            return
+        if self.sol == {}:
+            self.sol = sol
         if ErrorStandards.rangeOf(sol[0]) < self.range:
             self.sol = sol
             self.range = ErrorStandards.rangeOf(sol[0])
         elif ErrorStandards.rangeOf(sol[0]) == self.range:
-            if self.range == 9:
+            if self.range == 12:
                 if sol[0] < self.sol[0]:
                     self.sol = sol
             elif (math.pi * 2 / sol[1][1]) > (math.pi * 2 / self.sol[1][1]):
@@ -61,3 +63,11 @@ class SolCollector():
 
     def getSol(self):
         return self.sol
+
+    def __str__(self):
+        string = f"errore quadratico: {self.sol[0]}\n" + \
+            f"pulsazione: {self.sol[1][1]}\n" + \
+            f"ampiezza: {self.sol[1][0]}\n" + \
+            f"fase: {self.sol[1][2]}\n" + \
+            f"periodo: {math.pi*2 / self.sol[1][1]}\n"
+        return string

@@ -1,0 +1,50 @@
+
+PULSAZIONE: 0.8 10
+errore quadratico: 7.003225879064787e-11
+pulsazione: 0.7999998584175759
+ampiezza: 1.0000124492815843
+fase: -6.37638285165021e-07
+periodo: 7.853983023956927
+numSol: 4
+numSol totale: 23
+computational time: 0.8762650489807129
+
+PULSAZIONE: 0.0125 10
+errore quadratico: 2.2023922534127493e-14
+pulsazione: 0.012528687278272893
+ampiezza: 0.9977079786068896
+fase: -2.034241318935771e-07
+periodo: 501.50388206079776
+numSol: 2
+numSol totale: 43
+computational time: 0.6824579238891602
+
+PULSAZIONE: 0.005024 10
+errore quadratico: 6.912499465608908e-13
+pulsazione: 0.003913427752928253
+ampiezza: 1.283631360566247
+fase: 7.105282970983582e-07
+periodo: 1605.545241630727
+numSol: 7
+numSol totale: 66
+computational time: 0.836646318435669
+
+PULSAZIONE: 0.0013 10
+errore quadratico: 2.407616146831899e-14
+pulsazione: 0.0018456587156367617
+ampiezza: 0.7043427277217594
+fase: 1.5481195909527136e-07
+periodo: 3404.3050613568366
+numSol: 0
+numSol totale: 89
+computational time: 0.8105490207672119
+
+PULSAZIONE: 0.001 10
+errore quadratico: 8.118405413112767e-14
+pulsazione: 0.00144488632082516
+ampiezza: 0.6920393550040179
+fase: 4.582848764756447e-07
+periodo: 4348.567230944039
+numSol: 0
+numSol totale: 109
+computational time: 0.7664730548858643

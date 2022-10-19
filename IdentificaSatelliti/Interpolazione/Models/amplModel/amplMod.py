@@ -37,16 +37,30 @@ class AmplMod(Model):
 
         self.ampl.get_parameter("y").set_values(data["y"])
 
-        minA, maxA = AmplMod.amplitude(data["y"])
+        minA, maxA = AmplMod.amplitude(data["y"], data["multiplier"])
         self.ampl.get_parameter("minA").set(minA)
         self.ampl.get_parameter("maxA").set(maxA)
         self.a.set_value((minA + maxA) / 2)
         if data["fixedA"]:
-            self.a.fix(data["fixedA"])
+            self.a.set_value(data["fixedA"])
 
-    def amplitude(y):
-        maxVal = max(y)
-        return (maxVal, maxVal*5)
+    def amplitude(y, multiplier):
+        tmp = [abs(el) for el in y]
+        maxVal = max(tmp)
+        if AmplMod.amplitudeAnalisys(y):
+            return (maxVal, maxVal * (20 + (20 * multiplier)))
+        else:
+            return (maxVal, maxVal*2)
+
+    def amplitudeAnalisys(y):
+        isPositive = [(el > 0) for el in y if el != 0.0]
+        isNegative = [(el < 0) for el in y if el != 0.0]
+        allPositive = True
+        allNegative = True
+        for i in range(len(isPositive)):
+            allPositive = allPositive and isPositive[i]
+            allNegative = allNegative and isNegative[i]
+        return allNegative ^ allPositive
 
     def optimize(self) -> tuple:
         fo = self.ampl.get_objective("z")

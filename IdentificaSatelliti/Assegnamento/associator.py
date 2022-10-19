@@ -16,11 +16,11 @@ al risultato dell'interpolazione.
 
 STARTING_TOL = 1e-6
 STARTING_STEP = 1
-LEAF_STOPPING_CRITERIA = ErrorStandards.LV2.value
-NODE_STOPPING_CRITERIA = ErrorStandards.LV2.value
+LEAF_STOPPING_CRITERIA = ErrorStandards.LV6.value
+NODE_STOPPING_CRITERIA = ErrorStandards.LV4.value
 reader = valReader("IdentificaSatelliti/values.csv")
 LEAF_SIZE = valReader.leafSize(reader.getNumValues())
-THRESHOLD = ErrorStandards.LV7.value
+THRESHOLD = ErrorStandards.LV9.value
 WHEN_SHUFFLE = reader.getNumSat()
 nodetime = []
 leaftime = []

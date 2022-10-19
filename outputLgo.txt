@@ -1,0 +1,100 @@
+
+PULSAZIONE: 0.8 10
+errore quadratico: 0.42447417400852594
+pulsazione: 0.006282557051474439
+ampiezza: 4.997868015207525
+fase: 5167.874446500558
+periodo: 1000.1
+numSol: 0
+numSol totale: 17
+computational time: 7.701818227767944
+
+PULSAZIONE: 0.0125 10
+errore quadratico: 1.1319211876419729e-09
+pulsazione: 0.002200520505773485
+ampiezza: 5.669270004859339
+fase: 1.0387457595976245e-05
+periodo: 2855.317771724668
+numSol: 0
+numSol totale: 14
+computational time: 6.753785133361816
+
+PULSAZIONE: 0.005024 10
+errore quadratico: 3.342222844453605e-12
+pulsazione: 0.0022003536370134432
+ampiezza: 2.2826300141347775
+fase: 1.5092383632594875e-06
+periodo: 2855.5343111609104
+numSol: 0
+numSol totale: 14
+computational time: 6.350557804107666
+
+PULSAZIONE: 0.0013 10
+errore quadratico: 5.043101708423064e-13
+pulsazione: 0.002199959045985321
+ampiezza: 0.5908370486027585
+fase: 1.993604201548024e-06
+periodo: 2856.046488067901
+numSol: 0
+numSol totale: 17
+computational time: 8.279144048690796
+
+PULSAZIONE: 0.001 10
+errore quadratico: 4.807099837263815e-13
+pulsazione: 0.002199830714307391
+ampiezza: 0.4544940648352638
+fase: 2.3671985655153947e-06
+periodo: 2856.2131014512292
+numSol: 0
+numSol totale: 14
+computational time: 7.119268178939819
+
+PULSAZIONE: 0.8 10
+errore quadratico: 0.42447417400852594
+pulsazione: 0.006282557051474439
+ampiezza: 4.997868015207525
+fase: 5167.874446500558
+periodo: 1000.1
+numSol: 0
+numSol totale: 17
+computational time: 7.7092180252075195
+
+PULSAZIONE: 0.0125 10
+errore quadratico: 1.1319211876419729e-09
+pulsazione: 0.002200520505773485
+ampiezza: 5.669270004859339
+fase: 1.0387457595976245e-05
+periodo: 2855.317771724668
+numSol: 0
+numSol totale: 14
+computational time: 6.901515960693359
+
+PULSAZIONE: 0.005024 10
+errore quadratico: 3.342222844453605e-12
+pulsazione: 0.0022003536370134432
+ampiezza: 2.2826300141347775
+fase: 1.5092383632594875e-06
+periodo: 2855.5343111609104
+numSol: 0
+numSol totale: 14
+computational time: 6.434438943862915
+
+PULSAZIONE: 0.0013 10
+errore quadratico: 5.043101708423064e-13
+pulsazione: 0.002199959045985321
+ampiezza: 0.5908370486027585
+fase: 1.993604201548024e-06
+periodo: 2856.046488067901
+numSol: 0
+numSol totale: 17
+computational time: 8.294082880020142
+
+PULSAZIONE: 0.001 10
+errore quadratico: 4.807099837263815e-13
+pulsazione: 0.002199830714307391
+ampiezza: 0.4544940648352638
+fase: 2.3671985655153947e-06
+periodo: 2856.2131014512292
+numSol: 0
+numSol totale: 14
+computational time: 7.113918781280518

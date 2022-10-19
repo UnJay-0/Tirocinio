@@ -1,6 +1,6 @@
 import csv
 import math
-from random import shuffle
+from random import shuffle, choice
 from .valuesReader import valReader
 
 
@@ -10,6 +10,20 @@ def generateValues(a, w, f, num) -> dict:
     y = []
     for i in t:
         y.append(a * math.sin(w * i + f))
+    dataValues['x0'] = t
+    dataValues['y0'] = y
+    return dataValues
+
+
+def generateValuesError(a, w, f, num, maxErr) -> dict:
+    dataValues = {}
+    t = [n for n in range(num)]
+    y = []
+    for i in t:
+        err = a * math.sin(w * i + f) * choice(range(0, maxErr))/100
+        if choice([0, 1]) == 1:
+            err = 0 - err
+        y.append(a * math.sin(w * i + f) + err)
     dataValues['x0'] = t
     dataValues['y0'] = y
     return dataValues
@@ -34,3 +48,8 @@ def writeDataValues(sinousoids: dict) -> None:
         writer = csv.writer(f)
         writer.writerow(header)
         writer.writerows(data)
+
+
+if __name__ == '__main__':
+    print(generateValues(1, 1, 0, 10))
+    print(generateValuesError(1, 1, 0, 10, 10))

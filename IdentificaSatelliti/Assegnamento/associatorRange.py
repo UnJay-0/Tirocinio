@@ -1,19 +1,19 @@
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import nlopt
 import math
 import time
 from ..Interpolazione.client import interpolation
 from .valuesReader import valReader
-from .valuesWriter import generateValues
+from .valuesWriter import generateValues, generateValuesError
 from .solCollector import SolCollector, ErrorStandards
-from .initValueGen import InitValueGen
 
 
 reader = valReader("IdentificaSatelliti/values.csv")
 STARTING_TOL = 1e-6
 STARTING_STEP = 1
 testing = []
+solver = "knitro"
 
 
 def writeValues(values: pd.core.frame.DataFrame) -> dict:
@@ -51,76 +51,98 @@ def optimizeCol(col: pd.core.frame.DataFrame,
     return result
 
 
-def amplOptCol(col: pd.core.frame.DataFrame, algorithm="snopt"):
+def amplOptCol(col: pd.core.frame.DataFrame, algorithm=solver):
     data = writeValues(col)
     data["minMax"] = True
     ranges = [1000, 2000, 3000, 4000, 5000]
+    # ranges = [12, 24]
+    multiplier = 0
     currentRange = [0, 0]
     sol = SolCollector()
     for r in ranges:
         currentRange = [r - 1000 + 0.1, r]
-        while (currentRange[1] - currentRange[0]) > 10:
-            data["minMax"] = True
-            data["fixedA"] = None
-            setDataAmpl(currentRange, data)
-            result = interpolation(data, algorithm=algorithm)
-            sol.insert(result)
-            print("\nMINIMO")
-            print(f"\nintervallo: [{currentRange[0]}, {currentRange[1]}]")
-            print(f"errore quadratico: {result[0]}")
-            print(f"ampiezza: {result[1][0]}")
-            print(f"pulsazione: {result[1][1]}")
-            print(f"periodo: {math.pi*2 / result[1][1]}\n")
+        # currentRange = [r - 12 + 0.1, r]
+        data["minMax"] = True
+        data["fixedA"] = None
+        data["multiplier"] = multiplier
+        setDataAmpl(currentRange, data)
+        result = interpolation(data, algorithm=algorithm)
+        sol.insert(result)
+        testing.append(result)
+        while (currentRange[1] - currentRange[0]) > 50:
+            # print("\nMINIMO")
+            # print(f"\nintervallo: [{currentRange[0]}, {currentRange[1]}]")
+            # print(f"errore quadratico: {result[0]}")
+            # print(f"ampiezza: {result[1][0]}")
+            # print(f"pulsazione: {result[1][1]}")
+            # print(f"periodo: {math.pi*2 / result[1][1]}\n")
 
             data["minMax"] = False
             data["fixedA"] = result[1][0]
             result = interpolation(data, algorithm=algorithm)
-            sol.insert(result)
-            print("\nMASSIMO")
-            print(f"\nintervallo: [{currentRange[0]}, {currentRange[1]}]")
-            print(f"errore quadratico: {result[0]}")
-            print(f"ampiezza: {result[1][0]}")
-            print(f"pulsazione: {result[1][1]}")
-            print(f"periodo: {math.pi*2 / result[1][1]}\n")
             solPeriod = 2*math.pi / result[1][1]
 
-            if (int(solPeriod) == int(currentRange[0])
-                    or int(solPeriod) == int(currentRange[1])):
+            if (math.isclose(solPeriod, currentRange[0],
+                             rel_tol=1e-1, abs_tol=1e-1)):
+                setDataAmpl(
+                    ((currentRange[1]+currentRange[0])/2, currentRange[1]),
+                    data)
+                data["minMax"] = False
+                data["fixedA"] = result[1][0]
+                result = interpolation(data, algorithm=algorithm)
+                solPeriod = 2*math.pi / result[1][1]
+            elif (math.isclose(solPeriod, currentRange[1],
+                               rel_tol=1e-1, abs_tol=1e-1)):
+                setDataAmpl(
+                    (currentRange[0], (currentRange[1]+currentRange[0])/2),
+                    data)
+                data["minMax"] = False
+                data["fixedA"] = result[1][0]
+                result = interpolation(data, algorithm=algorithm)
+                solPeriod = 2*math.pi / result[1][1]
+            if ((math.isclose(solPeriod, currentRange[0],
+                              rel_tol=1e-1, abs_tol=1e-1))
+                or (math.isclose(solPeriod, currentRange[1],
+                                 rel_tol=1e-1, abs_tol=1e-1))):
                 break
 
             # test intervallo inferiore
             data["minMax"] = True
             data["fixedA"] = None
             setDataAmpl((currentRange[0], solPeriod), data)
+            data["init"] = 2*math.pi / solPeriod
             resultInf = interpolation(data, algorithm=algorithm)
             sol.insert(resultInf)
+            testing.append(resultInf)
 
-            print("INFERIORE")
-            print(f"\nintervallo: [{currentRange[0]}, {solPeriod}]")
-            print(f"errore quadratico: {resultInf[0]}")
-            print(f"ampiezza: {resultInf[1][0]}")
-            print(f"pulsazione: {resultInf[1][1]}")
-            print(f"periodo: {math.pi*2 / resultInf[1][1]}\n")
+            # print("INFERIORE")
+            # print(f"\nintervallo: [{currentRange[0]}, {solPeriod}]")
+            # print(f"errore quadratico: {resultInf[0]}")
+            # print(f"ampiezza: {resultInf[1][0]}")
+            # print(f"pulsazione: {resultInf[1][1]}")
+            # print(f"periodo: {math.pi*2 / resultInf[1][1]}\n")
 
             # test intervallo superiore
             data["minMax"] = True
             data["fixedA"] = None
             setDataAmpl((solPeriod, currentRange[1]), data)
+            data["init"] = 2*math.pi / solPeriod
             resultSup = interpolation(data, algorithm=algorithm)
-            sol.insert(resultInf)
+            sol.insert(resultSup)
+            testing.append(resultSup)
 
-            print("SUPERIORE")
-            print(f"\nintervallo: [{solPeriod}, {currentRange[1]}]")
-            print(f"errore quadratico: {resultSup[0]}")
-            print(f"ampiezza: {resultSup[1][0]}")
-            print(f"pulsazione: {resultSup[1][1]}")
-            print(f"periodo: {math.pi*2 / resultSup[1][1]}\n")
+            # print("SUPERIORE")
+            # print(f"\nintervallo: [{solPeriod}, {currentRange[1]}]")
+            # print(f"errore quadratico: {resultSup[0]}")
+            # print(f"ampiezza: {resultSup[1][0]}")
+            # print(f"pulsazione: {resultSup[1][1]}")
+            # print(f"periodo: {math.pi*2 / resultSup[1][1]}\n")
 
             if resultInf[0] < resultSup[0]:
                 currentRange = (currentRange[0], solPeriod - solPeriod * 1e-1)
             else:
                 currentRange = (solPeriod + solPeriod * 1e-1, currentRange[1])
-
+        multiplier += 1
     return sol.getSol()
 
 
@@ -141,130 +163,58 @@ def modifyPeriod(solPeriod: float, limitPeriod: float, minOrMax: bool) -> float:
         return solPeriod
 
 
-def stepOptCol(col: pd.core.frame.DataFrame,
-               algorithm=nlopt.LN_COBYLA, maxtime=.05):
-    step = 1
-    period = 1
-    result = ()
-    oldResult = ()
-    sol = SolCollector()
-    data = writeValues(col)
-    ftol = STARTING_TOL
-    xtol = STARTING_TOL
-    k = 10
-    while period < 5000:
-        data["b"] = period
-        data["init"] = math.pi*2 / period  # per fissare punto di init
-        # print(f"periodo: {period}")
-        try:
-            oldResult = result
-            result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
-                                   maxtime=maxtime, algorithm=algorithm)
-            # print(f"periodo iniziale: {initValue.currentVal}")
-            # print(f"errore quadratico: {result[0]}")
-            # print(f"pulsazione: {result[1][1]}")
-            # print(f"periodo: {math.pi*2 / result[1][1]}\n")
-            sol.insert(result)
-            # break  # per fissare punto di init
-            if (oldResult != () and math.isclose(
-                math.pi*2 / result[1][1], math.pi
-                    * 2 / oldResult[1][1], rel_tol=1e-1)  # ):
-                or math.isclose(period, math.pi*2 / result[1][1],
-                                rel_tol=1e-1)
-                    or ErrorStandards.rangeOf(result[0]) >= 5):
-                step *= k
-            elif (step > STARTING_STEP):
-                step = step / k
-            if (step < STARTING_STEP):
-                step = STARTING_STEP
-            # print(f"step: {step}\n")
-            period += step
-        except nlopt.RoundoffLimited:
-            ftol = ftol * 10
-            xtol = xtol * 10
-    return sol.getSol()
+def plotter(results, lv) -> None:
+    x_coordinates = []
+    y_coordinates = []
+    for result in results:
+        if ErrorStandards.rangeOf(result[0]) == lv and not(result[0] == 0.0):
+            x1 = abs(math.pi*2 / result[1][1])
+            y1 = result[0]
+            dominance = False
+            print(
+                f"\nerrore quadratico: {result[0]}\nperiodo: {math.pi*2 / result[1][1]}\nampiezza: {result[1][0]}\n\n")
+            for result2 in results:
+                if ErrorStandards.rangeOf(result2[0]) == lv and not(result2[0] == 0.0):
+                    if (x1 < abs(math.pi*2 / result2[1][1])
+                            and y1 < result2[0]):
+                        dominance = True
+                        print(
+                            f"ESCLUSO CON \nerrore quadratico: {result2[0]}\nperiodo: {math.pi*2 / result2[1][1]}\n")
+                        break
+            if not(dominance):
+                x_coordinates.append(abs(math.pi*2 / result[1][1]))
+                y_coordinates.append(result[0])
+    plt.xlabel('Periodo [s]')
+    plt.ylabel('Errore')
+    plt.scatter(x_coordinates, y_coordinates)
+    plt.show()
 
 
-def initOptCol(col: pd.core.frame.DataFrame,
-               algorithm=nlopt.LN_COBYLA, maxtime=.05):
-    result = ()
-    sol = SolCollector()
-    data = writeValues(col)
-    ftol = STARTING_TOL
-    xtol = STARTING_TOL
-    initValue = InitValueGen(4000)
-    while initValue.getRange() > 20:
-        data["b"] = initValue.getBound()
-        data["init"] = 2*math.pi / initValue.currentVal
-        try:
-            result = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
-                                   maxtime=maxtime, algorithm=algorithm)
-            # print(f"periodo iniziale: {initValue.currentVal}")
-            # print(f"errore quadratico: {result[0]}")
-            # print(f"pulsazione: {result[1][1]}")
-            # print(f"periodo: {math.pi*2 / result[1][1]}\n")
-            sol.insert(result)
-            # testing.append(result)
-            try:
-                initValue.genInitVal(math.pi*2 / result[1][1])
-            except Exception:
-                upperLower = initValue.testUpperLower()
-                data["init"] = 2*math.pi / upperLower[0]
-                upperResult = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
-                                            maxtime=maxtime,
-                                            algorithm=algorithm)
-                data["init"] = 2*math.pi / upperLower[1]
-                lowerResult = interpolation(data, ftol_rel=ftol, xtol_rel=xtol,
-                                            maxtime=maxtime,
-                                            algorithm=algorithm)
-                sol.insert(upperResult)
-                sol.insert(lowerResult)
-                if upperResult[0] < lowerResult[0]:
-                    try:
-                        initValue.genInitVal(math.pi*2 / upperResult[1][1])
-                    except Exception:
-                        initValue.oldVal = initValue.currentVal
-                        initValue.currentVal = math.pi*2 / upperResult[1][1]
-
-                else:
-                    try:
-                        initValue.genInitVal(math.pi*2 / lowerResult[1][1])
-                    except Exception:
-                        initValue.oldVal = initValue.currentVal
-        except nlopt.RoundoffLimited:
-            ftol = ftol * 10
-            xtol = xtol * 10
-    return sol.getSol()
+def plotter2(results) -> None:
+    x_coordinates = []
+    y_coordinates = []
+    for result in results:
+        x_coordinates.append(abs(math.pi*2 / result[1][1]))
+        y_coordinates.append(result[0])
+    plt.xlabel('Periodo [s]')
+    plt.ylabel('Errore [m^2]')
+    plt.scatter(x_coordinates, y_coordinates)
+    plt.show()
 
 
-# def plotter(results, lv) -> None:
-#     x_coordinates = []
-#     y_coordinates = []
-#     for result in results:
-#         if ErrorStandards.rangeOf(result[0]) == lv:
-#             x_coordinates.append(abs(math.pi*2 / result[1][1]))
-#             y_coordinates.append(result[0])
-#     plt.xlabel('Periodo [s]')
-#     plt.ylabel('Errore')
-#     plt.scatter(x_coordinates, y_coordinates)
-#     plt.show()
-#
-#
-# def plotter2(results) -> None:
-#     x_coordinates = []
-#     y_coordinates = []
-#     for result in results:
-#         x_coordinates.append(abs(math.pi*2 / result[1][1]))
-#         y_coordinates.append(result[0])
-#     plt.xlabel('Periodo [s]')
-#     plt.ylabel('Errore [m^2]')
-#     plt.scatter(x_coordinates, y_coordinates)
-#     plt.show()
+def num_intorno(puls) -> int:
+    count = 0
+    for sol in testing:
+        period = 2*math.pi / sol[1][1]
+        solPeriod = 2*math.pi / puls
+        if period >= solPeriod - 100 and period <= solPeriod+100:
+            count += 1
+    return count
 
 
 def compute(puls: float, algorithm: int) -> None:
     punti = 10
-    test = pd.DataFrame(generateValues(6, puls, 0, punti))
+    test = pd.DataFrame(generateValuesError(1, puls, 0, punti, 5))
     start = time.time()
     result = optimizeCol(test, algorithm=algorithm)
     end = time.time()
@@ -278,14 +228,15 @@ def compute(puls: float, algorithm: int) -> None:
         f"periodo: {math.pi*2 / result[1][1]}\n" + \
         f"computational time: {str(total_time)}\n"
     # with open('output3.txt', "a") as out:
-    #    out.write(string)
-    print(string)
+    #     out.write(string)
 
-    # plotter(testing, ErrorStandards.rangeOf(result[0]))
-    # plotter2(testing)
+    plotter(testing, ErrorStandards.rangeOf(result[0]))
+    print(string)
+    plotter2(testing)
 
 
 if __name__ == '__main__':
-    puls = [1]
+    puls = [0.8,  0.0125, 0.005024, 0.0013]
+    # puls = [1, 0.8, 0.348, 0.28]  # 6.28, 7.8, 18, 22
     for el in puls:
-        compute(el, nlopt.LN_COBYLA)
+        compute(el, 0)

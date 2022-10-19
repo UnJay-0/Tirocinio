@@ -1,0 +1,41 @@
+Titolo: “Uno studio sul problema di identificazione
+e interpolazione di funzioni sinusoidali sovrapposte”
+
+Prefazione  confluisce nella Introduzione
+
+•	Motivazione (satelliti): generalizzazione a
+identificare sinusoidi sovrapposte.
+
+•	Relazione con problemi simili (interpolazione di una sola funzione)
+
+•	Riferimenti in letteratura? Cercare…
+
+•	Cenno al metodo seguito: uso di un solutore PNL per
+l’interpolazione di una sinusoide singola,
+algoritmo di enumerazione implicita per
+identificare le sinusoidi sovrapposte
+
+•	Menzionare i risultati sperimentali e i risultati finali conseguiti
+
+•	Organizzazione dei capitoli
+
+Fino a pag. 6 dovrebbe confluire nel capitolo “Descrizione del problema”
+
+
+Capitolo 3 dovrebbe intitolarsi “Interpolazione di una sinusoide”
+
+•	3.1: modello. Inserire qui anche la definizione delle due funzioni obiettivo
+Aggiungere qualche considerazione: per tre punti passa sempre una sinusoide, dato che abbiamo 3 variabili da calibrare?
+
+•	3.2 algoritmo: lasciar perdere il metodo dei pesi, spiegando che per problemi discreti non garantisce di trovare tutte le soluzioni Paretiane.
+
+•	3.3 risultati
+
+
+Le regioni paretiane riportate nella figura non sembrano affatto paretiane. Per ogni coppia di pallini, se uno dei due ha errore più basso, l’altro deve avere periodo più alto, altrimenti c’è dominanza. Per esempio, nella figura 23 il secondo punto è dominato dal terzo. In figura 27 il punto in basso a destra domina gli altri due.
+
+Fare esperimenti anche con osservazioni affette da piccoli errori nel valore di e(t).
+
+
+Capitolo 4: intitolarlo “Identificazione di sinusoidi sovrapposte”.
+Non sono ancora riuscito a leggerlo in dettaglio. Fa un’esplorazione esaustiva delle possibili permutazioni?
