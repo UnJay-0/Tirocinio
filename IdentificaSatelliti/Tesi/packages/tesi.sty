@@ -13,7 +13,6 @@
     \anno{92-93}
     \matricola{123456}
     \relatore{Fabio Schoen Senior}
-    \correlatore{Mr. Dont Know \\ CNR}
 
     \beforepreface
     \prefacesection{Prefazione}
@@ -59,7 +58,7 @@ Documentation:
 %	\firstreader{the first reader's name}
 %	\secondreader{the second reader's name}
 	\relatore{..}
-        \correlatore{..}
+        % \correlatore{..}
         \anno{anno accademico}
         \matricola{il vs. numero}
 %        \submitdate{month year in which submitted to GPO}
@@ -146,7 +145,7 @@ acceptable looking results, but it may be omitted to get smaller print.
 % front matter defining macros
 \def\dept#1{\gdef\@dept{#1}}
 \def\relatore#1{\gdef\@relatore{#1}}
-\def\correlatore#1{\gdef\@correlatore{#1}}
+% \def\correlatore#1{\gdef\@correlatore{#1}}
 \def\anno#1{\gdef\@anno{#1}}
 \def\matricola#1{\gdef\@matricola{#1}}
 
@@ -159,7 +158,7 @@ acceptable looking results, but it may be omitted to get smaller print.
 \def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
 \def\@title{}\def\@author{}\def\@dept{computer science}
 \def\@principaladviser{}\def\@firstreader{}\def\@secondreader{}
-\def\@relatore{}\def\@correlatore{}\def\@anno{}\def\@matricola{}
+\def\@relatore{}\def\@anno{}\def\@matricola{}
 
 \def\@submitdate{\ifcase\the\month\or
   January\or February\or March\or April\or May\or June\or
@@ -197,7 +196,7 @@ acceptable looking results, but it may be omitted to get smaller print.
 	\vfill
         \begin{description}
         \item[Relatore:] \@relatore
-        \item[Correlatore:] \@correlatore
+        % \item[Correlatore:] \@correlatore
         \end{description}
 	\vskip0.5in
         \null\hfill

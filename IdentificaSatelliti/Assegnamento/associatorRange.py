@@ -163,6 +163,22 @@ def modifyPeriod(solPeriod: float, limitPeriod: float, minOrMax: bool) -> float:
         return solPeriod
 
 
+def dist(pointA: tuple, pointB: tuple) -> float:
+    return math.sqrt((pointA[0] - pointB[0])**2 + (pointA[1] - pointB[1])**2)
+
+
+def utopic(results: tuple) -> dict:
+    optimal = [0]
+    value = 999999
+    for result in results:
+        currentVal = dist((math.pi*2 / result[1][1], result[0]),
+                          (5000, 0))
+        if currentVal < value:
+            value = currentVal
+            optimal = result
+    return optimal
+
+
 def plotter(results, lv) -> None:
     x_coordinates = []
     y_coordinates = []
@@ -176,7 +192,7 @@ def plotter(results, lv) -> None:
             for result2 in results:
                 if ErrorStandards.rangeOf(result2[0]) == lv and not(result2[0] == 0.0):
                     if (x1 < abs(math.pi*2 / result2[1][1])
-                            and y1 < result2[0]):
+                            and y1 > result2[0]):
                         dominance = True
                         print(
                             f"ESCLUSO CON \nerrore quadratico: {result2[0]}\nperiodo: {math.pi*2 / result2[1][1]}\n")
@@ -190,15 +206,18 @@ def plotter(results, lv) -> None:
     plt.show()
 
 
-def plotter2(results) -> None:
+def plotter2(results, optimal) -> None:
     x_coordinates = []
     y_coordinates = []
     for result in results:
-        x_coordinates.append(abs(math.pi*2 / result[1][1]))
-        y_coordinates.append(result[0])
+        if (not(result[0] == 0.0)):
+            x_coordinates.append(abs(math.pi*2 / result[1][1]))
+            y_coordinates.append(result[0])
     plt.xlabel('Periodo [s]')
-    plt.ylabel('Errore [m^2]')
+    plt.ylabel('Errore')
     plt.scatter(x_coordinates, y_coordinates)
+    plt.scatter(math.pi*2 / optimal[1][1], optimal[0], marker="*", s=160)
+    plt.scatter(5000, 0, marker="D")
     plt.show()
 
 
@@ -212,11 +231,35 @@ def num_intorno(puls) -> int:
     return count
 
 
+def dominanceResults():
+    selected = []
+    for result in testing:
+        x1 = abs(math.pi*2 / result[1][1])
+        y1 = result[0]
+        dominance = False
+        print(
+            f"\nerrore quadratico: {result[0]}\nperiodo: {math.pi*2 / result[1][1]}\nampiezza: {result[1][0]}\n\n")
+        for result2 in testing:
+            if (not(result2[0] == 0.0)):
+                if (x1 < abs(math.pi*2 / result2[1][1])
+                        and y1 > result2[0] and result != result2):
+                    dominance = True
+                    print(
+                        f"ESCLUSO CON \nerrore quadratico: {result2[0]}\nperiodo: {math.pi*2 / result2[1][1]}\n")
+                    break
+        if not(dominance):
+            selected.append(result)
+    # print(selected)
+    return selected
+
+
 def compute(puls: float, algorithm: int) -> None:
     punti = 10
-    test = pd.DataFrame(generateValuesError(1, puls, 0, punti, 5))
+    test = pd.DataFrame(generateValues(1, puls, 0, punti))
     start = time.time()
     result = optimizeCol(test, algorithm=algorithm)
+    results = dominanceResults()
+    result = utopic(results)
     end = time.time()
     total_time = end - start
     string = ''
@@ -227,16 +270,19 @@ def compute(puls: float, algorithm: int) -> None:
         f"fase: {result[1][2]}\n" + \
         f"periodo: {math.pi*2 / result[1][1]}\n" + \
         f"computational time: {str(total_time)}\n"
-    # with open('output3.txt', "a") as out:
-    #     out.write(string)
+    with open('output.txt', "a") as out:
+        out.write(string)
 
-    plotter(testing, ErrorStandards.rangeOf(result[0]))
+    # plotter(testing, ErrorStandards.rangeOf(result[0]))
     print(string)
-    plotter2(testing)
+    plotter2(results, result)
 
 
 if __name__ == '__main__':
     puls = [0.8,  0.0125, 0.005024, 0.0013]
     # puls = [1, 0.8, 0.348, 0.28]  # 6.28, 7.8, 18, 22
+    # puls = [0.348]
+    # ampiezza = [2, 4, 8, 10]
     for el in puls:
+        testing = []
         compute(el, 0)
