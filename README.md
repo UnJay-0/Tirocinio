@@ -17,7 +17,7 @@ e di individuare gli assegnamenti corretti che identificano le sinusoidi.
 
 Il problema nasce dall'individuazione di satelliti indistinguibili a partire unicamente dal loro moto.
 
-## Inizializzazioe
+## Inizializzazione
 
 ### Dipendenze
 
