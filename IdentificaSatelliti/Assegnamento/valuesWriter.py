@@ -54,7 +54,7 @@ def generateValuesError(a, w, f, num, maxErr) -> dict:
     y = []
     for i in t:
         if maxErr != 0:
-            err = a * math.sin(w * i + f) * choice(range(0, maxErr))/100
+            err = a * math.sin(w * i + f) * choice(range(0, int(maxErr)))/100
         else:
             err = 0
         if choice([0, 1]) == 1:

@@ -1,5 +1,6 @@
 from ..model import Model
-from amplpy import AMPL, Environment
+from amplpy import AMPL
+import os
 
 
 class AmplMod(Model):
@@ -21,14 +22,13 @@ class AmplMod(Model):
         config (dict) -> contiene le specifiche di impostazione del modello
 
         """
-        self.ampl = AMPL(Environment(
-            r'/Users/Jay/Documents/uni/Ricop/ampl_macos64'))
+        self.ampl = AMPL()
         if data["minMax"]:
             self.ampl.read(
-                '/Users/Jay/github/Tirocinio/IdentificaSatelliti/Interpolazione/Models/amplModel/InterpolazioneMin.mod')
+                os.path.abspath('./IdentificaSatelliti/Interpolazione/Models/amplModel/InterpolazioneMin.mod'))
         else:
             self.ampl.read(
-                '/Users/Jay/github/Tirocinio/IdentificaSatelliti/Interpolazione/Models/amplModel/InterpolazioneMax.mod')
+                os.path.abspath('./IdentificaSatelliti/Interpolazione/Models/amplModel/InterpolazioneMax.mod'))
 
         self.w = self.ampl.get_variable("w")
         self.a = self.ampl.get_variable("a")

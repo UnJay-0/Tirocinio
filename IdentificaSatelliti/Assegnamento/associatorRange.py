@@ -25,8 +25,10 @@ def setRange(val1: float, val2: float):
 
     """
     n = 0
-    if (val2 - val1) / 5 > 200:
+    if (val2 - val1) / 5 >= 500:
         n = 5
+    elif (val2 - val1) / 5 >= 200:
+        n = 3
     else:
         n = 2
     interval = (val2 - val1) / n
@@ -124,6 +126,9 @@ def amplOptCol(col: pd.core.frame.DataFrame, algorithm=solver):
             if ((math.isclose(solPeriod, currentRange[0],
                               rel_tol=1e-1, abs_tol=1e-1))
                 or (math.isclose(solPeriod, currentRange[1],
+                                 rel_tol=1e-1, abs_tol=1e-1))
+                or (math.isclose(solPeriod,
+                                 (currentRange[1]+currentRange[0])/2,
                                  rel_tol=1e-1, abs_tol=1e-1))):
                 break
 

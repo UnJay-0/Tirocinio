@@ -1,6 +1,6 @@
 import time
 import math
-import pandas as pd
+# import pandas as pd
 from .Assegnamento.valuesReader import valReader
 from .Assegnamento.associator import obtainOptimal
 from .Assegnamento.associatorRange import amplOptCol, setRange
@@ -148,8 +148,8 @@ if __name__ == '__main__':
 
     total_time = end - start
     print(f"in tempo: {str(total_time)}")
-    print(result)
-    for i in range(1, len(sinousoids)):
-        print(pd.DataFrame(sinousoids[i]))
-
-    print(compare(result, sinousoids))
+    # print(result)
+    # for i in range(1, len(sinousoids)):
+    #     print(pd.DataFrame(sinousoids[i]))
+    #
+    # print(compare(result, sinousoids))

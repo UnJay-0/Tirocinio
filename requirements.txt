@@ -1,0 +1,4 @@
+amplpy==0.8.4
+pandas==1.4.2
+sympy==1.10.1
+nunpy==1.22.2
