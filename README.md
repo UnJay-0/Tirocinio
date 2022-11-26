@@ -49,7 +49,8 @@ Nello specifico si richiede:
 
 Il risultato corrisponderà ad:
  * Errore quadratico medio 
- * ampiezza, pulsazione e fase e periodo 
+ * Ampiezza, pulsazione e fase e periodo 
+
 Questo per ogni sinusoide, ed infine il tempo di esecuzione.
 #### Esempio 
 ![alt text](https://github.com/UnJay-0/Tirocinio/blob/master/example_1.png)
