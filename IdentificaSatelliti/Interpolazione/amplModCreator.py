@@ -7,7 +7,7 @@ class AmplModCreator(Interpolator):
 
     def createModel(self, data, config) -> Model:
         """
-        Meaning
+        Overview
         -------------------
         Costruisce un modello di interpolazione che individua l'ottimo
         (sinusoide di massimo periodo e di minimo errore) sui dati passati per
@@ -15,8 +15,8 @@ class AmplModCreator(Interpolator):
 
         Parameters
         -------------------
-        data -> dict contenente i dati (i punti e la loro numerosità)
-        config -> dict contenente i valori di configurazione necessari
+        data (dict) ->  contenente i dati (i punti e la loro numerosità)
+        config (dict) ->  contenente i valori di configurazione necessari
                   per il modello.
         Returns
         -------------------

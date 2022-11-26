@@ -4,6 +4,9 @@ from enum import Enum, unique
 
 @unique
 class ErrorStandards(Enum):
+    """
+    Enumetatore che definisce i livelli per il criterio degli standard
+    """
     LV1 = 1e-13
     LV2 = 1e-12
     LV3 = 1e-11
@@ -16,6 +19,20 @@ class ErrorStandards(Enum):
     LV10 = 1
 
     def rangeOf(error: float):
+        """
+        Overview
+        -------------------
+        Metodo che calcola il livello corrispondente ad un determinato valore.
+
+        Params
+        -------------------
+        error (float) - valore da valutare.
+
+        Returns
+        -------------------
+        int -> livello corrispondente
+
+        """
         if error < ErrorStandards.LV1.value:
             return 1
         if error < ErrorStandards.LV2.value:
@@ -41,12 +58,32 @@ class ErrorStandards(Enum):
 
 
 class SolCollector():
+    """
+    Le istanze di questa classe hanno il compito di collezionare la soluzione
+    con errore di livello più basso ricevuto.
+    """
 
     def __init__(self):
+        """
+        Overview
+        -------------------
+        Inizializza una istanza al livello più basso.
+        """
         self.range = 12
         self.sol = {}
 
-    def insert(self, sol: tuple) -> None:
+    def insert(self, sol: tuple):
+        """
+        Overview
+        -------------------
+        Metodo che valuta la collezione di una nuova soluzione al posto di
+        quella memorizzata
+
+        Params
+        -------------------
+        sol (str) -> soluzione individuata da collezionare.
+
+        """
         if sol[0] == 0.0:
             return
         if self.sol == {}:
@@ -62,6 +99,16 @@ class SolCollector():
                 self.sol = sol
 
     def getSol(self):
+        """
+        Overview
+        -------------------
+        Metodo che restituisce la soluzione collezionata.
+
+        Returns
+        -------------------
+        Tuple -> Soluzione memorizzata.
+
+        """
         return self.sol
 
     def __str__(self):

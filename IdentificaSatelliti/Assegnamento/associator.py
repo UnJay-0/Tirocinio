@@ -1,11 +1,8 @@
 import pandas as pd
-import math
-import time
 from .permutation import dataframePerm, leafPerm, shuffleValues
 from numpy import median
-from .associatorRange import optimizeCol
+from .associatorRange import amplOptCol
 from .valuesReader import valReader
-from .valuesWriter import generateValues
 from .solCollector import ErrorStandards
 """
 Overview
@@ -20,10 +17,8 @@ LEAF_STOPPING_CRITERIA = ErrorStandards.LV6.value
 NODE_STOPPING_CRITERIA = ErrorStandards.LV4.value
 reader = valReader("IdentificaSatelliti/values.csv")
 LEAF_SIZE = valReader.leafSize(reader.getNumValues())
-THRESHOLD = ErrorStandards.LV9.value
-WHEN_SHUFFLE = reader.getNumSat()
-nodetime = []
-leaftime = []
+THRESHOLD = ErrorStandards.LV8.value
+WHEN_SHUFFLE = reader.getNumSat() + 2
 
 
 def obtainOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
@@ -46,10 +41,7 @@ def obtainOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
 
     """
     if values.shape[0] <= LEAF_SIZE:
-        print(f"foglia:\n {values}")
         return leafOptimal(values)
-    print(f"nodo 1:\n {values.iloc[0:values.shape[0] // 2, ]}")
-    print(f"nodo 2:\n {values.iloc[values.shape[0] // 2:, ]}")
     return nodeOptimal(
             obtainOptimal(values.iloc[0:values.shape[0] // 2, :]),
             obtainOptimal(values.iloc[values.shape[0] // 2:, :]))
@@ -77,7 +69,6 @@ def nodeOptimal(values1: pd.core.frame.DataFrame,
                  interpolino in maniera ottima una sinusoide
 
     """
-    start = time.time()
     optimalDataframe = pd.DataFrame()
     optimalcol = [0, 0, 99999]
     gen = dataframePerm(values2, values2.shape[1] // 2)
@@ -96,23 +87,15 @@ def nodeOptimal(values1: pd.core.frame.DataFrame,
                 optimalDataframe = pd.concat(
                     [optimalDataframe, pd.concat([values1, perm])], axis=1)
 
-                end = time.time()
-                total_time = end - start
-                nodetime.append(total_time)
-
                 return optimalDataframe
         perm.columns = values1.columns
         temp = pd.concat([values1, perm])
         for i in range(0, temp.shape[1], 2):
-            # print(f"permutazione nodo ordinaria\n{temp}")
-            # print(f" colonna \n{temp.iloc[:, i:i+2]}")
-            colValue = optimizeCol(temp.iloc[:, i:i+2])[0]
-            # print(f"valore: {colValue}")
+            colValue = amplOptCol(temp.iloc[:, i:i+2])[0]
             if (colValue < NODE_STOPPING_CRITERIA):
                 optimalDataframe = pd.concat(
                     [optimalDataframe, temp.iloc[:, i:i+2]],
                     axis=1)
-                # print(f"in costruzione\n{optimalDataframe}")
                 values1.drop(values1.iloc[:, i:i+2], axis=1, inplace=True)
                 perm.drop(perm.iloc[:, i:i+2], axis=1, inplace=True)
                 gen = dataframePerm(perm, perm.shape[1] // 2)
@@ -120,10 +103,6 @@ def nodeOptimal(values1: pd.core.frame.DataFrame,
                 if perm.shape[1] == 2:
                     optimalDataframe = pd.concat(
                         [optimalDataframe, pd.concat([values1, perm])], axis=1)
-
-                    end = time.time()
-                    total_time = end - start
-                    nodetime.append(total_time)
 
                     return optimalDataframe
                 break
@@ -150,7 +129,6 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                 colonna interpolano in maniera ottima una sinusoide.
 
     """
-    start = time.time()
     optimalDataframe = pd.DataFrame()
     if values.shape[0] == 1:
         return values
@@ -173,17 +151,11 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                 optimalDataframe = pd.concat(
                     [optimalDataframe, perm], axis=1)
 
-                end = time.time()
-                total_time = end - start
-                leaftime.append(total_time)
-
                 return optimalDataframe
-        # print(f"permutazione ordinaria\n {perm}")
         permValues = []
         for i in range(0, perm.shape[1], 2):
-            colValue = optimizeCol(perm.iloc[:, i:i+2])[0]
+            colValue = amplOptCol(perm.iloc[:, i:i+2])[0]
             permValues.append(colValue)
-            # print(f"valore: {colValue}")
             if (colValue < LEAF_STOPPING_CRITERIA):
                 optimalDataframe = pd.concat(
                     [optimalDataframe, perm.iloc[:, i:i+2]], axis=1)
@@ -195,31 +167,17 @@ def leafOptimal(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
                     optimalDataframe = pd.concat(
                         [optimalDataframe, perm], axis=1)
 
-                    end = time.time()
-                    total_time = end - start
-                    leaftime.append(total_time)
-
                     return optimalDataframe
-                # print(f"in costruzione\n{optimalDataframe}")
                 gen = leafPerm(perm)
                 break
             elif colValue < optimalcol[2]:
                 optimalcol = [perm, perm.iloc[:, i:i+2], colValue]
-        # print(f"mediana: {median(permValues)}")
         if median(permValues) > THRESHOLD:
             shuffle_i += 1
-        # print(f"shuffle i: {shuffle_i}")
         if shuffle_i >= n_shuffle and perm.shape[1] > 4:
-            # print("shuffle")
             gen = leafPerm(shuffleValues(perm))
             shuffle_i = 0
     return optimalDataframe
-
-
-def writeMeanTimes():
-    with open("tempi_albero.txt", "a") as out:
-        out.write(f"NODO: {sum(nodetime)/len(nodetime)}\n")
-        out.write(f"FOGLIA: {sum(leaftime)/len(leaftime)}\n")
 
 
 def writeValues(values: pd.core.frame.DataFrame) -> dict:
@@ -248,11 +206,3 @@ def writeValues(values: pd.core.frame.DataFrame) -> dict:
         else:
             dataValues["y"] = values[label].tolist()
     return dataValues
-
-
-if __name__ == '__main__':
-    test = pd.DataFrame(generateValues(1, 0.009, 0, 10))
-    result = optimizeCol(test)
-    # print(f"errore quadratico: {result[0]}")
-    # print(f"pulsazione: {result[1][1]}")
-    # print(f"periodo: {math.pi*2 / result[1][1]}")

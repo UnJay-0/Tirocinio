@@ -187,9 +187,3 @@ def shuffleValues(values: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
         result.append(
             values.iloc[i:i+1, :].reindex(columns=indexTranslator(rows)))
     return stackDataframes(*result)
-
-
-if __name__ == '__main__':
-    reader = valReader("IdentificaSatelliti/values.csv")
-    dataframe = reader.getRangeValues(0, reader.getNumValues())
-    print(shuffleValues(dataframe))

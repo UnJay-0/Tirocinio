@@ -10,6 +10,17 @@ class AmplMod(Model):
     """
 
     def __init__(self, data, config):
+        """
+        Overview
+        -------------------
+        Inizializza il modello ampl
+
+        Params
+        -------------------
+        data (dict) -> contiene i parametri e dati relativi al modello
+        config (dict) -> contiene le specifiche di impostazione del modello
+
+        """
         self.ampl = AMPL(Environment(
             r'/Users/Jay/Documents/uni/Ricop/ampl_macos64'))
         if data["minMax"]:
@@ -19,8 +30,6 @@ class AmplMod(Model):
             self.ampl.read(
                 '/Users/Jay/github/Tirocinio/IdentificaSatelliti/Interpolazione/Models/amplModel/InterpolazioneMax.mod')
 
-        # self.ampl.read_data(
-        #    '/Users/Jay/github/Tirocinio/IdentificaSatelliti/Interpolazione/Models/amplModel/InterpolazioneData.dat')
         self.w = self.ampl.get_variable("w")
         self.a = self.ampl.get_variable("a")
         self.p = self.ampl.get_variable("p")
@@ -28,6 +37,16 @@ class AmplMod(Model):
         self.ampl.set_option("solver", config["algorithm"])
 
     def config(self, data):
+        """
+        Overview
+        -------------------
+        Metodo che imposta i parametri e i dati in input nel modello.
+
+        Params
+        -------------------
+        data (dict) -> contiene i parametri e i dati del modello
+
+        """
         self.ampl.get_parameter("minW").set(data["minW"])
         self.ampl.get_parameter("maxW").set(data["maxW"])
         self.w.set_value(data["init"])
@@ -45,6 +64,20 @@ class AmplMod(Model):
             self.a.set_value(data["fixedA"])
 
     def amplitude(y, multiplier):
+        """
+        Overview
+        -------------------
+        Metodo che imposta i limiti dell'ampiezza.
+
+        Params
+        -------------------
+        y (list) - valori della sinusoide
+
+        Returns
+        -------------------
+        Tupla contenente i limiti per i vincoli sull'ampiezza.
+
+        """
         tmp = [abs(el) for el in y]
         maxVal = max(tmp)
         if AmplMod.amplitudeAnalisys(y):
@@ -53,6 +86,21 @@ class AmplMod(Model):
             return (maxVal, maxVal*2)
 
     def amplitudeAnalisys(y):
+        """
+        Overview
+        -------------------
+        Metodo che effettua un analisi sulla monotonia dei valori
+        della sinusoide.
+
+        Params
+        -------------------
+        y (list) -> valori della sinusoide.
+
+        Returns
+        -------------------
+        True se i valori sono tutti positivi o negativi, false altrimenti.
+
+        """
         isPositive = [(el > 0) for el in y if el != 0.0]
         isNegative = [(el < 0) for el in y if el != 0.0]
         allPositive = True
@@ -63,6 +111,17 @@ class AmplMod(Model):
         return allNegative ^ allPositive
 
     def optimize(self) -> tuple:
+        """
+        Overview
+        -------------------
+        Metodo che avvia il processo di ottimizzazione ed individuazione di
+        una soluzione.
+
+        Returns
+        -------------------
+        Tupla contenete i parametri della soluzionbe individuata.
+
+        """
         fo = self.ampl.get_objective("z")
         self.ampl.solve()
         return (fo.value(), (self.a.value(), self.w.value(), self.p.value()),

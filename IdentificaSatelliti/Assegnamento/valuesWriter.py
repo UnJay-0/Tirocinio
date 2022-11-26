@@ -5,6 +5,22 @@ from .valuesReader import valReader
 
 
 def generateValues(a, w, f, num) -> dict:
+    """
+    Overview
+    -------------------
+    Calcola i valori di una sinusoide dati i suoi parametri
+
+    Params
+    -------------------
+    a (float) -> Ampiezza.
+    w (float) -> Pulsazione.
+    f (float) -> Fase.
+
+    Returns
+    -------------------
+    Restituisce un dict contenente (x, y) della sinusoide specificata.
+
+    """
     dataValues = {}
     t = [n for n in range(num)]
     y = []
@@ -16,11 +32,31 @@ def generateValues(a, w, f, num) -> dict:
 
 
 def generateValuesError(a, w, f, num, maxErr) -> dict:
+    """
+    Overview
+    -------------------
+    Calcola i valori di una sinusoide dati i suoi parametri
+
+    Params
+    -------------------
+    a (float) -> Ampiezza.
+    w (float) -> Pulsazione.
+    f (float) -> Fase.
+    maxErr (float) -> Errore massimo nelle osservazioni.
+
+    Returns
+    -------------------
+    Restituisce un dict contenente (x, y) della sinusoide specificata.
+
+    """
     dataValues = {}
     t = [n for n in range(num)]
     y = []
     for i in t:
-        err = a * math.sin(w * i + f) * choice(range(0, maxErr))/100
+        if maxErr != 0:
+            err = a * math.sin(w * i + f) * choice(range(0, maxErr))/100
+        else:
+            err = 0
         if choice([0, 1]) == 1:
             err = 0 - err
         y.append(a * math.sin(w * i + f) + err)
@@ -30,6 +66,16 @@ def generateValuesError(a, w, f, num, maxErr) -> dict:
 
 
 def writeDataValues(sinousoids: dict) -> None:
+    """
+    Overview
+    -------------------
+    Scrive su un file (values.csv) i valori delle sinusoidi ricevuti in input.
+
+    Params
+    -------------------
+    sinousoids (dict) -> sinusoidi.
+
+    """
     header = []
     for n in range(0, len(sinousoids) - 1):
         index = valReader.translateSat(n)
@@ -48,8 +94,3 @@ def writeDataValues(sinousoids: dict) -> None:
         writer = csv.writer(f)
         writer.writerow(header)
         writer.writerows(data)
-
-
-if __name__ == '__main__':
-    print(generateValues(1, 1, 0, 10))
-    print(generateValuesError(1, 1, 0, 10, 10))

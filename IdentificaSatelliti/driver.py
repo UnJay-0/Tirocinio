@@ -1,15 +1,34 @@
 import time
 import math
-import random
 import pandas as pd
 from .Assegnamento.valuesReader import valReader
-from .Assegnamento.associator import obtainOptimal, writeMeanTimes
-from .Assegnamento.valuesWriter import generateValues, writeDataValues
+from .Assegnamento.associator import obtainOptimal
+from .Assegnamento.associatorRange import amplOptCol, setRange
+from .Assegnamento.valuesWriter import generateValuesError, writeDataValues
 
 N_OBSERVATIONS = 10
 
 
 def compare(result, sinousoids) -> tuple:
+    """
+    Overview
+    -------------------
+    Compara due dataframe contenenti punti relativi a sinusoidi idenficando
+    il numero di punti in comune per ogni sinusoide
+
+    Params
+    -------------------
+    result (pd.dataframe) -> dataframe contenente i risultati ottenuti da una
+                            ottimizzazione.
+    sinousoids (pd.dataframe) -> dataframe contenente i punti generati dalle
+                                sinusoidi del problema.
+
+    Returns
+    -------------------
+    list - contenente il numero di punti uguali per ogni sinusoide di partenza
+           rispotto al risultato ottenuto.
+
+    """
     err = []
     for i in range(len(sinousoids) - 1):
         err.append([0] * (len(sinousoids) - 1))
@@ -32,22 +51,77 @@ def compare(result, sinousoids) -> tuple:
     return err
 
 
+def getFloatValue(printStr: str) -> float:
+    """
+    Overview
+    -------------------
+    Funzione che chiede e gestisce la validazione di un input di tipo float
+
+    Params
+    -------------------
+    printStr (str) -> stringa da stampare in output.
+
+    Returns
+    -------------------
+    float -> valore ricevuto in input
+
+    """
+    while(True):
+        try:
+            value = float(input(printStr))
+            return value
+        except ValueError:
+            print("Inserire valori numerici, se decimali con il punto\n")
+
+
+def getIntValue(printStr: str) -> int:
+    """
+    Overview
+    -------------------
+    Funzione che chiede e gestisce la validazione di un input di tipo int
+
+    Params
+    -------------------
+    printStr (str) -> stringa da stampare in output.
+
+    Returns
+    -------------------
+    int -> valore ricevuto in input
+
+    """
+    while(True):
+        try:
+            value = int(input(printStr))
+            return value
+        except ValueError:
+            print("Inserire valori numerici interi\n")
+
+
 if __name__ == '__main__':
+    print("SPECIFICAZIONE DEL PROBLEMA\n")
+    print("Inserire intervallo dei periodi delle sinusoidi sovrapposte")
+    range1 = getFloatValue("Limite inferiore (s): ")
+    range2 = getFloatValue("Limite superiore (s): ")
+    setRange(range1, range2)
+    N_OBSERVATIONS = getIntValue("Numero di osservazioni: ")
+    nSin = getIntValue("Numero di sinusoidi: ")
+    sinParameters = []
+    for i in range(1, nSin+1):
+        print(f"Parametri della {i}-esima sinusoide")
+        ampiezza = getFloatValue("Ampiezza: ")
+        pulsazione = getFloatValue("Pulsazione (rad/s): ")
+        fase = getFloatValue("Fase (rad): ")
+        sinParameters.append((ampiezza, pulsazione, fase))
+    errore = getFloatValue("Errore (%) sulle osservazioni: ")
+    setRange(range1, range2)
     sinousoids = {}
-    x = random.choices(range(1, 5000), k=4)
     sinousoids[0] = N_OBSERVATIONS
-    sinousoids[1] = generateValues(random.randint(1, 10),
-                                   math.pi*2/x[0], 0, sinousoids[0])
-    sinousoids[2] = generateValues(random.randint(1, 10),
-                                   math.pi*2/x[1], math.pi, sinousoids[0])
-    sinousoids[3] = generateValues(random.randint(1, 10),
-                                   math.pi*2/x[2], math.pi/2, sinousoids[0])
-    sinousoids[4] = generateValues(random.randint(1, 10),
-                                   math.pi*2/x[3], 3*math.pi/2, sinousoids[0])
-    # sinousoids[1] = generateValues(1, 0.314, 0, sinousoids[0])
-    # sinousoids[2] = generateValues(10, 0.0027, math.pi, sinousoids[0])
-    # sinousoids[3] = generateValues(4, 0.00139, math.pi/2, sinousoids[0])
-    # sinousoids[4] = generateValues(7, 0.125, 3*math.pi/2, sinousoids[0])
+    for i in range(nSin):
+        sinousoids[i + 1] = generateValuesError(sinParameters[i][0],
+                                                sinParameters[i][1],
+                                                sinParameters[i][2],
+                                                sinousoids[0], errore)
+
     writeDataValues(sinousoids)
 
     start = time.time()
@@ -58,21 +132,24 @@ if __name__ == '__main__':
 
     end = time.time()
 
-    writeMeanTimes()
+    # writeMeanTimes()
 
+    res = []
+    for i in range(0, result.shape[1], 2):
+        res.append(amplOptCol(result.iloc[:, i:i+2]))
+
+    print("\n\n\n\n\nSINUSOIDI INDIVIDUATE: \n")
+    for el in res:
+        print(f"errore quadratico: {el[0]}")
+        print(f"ampiezza: {el[1][0]}")
+        print(f"pulsazione: {el[1][1]}")
+        print(f"fase: {el[1][2]}")
+        print(f"periodo: {math.pi*2 / el[1][1]}\n")
+
+    total_time = end - start
+    print(f"in tempo: {str(total_time)}")
     print(result)
     for i in range(1, len(sinousoids)):
         print(pd.DataFrame(sinousoids[i]))
 
     print(compare(result, sinousoids))
-    # for i in range(0, result.shape[1], 2):
-    #     res = optimizeCol(result.iloc[:, i:i+2], maxtime=1)
-    #     print(f"errore quadratico: {res[0]}")
-    #     print(f"ampiezza: {res[1][0]}")
-    #     print(f"pulsazione: {res[1][1]}")
-    #     print(f"fase: {res[1][2]}")
-    #     print(f"periodo: {math.pi*2 / res[1][1]}\n")
-
-    # Subtract Start Time from The End Time
-    total_time = end - start
-    print(f"computational time: {str(total_time)}")

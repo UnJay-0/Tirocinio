@@ -104,14 +104,53 @@ class valReader():
         return self.values.iloc[start:end]
 
     def translateSat(index: int) -> tuple:
+        """
+        Overview
+        -------------------
+        Dato n restituisce una tupla contenente
+        le stringe (x[n]), y[n])
+        Esempio:
+        n = 1 -> (x1, y1)
+
+        Params
+        -------------------
+        index (int) -> Intero da convertire
+
+        Returns
+        -------------------
+        tupla contenente
+        le stringe (x[index]), y[index])
+
+        """
         return (f"x{index}", f"y{index}")
 
     def getSatValues(self, dataframe: pd.core.frame.DataFrame,
                      index: int) -> pd.core.frame.DataFrame:
+        """
+        Params
+        -------------------
+        dataframe (DataFrame) -> dataframe contenente n sinusoidi (x, y).
+
+        Returns
+        -------------------
+        Restituisce un dataframe di una singola sinusoide.
+
+        """
         return dataframe[[self.translateSat(index)[0],
                           self.translateSat(index)[1]]]
 
     def leafSize(n: int) -> int:
+        """
+        Params
+        -------------------
+        n - intero
+
+        Returns
+        -------------------
+        Restituisce il numero primo divisore di n più grande
+
+        """
+
         if isprime(n):
             n -= 1
         max = 0
@@ -119,13 +158,3 @@ class valReader():
             if n % i == 0 and max < i and isprime(i):
                 max = i
         return max
-
-
-if __name__ == '__main__':
-    read = valReader("values.csv")
-    print(f"numero di satelliti: {read.getNumSat()}")
-    print(f"numero di osservazioni: {read.getNumValues()}")
-    print(read.getNthValue(2))
-    print(len(read.getNthValue(2).index))
-    print(read.translateSat(0))
-    print(read.getSatValues(read.getRangeValues(2, 4), 0))

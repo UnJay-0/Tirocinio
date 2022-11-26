@@ -15,8 +15,8 @@ class Interpolator(metaclass=ABCMeta):
 
         Parameters
         -------------------
-        data -> dict contenente i dati (i punti e la loro numerosità)
-        config -> dict contenente i valori di configurazione necessari
+        data (dict) ->  contenente i dati (i punti e la loro numerosità)
+        config (dict) ->  contenente i valori di configurazione necessari
                   per il modello.
         Returns
         -------------------
