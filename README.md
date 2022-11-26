@@ -57,4 +57,4 @@ Questo per ogni sinusoide, ed infine il tempo di esecuzione.
 
 ## Autori
 
-ex. Jonathan Agyekum 
+Jonathan Junior Agyekum 
